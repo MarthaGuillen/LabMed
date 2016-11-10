@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <h2 style="margin-top: 5px; color: white;">Usuarios
                     <div class=" pull-right control">                    
-                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="document.getElementById('formNUsuario').submit();">Guardar</a>                  
+                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarUsuario();">Guardar</a>                  
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
@@ -20,7 +20,7 @@
             <img src="Resources/image/09Eliminar.png" alt=""/>
             <img src="Resources/image/16ayuda.png" alt=""/>
         </div>
-        <form id="formNUsuario" class="form-horizontal" role="form" action="NuevoUsuario.htm" method="POST">
+        <form id="formNUsuario" class="form-horizontal" role="form" action="#" method="POST">
             <div class="row">
                 <br/>
                 <br/>
@@ -80,10 +80,10 @@
                         <label for="Estado" class="col-md-2 form-control-label">Estado:</label>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default active">
-                                <input type="radio" name="Estado" id="EstadoAc" autocomplete="off" value="Activo" checked> Activo
+                                <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo" checked> Activo
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="Estado" id="EstadoIn" autocomplete="off" value="Inactivo"> Inactivo
+                                <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Inactivo"> Inactivo
                             </label>
                         </div>
                     </div>
@@ -140,7 +140,20 @@
         <div class="row" style="background-color: #222; border-top:1px solid #5DFDF2; min-height: 50px;">                      
         </div>        
     </div>
-    <div class="col-md-1"></div>
+    <div id="creaNuevo" class="col-md-1" ></div>
 </div>
+        
+        <div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <img src="Resources/image/loading.gif" class="icon" alt=""/>
+                            <h4>Cargando...</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
