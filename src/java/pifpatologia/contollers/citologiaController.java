@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package pifpatologia.contollers;
- import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.dao.perfilDAO;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class citologiaController {
 
 
     
-    @RequestMapping(value = "CarPermiso.htm", method = RequestMethod.POST)
+ /*   @RequestMapping(value = "CarPermiso.htm", method = RequestMethod.POST)
     public ModelAndView listperfil(@RequestParam("id") int id) throws Exception {
       ModelAndView mv = new ModelAndView("cargatempPermisos");
       perfilDAO opc = new perfilDAO();
@@ -43,8 +43,8 @@ public class citologiaController {
         mv.addObject("urlp",url);
       return mv;
     }   
-    
-    @RequestMapping(value = "guardaPerfil.htm", method = RequestMethod.POST) 
+    */
+    /*@RequestMapping(value = "guardaPerfil.htm", method = RequestMethod.POST) 
      public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception {
       ModelAndView mv = new ModelAndView("cargatempPermisos");
         perfilDAO opc = new perfilDAO();
@@ -59,9 +59,9 @@ public class citologiaController {
         
         mv.addObject("resp","No");
       return mv;
-    } 
+    } */
     
-     @RequestMapping(value = "cargaVistaPerfil.htm", method = RequestMethod.POST) 
+   /*  @RequestMapping(value = "cargaVistaPerfil.htm", method = RequestMethod.POST) 
      public ModelAndView guarda(@RequestParam("idp") int idp) throws Exception {
       ModelAndView mv = new ModelAndView("pgCargaVistaPerfil");
         perfilDAO opc = new perfilDAO();
@@ -110,7 +110,7 @@ public class citologiaController {
         
         mv.addObject("resp","No");
       return mv;
-    }
+    }*/
      
      /*@RequestMapping(value = "updPerfil.htm", method = RequestMethod.POST) 
      public ModelAndView upPerfil(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
