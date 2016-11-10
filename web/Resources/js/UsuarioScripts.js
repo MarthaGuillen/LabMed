@@ -17,6 +17,6 @@ function cargaInfoUsuarios(id){
     xhttp.open("POST", "cargaVistaUser.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("idp=" + id);
-    
+    alert('Hola martha');
 }
 
