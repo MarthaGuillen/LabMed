@@ -58,9 +58,13 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="CodDoc" class="col-md-2 form-control-label">Estado:</label>
-                        <div class="form-group" style="font-size: 20px;">
-                            <label class="radio-inline"><input type="radio" name="optestado" value="true">Activado</label>
-                            <label class="radio-inline"><input type="radio" name="optestado" value="false">Desactivado</label>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="optestado" id="optestado" autocomplete="off" value="true" checked> Activo
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="optestado" id="optestado" autocomplete="off" value="false"> Inactivo
+                            </label>
                         </div>
                     </div>
                     <div class="pull-right">

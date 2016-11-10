@@ -51,16 +51,14 @@
 						<td>${contador}</td>
 						<td>${nomperf[i]}</td>
 						<td>${desL[i]}</td>
-                                                <td><c:if test="${estL[i] eq 'false'}">
-                                                        <a onclick="estPerfilEdita('${idp[i]}','${estL[i]}');" style="cursor:pointer;"><span class="label label-danger">Desactivado </span></a>
+                                                <td align="center"><c:if test="${estL[i] eq 'false'}">
+                                                        <a onclick="estPerfilEdita('${idp[i]}','${estL[i]}');" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Activar Perfil"><img src="Resources/image/error.png" alt="" height="20" width="20"/></a>
                                                     </c:if>
                                                     <c:if test="${estL[i] eq 'true'}">
-                                                        <a onclick="estPerfilEdita('${idp[i]}','${estL[i]}');" style="cursor:pointer;"><span class="label label-success">Activado </span></a>
+                                                        <a onclick="estPerfilEdita('${idp[i]}','${estL[i]}');" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Desactivar Perfil"><img src="Resources/image/check.png" alt="" height="20" width="20"/></a>
                                                     </c:if>
                                                 </td>   
-                                                <td align="center"><a style="cursor:pointer;" onclick="cargaPerfilEdita('${idp[i]}');"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/></a></td>
-                                                
-                                                
+                                                <td align="center"><a style="cursor:pointer;" onclick="cargaPerfilEdita('${idp[i]}');"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/></a></td>   
 					</tr>
                                     </c:forEach>	
 				</tbody>
