@@ -16,7 +16,7 @@
         </div>
         <div class="row menubotones">
             <img src="Resources/image/07Nuevo.png" alt="" style="margin-left: 40%;"/>
-            <img src="Resources/image/08Guardar.png" alt="" />
+            <img src="Resources/image/08Guardar.png" alt="" onclick="guardarUsuario();"/>
             <img src="Resources/image/09Eliminar.png" alt=""/>
             <img src="Resources/image/16ayuda.png" alt=""/>
         </div>

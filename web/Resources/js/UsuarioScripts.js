@@ -60,7 +60,6 @@ function guardarUsuario(){
         var mensaje = '<h2>Favor validar:</h2>';
         $('#processing-modal').modal('hide');
         $('#processing-modal').modal('hide');
-
         swal({
             title: '',
             text:  mensaje+'<p>'+variables+'</p>',
