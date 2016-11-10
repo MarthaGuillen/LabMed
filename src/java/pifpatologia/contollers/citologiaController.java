@@ -89,7 +89,7 @@ public class citologiaController {
             sexo = (String) datos[7].toString();
             sede = (String) datos[8].toString();
         }
-        mv.addObject("idhansa",Id);
+        mv.addObject("idhansa",idh);
         mv.addObject("orden",orden);
         mv.addObject("correo",correo);
         mv.addObject("paciente",paciente);
@@ -98,59 +98,28 @@ public class citologiaController {
         mv.addObject("edad",edad);
         mv.addObject("sexo",edad);
         mv.addObject("sede",sede);
-
         
-        
-        List listaP = opc.cargacamposhansa(idh);
-        ArrayList<String> idha = new ArrayList<String>();
-        ArrayList<String> orden1 = new ArrayList<String>();
-        ArrayList<String> corr = new ArrayList<String>();
-        ArrayList<String> pacient = new ArrayList<String>();
-        ArrayList<String> dir = new ArrayList<String>();
-        ArrayList<String> medicos = new ArrayList<String>();
-        ArrayList<String> edades = new ArrayList<String>();
-        ArrayList<String> sex = new ArrayList<String>();
-        ArrayList<String> sedes = new ArrayList<String>();
-        List<Object[]> listDatosp1 = listaP;
-        for (Object[] datos : listDatosp1) {
-            idha.add((String) datos[0].toString());
-            orden1.add((String) datos[1]);
-            corr.add((String) datos[2]);
-            pacient.add((String) datos[1]);
-            dir.add((String) datos[2]);
-            medicos.add((String) datos[1]);
-            edades.add((String) datos[2]);
-            sex.add((String) datos[1]);
-            sedes.add((String) datos[2]);
-        }
-        mv.addObject("idh",idha);
-        mv.addObject("orden",orden1);
-        mv.addObject("correo",corr);
-        mv.addObject("paciente",paciente);
-        mv.addObject("direccion",dir);
-        mv.addObject("medico",medicos);
-        mv.addObject("edad",edades);
-        mv.addObject("sexo",sex);
-        mv.addObject("sede",sedes);
-        
-        List listaPer = opc.cargapermisosPerfil(idp);
-        ArrayList<String> idspermiso = new ArrayList<String>();
-        ArrayList<String> nombrepermiso = new ArrayList<String>();
-        
-        List<Object[]> listDatosp1r = listaPer;
-        for (Object[] datos : listDatosp1r) {
-            idspermiso.add((String) datos[1].toString());
-            nombrepermiso.add((String) datos[0].toString());
-        }
-        mv.addObject("idpermisos",idspermiso);
-        mv.addObject("nompermisos",nombrepermiso);
-        
-        
-        
-        mv.addObject("resp","No");
       return mv;
     }
      
+     
+      @RequestMapping(value = "guardarcito.htm", method = RequestMethod.POST) 
+      public ModelAndView guarda(@RequestParam("idhasa"))
+      /*public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception */{
+      ModelAndView mv = new ModelAndView("guardarcito");
+        CitologiaDAO opc = new CitologiaDAO();
+        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
+        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
+        
+        String idper = opc.guardaPerfil(p1,p2,bol);
+        String[] per1 = per.split(",");
+        for(int i=0;i<per1.length;i++){
+             String insertPermiso = opc.guardaPerfilp(Integer.parseInt(per1[i]),Integer.parseInt(idper));
+        }
+        
+        mv.addObject("resp","No");
+      return mv;
+    } 
      
      
      

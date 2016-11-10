@@ -6,6 +6,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
+<script type="text/javascript">
+    $.fn.pressEnter = function(fn) {  
+  
+    return this.each(function() {  
+        $(this).bind('enterPress', fn);
+        $(this).keyup(function(e){
+            if(e.keyCode == 13)
+            {
+              $(this).trigger("enterPress");
+            }
+        })
+    });  
+ }; 
+
+
+$('#orden1').pressEnter(function(){alert('here')})
+    
+    
+</script>
 <div class="row" style="font-family: ">
     <div class="col-md-1"></div>
     <div class="col-md-10" id="pagina">
@@ -39,6 +58,7 @@
                     <div class="form-group">
                         <label for="Orden1" class="col-md-3 form-control-label">Orden:</label>
                         <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
+                           
                             <input type="text" class="form-control" id="Orden1" name="Orden1" placeholder="" >
                         </div>
                         <label for="Orden2" style="padding-left: 2px; padding-right: 2px;" class="col-md-1 form-control-label">-</label>                            
