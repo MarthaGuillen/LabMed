@@ -32,9 +32,9 @@ public class EnviarCorreo {
             String copia,           
             String titulo,
             String contenido) {
-        user = "ma_gortega@hotmail.com";
-        from = "ma_gortega@hotmail.com";
-        password = "hotmailyanoes17";
+        user = "itsinergia@outlook.com";
+        from = "itsinergia@outlook.com";
+        password = "sinergiacala123@";
         to = para;
         subject = titulo;
         cc = copia;
