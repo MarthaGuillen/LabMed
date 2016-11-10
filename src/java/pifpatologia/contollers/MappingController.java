@@ -17,6 +17,7 @@ import modelo.dao.UsuarioPorPerfilDAO;
 import modelo.dao.perfilDAO;
 import modelo.pojo.Area;
 import modelo.pojo.Perfiles;
+import modelo.pojo.Permisos;
 import modelo.pojo.Usuarios;
 import modelo.util.EnviarCorreo;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -72,9 +74,12 @@ public class MappingController {
     }
     
     @RequestMapping("/Pefiles.htm")
-    public String NuevoPerfil(){
+    public String NuevoPerfil(Model m){
+        perfilDAO opc = new perfilDAO();
+        ArrayList<Permisos> listaPermisosArray = opc.listaPermisosArray();        
+        m.addAttribute("listaPermisosArray",listaPermisosArray);
         return "Seguridad/NuevoPerfil";
-    }
+    }    
     
     @RequestMapping("/NuevoUsuario.htm")
     public String NuevoUsuario(Model m, HttpServletRequest request){

@@ -101,39 +101,37 @@
                             <input  type="checkbox" id="MobileApp" name="MobileApp" >&nbsp;App Mobile
                         </div>
                     </div>
+                    <hr/>
+                    <h3 style="padding-left: 10%;">Agregar Perfiles:</h3>
+                    <br/>            
+                    <c:if test="${!empty listaPerfiles}">
+                    <table  id="TablaUsuarios" class="table table-striped" style="width:70%; margin-left: 15%;">
+                        <thead>
+                            <tr style="text-align:center">
+                                <th style="text-align:center">#</th>
+                                <th style="text-align:center">Tipo</th>
+                                <th style="text-align:center">Descripción</th>
+                                <th style="text-align:center">Asignar</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <c:set var="contador" value="${0}" />
+                        <c:forEach items="${listaPerfiles}" var="Perfil">
+                            <c:set var="contador" value="${contador+1}" />
+                            <tr scope="row">
+                                <td>${contador}</td>
+                                <td><c:out value="${Perfil.getNombreperfil()}" /></td>
+                                <td><c:out value="${Perfil.getDescripcion()}" /></td>
+                                <td style="text-align:center"><input type="checkbox" value="${Perfil.getIdtblperfiles()}" onclick="agregaralista(this.value, '#asignados');"/></td>                          
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    </c:if>
+                    <input type="hidden" name="asignados" value="${originales}" id="asignados"/>
+                    <input type="hidden" name="originales" value="${originales}" id="originales"/> 
                 </div>
             </div>
-            <hr/>
-            <h3 style="padding-left: 10%;">Agregar Perfiles:</h3>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-8">
-            </div>
-            <div class="col-md-2">
-            </div>
-            <br/>            
-            <c:if test="${!empty listaPerfiles}">
-            <table  id="Tablaperfiles" class="table table-striped" style="width:70%; margin-left: 15%;">
-                <thead>
-                    <tr style="text-align:center">
-                        <th style="text-align:center">Tipo</th>
-                        <th style="text-align:center">Descripción</th>
-                        <th style="text-align:center">Asignar</th>  
-                    </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${listaPerfiles}" var="Perfil">
-                        <tr  scope="row">
-                            <td><c:out value="${Perfil.getNombreperfil()}" /></td>
-                            <td><c:out value="${Perfil.getDescripcion()}" /></td>
-                            <td style="text-align:center"><input type="checkbox" value="${Perfil.getIdtblperfiles()}" onclick="agregaralista(this.value, '#asignados');"/></td>                          
-                        </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            </c:if>
-            <input type="hidden" name="asignados" value="${originales}" id="asignados"/>
-            <input type="hidden" name="originales" value="${originales}" id="originales"/> 
         </form>
         <br/>
         <br/>
