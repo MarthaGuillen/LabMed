@@ -123,7 +123,7 @@ public class CitologiaDAO {
         return listaget;
     }
     
-    public List cargapermisosPerfil(int idp){
+   /* public List cargapermisosPerfil(int idp){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         String sql = "SELECT * FROM fn_cargaPermisosPerfil('"+idp+"');";
@@ -142,7 +142,7 @@ public class CitologiaDAO {
 
        
         return listaget;
-    }
+    }*/
     
      /*public String updPerfil(String nombre,String desc,String bool,int idp){
         
