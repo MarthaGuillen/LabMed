@@ -43,7 +43,7 @@
                         </div>
                         <label for="Orden2" style="padding-left: 2px; padding-right: 2px;" class="col-md-1 form-control-label">-</label>                            
                         <div class="col-md-4" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Orden2" name="Orden2" placeholder="" >
+                            <input type="text" class="form-control" id="Orden2" name="Orden2" placeholder="" enabled = "false" >
                         </div>
                     </div>
                 </div>

@@ -112,7 +112,7 @@ public class citologiaController {
       return mv;
     }
      
-     @RequestMapping(value = "updPerfil.htm", method = RequestMethod.POST) 
+     /*@RequestMapping(value = "updPerfil.htm", method = RequestMethod.POST) 
      public ModelAndView upPerfil(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
       ModelAndView mv = new ModelAndView("cargatempPermisos");
         perfilDAO opc = new perfilDAO();
@@ -131,10 +131,10 @@ public class citologiaController {
         
         mv.addObject("resp","No");
       return mv;
-    } 
+    } */
     
      
-     @RequestMapping(value = "updPerfilEstado.htm", method = RequestMethod.POST) 
+     /*@RequestMapping(value = "updPerfilEstado.htm", method = RequestMethod.POST) 
      public ModelAndView upPerfil(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
       ModelAndView mv = new ModelAndView("cargatempPermisos");
         perfilDAO opc = new perfilDAO();
@@ -147,7 +147,7 @@ public class citologiaController {
         
         mv.addObject("resp","No");
       return mv;
-    } 
+    } */
 }
 
 
