@@ -18,41 +18,41 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resultados <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="cargarContenido('citologia.htm', 'contenido');">Citología</a></li>
-                        <li><a href="#" onclick="cargarContenido('hispatologia.htm', 'contenido');">Hispatología</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('citologia.htm', 'contenido');$('#processing-modal').modal('hide');">Citología</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('hispatologia.htm', 'contenido');$('#processing-modal').modal('hide');">Hispatología</a></li>
                     </ul>
                 </li>
                  <li class="dropdown">
-                     <a class="dropdown-toggle" href="#" onclick="cargarContenido('Patologia.htm', 'contenido');">Estadistica Patología</a>               
+                     <a class="dropdown-toggle" href="#" onclick="$('#processing-modal').modal('show');cargarContenido('Patologia.htm', 'contenido');$('#processing-modal').modal('hide');">Estadistica Patología</a>               
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" href="#" onclick="cargarContenido('BuscarReportes.htm', 'contenido');">Hojas de Trabajo</a>
+                    <a class="dropdown-toggle" href="#" onclick="$('#processing-modal').modal('show');cargarContenido('BuscarReportes.htm', 'contenido');$('#processing-modal').modal('hide');">Hojas de Trabajo</a>
  
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Seguridad y Usuarios <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Perfiles</li>
-                        <li><a href="#" onclick="cargarContenido('Pefiles.htm', 'contenido')">Crear Perfiles</a></li>
-                        <li><a href="#" onclick="cargarContenido('ListaPerfiles.htm', 'contenido');">Lista Perfiles</a></li>            
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('Pefiles.htm', 'contenido');$('#processing-modal').modal('hide');">Crear Perfiles</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('ListaPerfiles.htm', 'contenido');$('#processing-modal').modal('hide');">Lista Perfiles</a></li>            
                        <li class="dropdown-header">Usuarios</li>
-                        <li><a href="#" onclick="cargarContenido('NuevoUsuario.htm', 'contenido');">Crear Usuario</a></li>            
-                        <li><a href="#" onclick="cargarContenido('ListaUsuarios.htm', 'contenido');">Lista Usuario</a></li>                 
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('NuevoUsuario.htm', 'contenido');$('#processing-modal').modal('hide');">Crear Usuario</a></li>            
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('ListaUsuarios.htm', 'contenido');$('#processing-modal').modal('hide');">Lista Usuario</a></li>                 
                         <li class="dropdown-header">Bitacora</li>
-                        <li><a href="#" onclick="cargarContenido('Bitacora.htm', 'contenido');">Reporte de Actividad</a></li>            
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('Bitacora.htm', 'contenido');$('#processing-modal').modal('hide');">Reporte de Actividad</a></li>            
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Parametrizaciones<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Áreas</li>
-                        <li><a href="#" onclick="cargarContenido('NuevaArea.htm', 'contenido');">Agregar Nueva Área</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('NuevaArea.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Nueva Área</a></li>
                         <li class="dropdown-header">Firmas</li>
-                        <li><a href="#" onclick="cargarContenido('firmas.htm', 'contenido');">Agregar Firma</a></li>
-                        <li><a href="#" onclick="cargarContenido('listaFirmas.htm', 'contenido');">Listar Firmas</a></li>    
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('firmas.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Firma</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('listaFirmas.htm', 'contenido');$('#processing-modal').modal('hide');">Listar Firmas</a></li>    
                         <li class="dropdown-header">ID Citología</li>
-                        <li><a href="#" onclick="cargarContenido('idCito.htm', 'contenido');">Agregar ID Citología</a></li>             
-                        <li><a href="#" onclick="cargarContenido('ListaIDCitologia.htm', 'contenido');">Lista ID Citología</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('idCito.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar ID Citología</a></li>             
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('ListaIDCitologia.htm', 'contenido');$('#processing-modal').modal('hide');">Lista ID Citología</a></li>
                     </ul>
                 </li>
             </ul>
