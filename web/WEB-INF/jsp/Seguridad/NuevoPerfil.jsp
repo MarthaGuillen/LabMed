@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <div class="row">
     <div class="col-md-1"></div>
@@ -58,14 +59,40 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="CodDoc" class="col-md-2 form-control-label">Estado:</label>
-                        <div class="form-group" style="font-size: 20px;">
-                            <label class="radio-inline"><input type="radio" name="optestado" value="true">Activado</label>
-                            <label class="radio-inline"><input type="radio" name="optestado" value="false">Desactivado</label>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <input type="radio" name="optestado" id="optestado" autocomplete="off" value="true" checked> Activo
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="radio" name="optestado" id="optestado" autocomplete="off" value="false"> Inactivo
+                            </label>
                         </div>
                     </div>
-                    <div class="pull-right">
-                    <input type="button" onclick="cargaPermisos();" class="btn btn-md btn-primary" value="Asignar permisos">
-                    </div>
+                    <hr/>
+                    <h3 style="padding-left: 10%;">Agregar Permisos:</h3>
+                    <br/> 
+                    <c:if test="${!empty listaPermisosArray}">
+                        <table  id="TablapermisosUsuarios" class="table table-striped" style="width:70%; margin-left: 15%;">
+                            <thead>
+                                <tr style="text-align:center">
+                                    <th>#</th>
+                                    <th>Nombre</th>
+                                    <th style="text-align:center">Asignar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <c:set var="contador" value="${0}" />
+                            <c:forEach items="${listaPermisosArray}" var="Permiso">
+                                <c:set var="contador" value="${contador+1}" />
+                                <tr scope="row">
+                                    <td>${contador}</td>
+                                    <td><c:out value="${Permiso.getNombre()}" /></td>
+                                    <td style="text-align:center"><input type="checkbox" value="${Permiso.getIdtblpermisos()}" id="${Permiso.getIdtblpermisos()}" name="${Permiso.getIdtblpermisos()}"/></td>                          
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                        </c:if>
                 </div>
                 <div class="col-md-2">
                 </div>

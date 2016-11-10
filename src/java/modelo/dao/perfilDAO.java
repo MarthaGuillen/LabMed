@@ -6,7 +6,9 @@
 package modelo.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import modelo.pojo.Permisos;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -202,5 +204,32 @@ public class perfilDAO {
         session.close();
         return "1";
     } 
+    
+    public ArrayList<Permisos> listaPermisosArray(){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql = "select * from vista_permisos";
+        Permisos cat;
+        ArrayList<Permisos> Listado= new ArrayList<Permisos>();
+        
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            Iterator listasecciones =  q.list().iterator();
+
+            while(listasecciones.hasNext()){
+                Object[] registro= (Object[]) listasecciones.next();
+                cat= new Permisos();
+                cat.setIdtblpermisos((int) registro[0]);
+                cat.setNombre((String) registro[1]);
+                cat.setUrl((String) registro[2]);
+                Listado.add(cat);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }       
+        return Listado;
+    }
        
 }

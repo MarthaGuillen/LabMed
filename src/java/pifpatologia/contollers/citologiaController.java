@@ -103,23 +103,23 @@ public class citologiaController {
     }
      
      
-      @RequestMapping(value = "guardarcito.htm", method = RequestMethod.POST) 
-      public ModelAndView guarda(@RequestParam("idhasa"))
-      /*public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception */{
-      ModelAndView mv = new ModelAndView("guardarcito");
-        CitologiaDAO opc = new CitologiaDAO();
-        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
-        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
-        
-        String idper = opc.guardaPerfil(p1,p2,bol);
-        String[] per1 = per.split(",");
-        for(int i=0;i<per1.length;i++){
-             String insertPermiso = opc.guardaPerfilp(Integer.parseInt(per1[i]),Integer.parseInt(idper));
-        }
-        
-        mv.addObject("resp","No");
-      return mv;
-    } 
+//      @RequestMapping(value = "guardarcito.htm", method = RequestMethod.POST) 
+//      public ModelAndView guarda(@RequestParam("idhasa"))
+//      /*public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception */{
+//      ModelAndView mv = new ModelAndView("guardarcito");
+//        CitologiaDAO opc = new CitologiaDAO();
+//        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
+//        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
+//        
+//        String idper = opc.guardaPerfil(p1,p2,bol);
+//        String[] per1 = per.split(",");
+//        for(int i=0;i<per1.length;i++){
+//             String insertPermiso = opc.guardaPerfilp(Integer.parseInt(per1[i]),Integer.parseInt(idper));
+//        }
+//        
+//        mv.addObject("resp","No");
+//      return mv;
+//    } 
      
      
      

@@ -58,14 +58,16 @@ function guardarUsuario(){
     }
     if (e!==0) {
         var mensaje = '<h2>Favor validar:</h2>';
+        $('#processing-modal').modal('hide');
+        $('#processing-modal').modal('hide');
+
         swal({
             title: '',
             text:  mensaje+'<p>'+variables+'</p>',
             type: 'error'
         });
     }else{
-        enviarUsuario();       
-    
+        enviarUsuario();    
     }  
 }
 
@@ -83,7 +85,6 @@ function enviarUsuario(){
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
-            
             swal({
                 title: 'Usuario creado correctamente.',
                 text: "",

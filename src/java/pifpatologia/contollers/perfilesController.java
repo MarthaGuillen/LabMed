@@ -21,28 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class perfilesController {
     
-    
-    @RequestMapping(value = "CarPermiso.htm", method = RequestMethod.POST)
-    public ModelAndView listperfil(@RequestParam("id") int id) throws Exception {
-      ModelAndView mv = new ModelAndView("cargatempPermisos");
-      perfilDAO opc = new perfilDAO();
-        List listaP = opc.listaPermisos();
-        ArrayList<String> idp = new ArrayList<String>();
-        ArrayList<String> nombre = new ArrayList<String>();
-        ArrayList<String> url = new ArrayList<String>();
-        List<Object[]> listDatosp = listaP;
-        for (Object[] datos : listDatosp) {
-            idp.add((String) datos[0].toString());
-            nombre.add((String) datos[1]);
-            url.add((String) datos[2]);
-           
-        }
-        mv.addObject("idp",idp);
-        mv.addObject("nomper",nombre);
-        mv.addObject("urlp",url);
-      return mv;
-    }   
-    
+        
     @RequestMapping(value = "guardaPerfil.htm", method = RequestMethod.POST) 
      public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception {
       ModelAndView mv = new ModelAndView("cargatempPermisos");
