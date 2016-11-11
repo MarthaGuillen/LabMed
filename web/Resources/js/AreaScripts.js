@@ -45,31 +45,31 @@ function guardarArea(){
 }
 
 
-//function enviarUsuario(){    
-//    var nomp = $('#NombreArea').val().trim();
-//    var estado = $('input[name="Estado"]:checked').val();
-//
-//    var xhttp = new XMLHttpRequest();
-//    xhttp.onreadystatechange = function() {
-//        if (xhttp.readyState == 4 && xhttp.status == 200) {
-//            document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
-//            swal({
-//                title:'Area creada correctamente.',
-//                text: "",
-//                type:'success',
-//                confirmButtonText: 'Ok'
-//            }).then(function() {                
-//                $('#processing-modal').modal('hide');
-//                $('#processing-modal').modal('hide');
-//                cargarContenido("ListadoDeAreas.htm","contenido");
-//            })
-//        }
-//    }
-//    xhttp.open("POST", "NuevaArea.htm", true);
-//    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//    xhttp.send("NombreArea="+nomp+"&Estado="+estado);
-//    
-//}
+function enviarArea(){    
+    var nomp = $('#NombreArea').val().trim();
+    var estado = $('input[name="Estado"]:checked').val();
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
+            swal({
+                title:'Area creada correctamente.',
+                text: "",
+                type:'success',
+                confirmButtonText: 'Ok'
+            }).then(function() {                
+                $('#processing-modal').modal('hide');
+                $('#processing-modal').modal('hide');
+                cargarContenido("ListadoDeAreas.htm","contenido");
+            })
+        }
+    }
+    xhttp.open("POST", "NuevaArea.htm", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("NombreArea="+nomp+"&Estado="+estado);
+    
+}
 //
 //
 //function estUserEdit(id,est){

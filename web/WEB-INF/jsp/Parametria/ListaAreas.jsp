@@ -26,23 +26,27 @@
                         <table  id="TablapermisosUsuarios" class="table table-striped table-bordered"  cellspacing="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Estado</th>                                  
-                                    <th>Editar</th>
+                                    <th style="text-align:center">No.</th>
+                                    <th style="text-align:center">Nombre</th>
+                                    <th style="text-align:center">Estado</th>                                  
+                                    <th style="text-align:center">Editar</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:set var="contador" value="${0}" />
                             <c:forEach items="${listaArea}" var="Area">
-                                    <tr  scope="row">
-                                        <td><c:out value="${Area.getNombre()}" /></td>
-                                        <c:if test="${Area.isEstado()}">
-                                            <td align="center"><img src="Resources/image/check.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
-                                        </c:if>
-                                        <c:if test="${!Area.isEstado()}">
-                                            <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
-                                        </c:if>
-                                        <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Area.getIdtblarea()})" alt="" height="20" width="20"/></td>                      
-                                    </tr>
+                                <c:set var="contador" value="${contador+1}" />
+                                <tr  scope="row">
+                                    <td>${contador}</td>
+                                    <td><c:out value="${Area.getNombre()}" /></td>
+                                    <c:if test="${Area.isEstado()}">
+                                        <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
+                                    </c:if>
+                                    <c:if test="${!Area.isEstado()}">
+                                        <td align="center"><img src="Resources/image/activar.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
+                                    </c:if>
+                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Area.getIdtblarea()})" alt="" height="20" width="20"/></td>                      
+                                </tr>
                             </c:forEach>    
                             </tbody>
                         </table>

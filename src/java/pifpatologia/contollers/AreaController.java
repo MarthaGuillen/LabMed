@@ -51,11 +51,12 @@ public class AreaController {
     
     @RequestMapping("/ListadoDeAreas.htm")
     public String ListaAreas(Model m, HttpServletRequest request){
-        AreaDAO area = new AreaDAO();
         
-        ArrayList<Area> listaArea = area.ObtenerAreasEstado(true);
+        AreaDAO area = new AreaDAO();        
+        ArrayList<Area> listaArea = area.ObtenerTodasAreas();
         m.addAttribute("listaArea", listaArea);
         return "Parametria/ListaAreas";
+        
     }
        
 //    @RequestMapping(value = "cargaVistaUser.htm", method = RequestMethod.POST) 
