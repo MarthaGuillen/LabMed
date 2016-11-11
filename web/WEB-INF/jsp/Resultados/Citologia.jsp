@@ -7,7 +7,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <div class="row" style="font-family: ">
-    <div class="col-md-1"></div><div id="creaNuevo" class="col-md-1"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-10" id="pagina">
         <div class="row" style="background-color: #222; border-bottom:1px solid #5DFDF2;">
             <div class="col-md-12">
@@ -197,11 +197,9 @@
                         <label for="Firma1" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                              <select id="idfima1" name="idfima1" class="form-control"><option value="0">Seleccionar</option>
-                                <option value="opcion2">DR.Danilo Alvarado</option>
-                                <option value="opcion3">DR.Reina I. Rivera</option>   
+                                <option value="opcion2">DR. Danilo Alvarado</option>
+                                <option value="opcion3">DR. Reina I. Rivera</option>   
                             </select>
-                            
-                            
                             <!--<input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >-->
                         </div>
                     </div>
@@ -228,7 +226,11 @@
                     <div class="form-group">
                         <label for="Firma2" class="col-md-3 form-control-label">Firma 2:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="search" class="form-control" id="Firma2" name="Firma2" placeholder="" >
+                            <!-- <input type="search" class="form-control" id="Firma2" name="Firma2" placeholder="" >-->
+                            <select id="idfima1" name="idfima1" class="form-control"><option value="0">Seleccionar</option>
+                                <option value="opcion2">DRA. Juana Alvarado</option>
+                                <option value="opcion3">DR. Daysi Castro</option>   
+                            </select>
                         </div>
                     </div>
                 </div>
