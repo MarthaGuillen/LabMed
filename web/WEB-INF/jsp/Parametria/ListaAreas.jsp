@@ -6,7 +6,7 @@
     <div class="col-md-10" id="pagina">
         <div class="row" id="TituloContenido" style="background-color: #222; border-bottom:1px solid #5DFDF2;">
             <div class="col-md-12">
-                <h2 style="margin-top: 5px; color: white;">Listado Usuarios
+                <h2 style="margin-top: 5px; color: white;">Listado de Areas
                     <div class=" pull-right control">                               
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
@@ -22,42 +22,26 @@
               <div class="row">
                 <div class="col-md-10">
                     <div class="form-group">
-                        <c:if test="${!empty listaUsuario}">
+                        <c:if test="${!empty listaArea}">
                         <table  id="TablapermisosUsuarios" class="table table-striped table-bordered"  cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Correo</th>
-                                    <th>Acceso Web</th>
-                                    <th>Acceso Movil</th>
                                     <th>Estado</th>                                  
                                     <th>Editar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${listaUsuario}" var="Usuario">
+                            <c:forEach items="${listaArea}" var="Area">
                                     <tr  scope="row">
-                                        <td><c:out value="${Usuario.getNombre()}" /></td>
-                                        <td><c:out value="${Usuario.getCorreo()}" /></td>
-                                        <c:if test="${Usuario.isAccesomovil()}">
-                                            <td align="center"><img src="Resources/image/check.png" alt="" height="20" width="20"/></td>
+                                        <td><c:out value="${Area.getNombre()}" /></td>
+                                        <c:if test="${Area.isEstado()}">
+                                            <td align="center"><img src="Resources/image/check.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
-                                        <c:if test="${!Usuario.isAccesomovil()}">
-                                            <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20"/></td>
+                                        <c:if test="${!Area.isEstado()}">
+                                            <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
-                                        <c:if test="${Usuario.isAccesoweb()}">
-                                            <td align="center"><img src="Resources/image/check.png" alt="" height="20" width="20"/></td>
-                                        </c:if>
-                                        <c:if test="${!Usuario.isAccesoweb()}">
-                                            <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20"/></td>                                            
-                                        </c:if>
-                                        <c:if test="${Usuario.isEstado()}">
-                                            <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${!Usuario.isEstado()}');" style="cursor:pointer;"/></td>
-                                        </c:if>
-                                        <c:if test="${!Usuario.isEstado()}">
-                                            <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${!Usuario.isEstado()}');" style="cursor:pointer;"/></td>
-                                        </c:if>
-                                        <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Usuario.getIdtblusuarios()})" alt="" height="20" width="20"/></td>                      
+                                        <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Area.getIdtblarea()})" alt="" height="20" width="20"/></td>                      
                                     </tr>
                             </c:forEach>    
                             </tbody>
@@ -81,13 +65,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Actualizar Usuario</h4>
+          <h4 class="modal-title">Actualizar Area</h4>
         </div>
           <div class="modal-body">
               <div id="cargaPreviaUser"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="updateUsuario();">Actualizar Usuario</button>  
+          <button type="button" class="btn btn-primary" onclick="updateUsuario();">Actualizar Area</button>  
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>

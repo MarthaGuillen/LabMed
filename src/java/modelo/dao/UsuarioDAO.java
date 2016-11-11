@@ -46,7 +46,7 @@ public class UsuarioDAO {
                 }else{
                     cat.setAccesoweb(false);
                 }
-                  if(((String) registro[6]).equals("true")){
+                if(((String) registro[6]).equals("true")){
                     cat.setEstado(true);
                 }else{
                     cat.setEstado(false);

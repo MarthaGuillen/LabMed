@@ -129,18 +129,4 @@ public class MappingController {
         return "Parametria/ListaIDCitologia";
     }
     
-    @RequestMapping("/NuevaArea.htm")
-    public String NuevaArea(){        
-        return "Parametria/NuevaArea";
-    }
-    
-    @RequestMapping(value="/NuevaArea.htm", method = RequestMethod.POST)
-    public String InsertNuevaArea(Model m, HttpServletRequest request, @RequestParam("NombreArea") String nombre){
-        AreaDAO area = new AreaDAO();
-        area.AgregarArea(nombre, 0, "");
-        return "principal";
-    }
-        
-    
-    
 }

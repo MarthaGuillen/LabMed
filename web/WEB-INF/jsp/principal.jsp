@@ -20,6 +20,7 @@
         <script src="Resources/js/validacionPerfil.js" type="text/javascript"></script>
         <script src="Resources/js/sweetalert2.min.js" type="text/javascript"></script>
         <script src="Resources/js/UsuarioScripts.js" type="text/javascript"></script>
+        <script src="Resources/js/AreaScripts.js" type="text/javascript"></script>
         <script src="Resources/js/validarcitologia.js" type="text/javascript"></script>
         <script type="text/javascript">
         </script>
