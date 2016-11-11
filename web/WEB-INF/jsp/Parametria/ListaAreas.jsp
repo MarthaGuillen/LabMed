@@ -45,7 +45,7 @@
                                     <c:if test="${!Area.isEstado()}">
                                         <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estAreaEdit('${Area.getIdtblarea()}','${Area.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
-                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Area.getIdtblarea()})" alt="" height="20" width="20"/></td>                      
+                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoArea(${Area.getIdtblarea()})" alt="" height="20" width="20"/></td>                      
                                 </tr>
                             </c:forEach>    
                             </tbody>
