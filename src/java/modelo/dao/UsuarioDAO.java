@@ -129,8 +129,8 @@ public class UsuarioDAO {
     public String updUsrestado(String bool,int idp){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql = "select fn_updPerfilest('"+bool+"','"+idp+"');";
-       
+        String sql = "select updusuario('"+bool+"','"+idp+"');";
+        System.out.println(sql);
         List<String> filmList = new ArrayList<String>();
         try {
             org.hibernate.Transaction tx = session.beginTransaction();

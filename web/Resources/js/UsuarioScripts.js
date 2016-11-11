@@ -105,12 +105,15 @@ function enviarUsuario(){
 
 function estUserEdit(id,est){
     var estadoA = "";
+    alert(est);
     if(est==="true"){
         est='false';
         estadoA="Desactivado";
+        alert('false');
     }else{
         est='true';
         estadoA="Activado"
+        alert('true');
     ;}
     swal({
         title: 'Alerta!',

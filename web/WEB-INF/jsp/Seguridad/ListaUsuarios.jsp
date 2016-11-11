@@ -52,10 +52,10 @@
                                             <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20"/></td>                                            
                                         </c:if>
                                         <c:if test="${Usuario.isEstado()}">
-                                            <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${!Usuario.isEstado()}');" style="cursor:pointer;"/></td>
+                                            <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${Usuario.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
                                         <c:if test="${!Usuario.isEstado()}">
-                                            <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${!Usuario.isEstado()}');" style="cursor:pointer;"/></td>
+                                            <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${Usuario.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
                                         <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Usuario.getIdtblusuarios()})" alt="" height="20" width="20"/></td>                      
                                     </tr>

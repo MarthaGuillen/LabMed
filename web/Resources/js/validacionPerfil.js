@@ -34,8 +34,8 @@ function guardarPerfil(){
     }
     if (e===1) {
         swal(
+            'Alerta:',
             'Por favor verifique el nombre del perfil y la descripción.',
-            '',
             'error'
         );
     }else{
@@ -56,8 +56,8 @@ function guardarPerfil(){
         });
         }else{
             swal(
+                'Alerta:',
                 'Por favor seleccione, los perfiles que desea asignar.',
-                '',
                 'error'
             );
         }    
@@ -78,8 +78,8 @@ function enviarPerfil(mn,bool){
                 document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
                 $('#processing-modal').modal('hide');
                 swal({
-                    title: 'Perfil creado correctamente.',
-                    text: "",
+                    title:'Correcto:',
+                    text: "Perfil creado correctamente.",
                     type: 'success',
                     confirmButtonText: 'Ok'
                 }).then(function() {
@@ -118,8 +118,8 @@ function estPerfilEdita(id,est){
     var estadoA = "";
     if(est==="true"){est='false';estadoA="Desactivado";}else{est='true';estadoA="Activado";}
     swal({
-        title: 'Desea cambiar el estado del perfil, al modo '+estadoA+'?',
-        text: "",
+        title:'Alerta:',
+        text: 'Desea cambiar el estado del perfil, al modo '+estadoA+'?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -159,8 +159,8 @@ function updateperfil(){
     }
     if (e===1) {
         swal(
+            'Alerta:',
             'Por favor verifique el nombre del perfil y la descripción.',
-            '',
             'error'
         );
     }else{
@@ -181,8 +181,8 @@ function updateperfil(){
         });
         }else{
             swal(
+                'Alerta',    
                 'Por favor seleccione, los perfiles que desea asignar.',
-                '',
                 'error'
             );
         }    
@@ -191,27 +191,27 @@ function updateperfil(){
 }
 
 function actualizaPer(mn,bool){
-            var idp =  $("#tempIdPerfil").val();
-            var nomp = $('#Pefil').val().trim();
-            var desc = $('#Desc').val().trim();
-            
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                document.getElementById("cargaPreviaPerfil").innerHTML = xhttp.responseText;
-                swal({
-                    title: 'Perfil creado correctamente.',
-                    text: "",
-                    type: 'success',
-                    confirmButtonText: 'Ok'
-                }).then(function() {
-                    $('#processing-modal').modal('hide');
-                    $('#editaper').modal('hide');
-                    cargarContenido("ListaPerfiles.htm","contenido");
-                })
-            }
-            }
-            xhttp.open("POST", "updPerfil.htm", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("nombre="+nomp+"&desc="+desc+"&per="+mn+"&bol="+bool+"&idp="+idp);
+    var idp =  $("#tempIdPerfil").val();
+    var nomp = $('#Pefil').val().trim();
+    var desc = $('#Desc').val().trim();
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+        document.getElementById("cargaPreviaPerfil").innerHTML = xhttp.responseText;
+        swal({
+            title:'Correcto:',
+            text: "Perfil creado correctamente.",
+            type: 'success',
+            confirmButtonText: 'Ok'
+        }).then(function() {
+            $('#processing-modal').modal('hide');
+            $('#editaper').modal('hide');
+            cargarContenido("ListaPerfiles.htm","contenido");
+        })
+    }
+    }
+    xhttp.open("POST", "updPerfil.htm", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("nombre="+nomp+"&desc="+desc+"&per="+mn+"&bol="+bool+"&idp="+idp);
 }

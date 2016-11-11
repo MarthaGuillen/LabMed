@@ -143,15 +143,15 @@ public class userController {
     }   
     
     @RequestMapping(value = "updUsrEstado.htm", method = RequestMethod.POST) 
-    public void upUser(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
-        //ModelAndView mv = new ModelAndView("cargatempPermisos");
+    public ModelAndView upUser(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
         UsuarioDAO opc = new UsuarioDAO();
 
         String idper = opc.updUsrestado(bol,idp);
         
 
         //mv.addObject("resp","No");
-        //return mv;
+        return mv;
     } 
     
     @RequestMapping(value = "updUsuarioC.htm", method = RequestMethod.POST) 
