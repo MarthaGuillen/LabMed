@@ -22,6 +22,7 @@ public class PerfilesDAO {
         String sql =  "SELECT * FROM ListarPerfiles("+Estado+"); ";
         Perfiles cat;
         ArrayList<Perfiles> Listado= new ArrayList<Perfiles>();
+        System.out.println(sql);
         
         try {
             org.hibernate.Transaction tx = session.beginTransaction();

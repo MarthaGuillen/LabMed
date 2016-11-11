@@ -105,15 +105,12 @@ function enviarUsuario(){
 
 function estUserEdit(id,est){
     var estadoA = "";
-    alert(est);
     if(est==="true"){
         est='false';
         estadoA="Desactivado";
-        alert('false');
     }else{
         est='true';
         estadoA="Activado"
-        alert('true');
     ;}
     swal({
         title: 'Alerta!',
@@ -143,9 +140,7 @@ function estUserEdit(id,est){
 function updateUsuario(){
     $('#processing-modal').modal('show');        
     var nomp = $('#Nombre').val().trim();
-    var correo = $('#Correo').val().trim();
     var area = document.getElementById("Area").options[document.getElementById("Area").selectedIndex].value;
-    var estado = $('input[name="Estado"]:checked').val();
     var boolaw =document.getElementById('WebApp').checked;
     var boolam =document.getElementById('MobileApp').checked;
     var perfiles = $('#asignados').val().trim();
@@ -155,43 +150,39 @@ function updateUsuario(){
     if(nomp===""){
         e = 1;
         document.getElementById("Nombre").style["border-color"]="#A94442";
-        variables += "- Nombre de usuario\n";
-    }
-    if(correo===""){
-        e = 2;
-        document.getElementById("Correo").style["border-color"]="#A94442";
-        variables += "- Correo\n";
+        variables += "- Nombre de usuario no puede estar vacio.\n";
     }
     if(area==="0"){
         e=3;
         document.getElementById("Area").style["border-color"]="#A94442";
-        variables += "- Area\n";
+        variables += "- Area no puede ser vacia.\n";
     }
     if(!(boolaw || boolam)){
         e=4;
         document.getElementById("WebApp").style["outline"]="1px solid #A94442";
         document.getElementById("MobileApp").style["outline"]="1px solid #A94442";
-        variables += "- Accesos a app web y movil (Seleccionar al menos uno)\n";
+        variables += "- Accesos a app web y movil (Seleccionar al menos uno).\n";
     }
     if(perfiles===""){
         e=5; 
-        variables += "- Asignar Perfiles\n";
+        variables += "- Debe de asignar al menos un Perfil\n";
     }
     if (e!==0) {
         var mensaje = '<h2>Favor validar:</h2>';
         $('#processing-modal').modal('hide');
         $('#processing-modal').modal('hide');
         swal({
-            title: '',
+            title: 'Alerta:',
             text:  mensaje+'<p>'+variables+'</p>',
             type: 'error'
         });
     }else{
-        actualizaUser();    
+//        actualizaUser();
+        alert('Se va');
     }  
 }
 
-function actualizaPer(mn,bool){
+function actualizaUser(mn,bool){
     
     var id =  $("#tempId").val();
     var nomp = $('#Nombre').val().trim();

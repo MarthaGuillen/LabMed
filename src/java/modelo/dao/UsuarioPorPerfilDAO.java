@@ -43,9 +43,9 @@ public class UsuarioPorPerfilDAO {
     
     public ArrayList<String> ObtenerPerfilesUsuario(int idusuario){        
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql =  "SELECT * FROM Listarusuariosxperfil("+idusuario+";";
+        String sql =  "SELECT * FROM Listarusuariosxperfil("+idusuario+");";
         ArrayList<String> Listado = new ArrayList<String>();
-        
+        System.out.println(sql);
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
@@ -53,7 +53,7 @@ public class UsuarioPorPerfilDAO {
 
             while(listasecciones.hasNext()){
                 Object[] registro= (Object[]) listasecciones.next();
-                Listado.add((String) registro[2]);
+                Listado.add(Integer.toString((int) registro[2]));
             }
             
         } catch (Exception e) {

@@ -8,6 +8,7 @@ package modelo.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import modelo.pojo.Area;
 import modelo.pojo.Usuarios;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
@@ -36,12 +37,12 @@ public class UsuarioDAO {
                 cat.setIdtblusuarios((int) registro[0]);
                 cat.setNombre((String) registro[1]);
                 cat.setCorreo((String) registro[2]);
-                if(((String) registro[3]).equals("true")){
+                if(((String) registro[4]).equals("true")){
                     cat.setAccesomovil(true);
                 }else{
                     cat.setAccesomovil(false);
                 }
-                 if(((String) registro[4]).equals("true")){
+                 if(((String) registro[3]).equals("true")){
                     cat.setAccesoweb(true);
                 }else{
                     cat.setAccesoweb(false);
@@ -88,7 +89,7 @@ public class UsuarioDAO {
         String sql =  "SELECT * FROM Listarusuariosespecifico("+id+");";
         Usuarios cat;
         ArrayList<Usuarios> Listado= new ArrayList<Usuarios>();
-        
+        System.out.println(sql);
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
@@ -97,20 +98,25 @@ public class UsuarioDAO {
             while(listasecciones.hasNext()){
                 Object[] registro= (Object[]) listasecciones.next();
                 cat= new Usuarios();
-                cat.setIdtblusuarios((int) registro[0]);
-                cat.setNombre((String) registro[1]);
-                cat.setCorreo((String) registro[2]);
-                if(((String) registro[3]).equals("true")){
+                cat.setNombre((String) registro[0]);
+                cat.setCorreo((String) registro[1]);
+                if(((String) registro[2]).equals("true")){
                     cat.setAccesomovil(true);
                 }else{
                     cat.setAccesomovil(false);
                 }
-                 if(((String) registro[4]).equals("true")){
+                if(((String) registro[3]).equals("true")){
                     cat.setAccesoweb(true);
                 }else{
                     cat.setAccesoweb(false);
                 }
-                  if(((String) registro[6]).equals("true")){
+                if(((String) registro[6]).equals("true")){
+                    cat.setArea(new Area(((int) registro[4]), ((String) registro[5]), true));
+                }else{
+                    cat.setArea(new Area(((int) registro[4]), ((String) registro[5]), false));
+                }
+                
+                if(((String) registro[7]).equals("true")){
                     cat.setEstado(true);
                 }else{
                     cat.setEstado(false);

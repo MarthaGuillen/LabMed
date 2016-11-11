@@ -70,6 +70,7 @@ public class userController {
             estado = datos.isEstado();
             web  = datos.isAccesoweb();
             mobile = datos.isAccesomovil();
+            area = datos.getArea().getIdtblarea();
         }
         mv.addObject("nombre",nombre);
         mv.addObject("correo",correo);
@@ -88,7 +89,10 @@ public class userController {
         mv.addObject("listaasignada",listaasignada);
         
         String perfilesAsig = "";
+        
+            System.out.println("-------------------------------------------------------------");
         for(int i=0; i<listaasignada.size(); i++){
+            System.out.println(listaasignada.get(i));
             if(perfilesAsig.equals("")){
                 perfilesAsig = listaasignada.get(i);
             }else{
@@ -147,10 +151,9 @@ public class userController {
         ModelAndView mv = new ModelAndView("cargatempPermisos");
         UsuarioDAO opc = new UsuarioDAO();
 
-        String idper = opc.updUsrestado(bol,idp);
-        
+        String idper = opc.updUsrestado(bol,idp);       
 
-        //mv.addObject("resp","No");
+        mv.addObject("resp","No");
         return mv;
     } 
     

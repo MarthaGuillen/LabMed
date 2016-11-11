@@ -17,19 +17,15 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Nombre" class="col-md-2 form-control-label">Nombre:</label>
-                        <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${nombre}">
-                        </div>
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${nombre}">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label for="Correo" class="col-md-2 form-control-label">Correo Electrónico:</label>
-                        <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Correo" name="Correo" placeholder="" value="${correo}">
-                        </div>
+                        <label for="Correo" class="col-md-2 form-control-label">Correo:</label>
+                        <input type="text" class="form-control" id="Correo" name="Correo" placeholder="" value="${correo}" disabled>                        
                     </div>
                 </div>
             </div> 
@@ -37,19 +33,17 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Area" class="col-md-2 form-control-label">Área:</label>
-                        <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <select id="Area" name="Area" class="form-control">
-                                <option value="0">Seleccionar</option>
-                                <c:forEach items="${listaAreas}" var="Area">
-                                    <c:if test="${Area.getIdtblarea() eq area}">
-                                        <option value="${Area.getIdtblarea()}" selected>${Area.getNombre()}</option>
-                                    </c:if>
-                                    <c:if test="${! Area.getIdtblarea() eq area}">
-                                        <option value="${Area.getIdtblarea()}">${Area.getNombre()}</option>
-                                    </c:if>    
-                                </c:forEach>
-                            </select>
-                        </div>
+                        <select id="Area" name="Area" class="form-control">
+                            <option value="0">Seleccionar</option>
+                            <c:forEach items="${listaAreas}" var="Area">
+                                <c:if test="${Area.getIdtblarea() == area}">
+                                    <option value="${Area.getIdtblarea()}" selected>${Area.getNombre()}</option>
+                                </c:if>
+                                <c:if test="${Area.getIdtblarea() != area}">
+                                    <option value="${Area.getIdtblarea()}">${Area.getNombre()}</option>
+                                </c:if>    
+                            </c:forEach>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -57,24 +51,26 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Estado" class="col-md-2 form-control-label">Estado:</label>
-                        <div class="form-group" style="font-size: 20px;">
-                            <c:if test="${estado eq 'true'}">
+                        <c:if test="${estado eq 'true'}">
+                            <div class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default active">
                                     <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo" checked> Activo
                                 </label>
-                                <label class="btn btn-default">
+                                <label class="btn btn-default ">
                                     <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Inactivo"> Inactivo
                                 </label>
-                            </c:if>
-                            <c:if test="${estado eq 'false'}">
-                                <label class="btn btn-default active">
-                                    <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo"> Activo
+                            </div>
+                        </c:if>
+                        <c:if test="${estado eq 'false'}">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default ">
+                                    <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo" > Activo
                                 </label>
-                                <label class="btn btn-default">
+                                <label class="btn btn-default active">
                                     <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Inactivo" checked> Inactivo
                                 </label>
-                            </c:if>
-                        </div>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
             </div>
@@ -82,17 +78,17 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Estado" class="col-md-2 form-control-label">Acesos:</label>
-                        <div >
+                        <div data-toggle="buttons">
                             <c:if test="${web eq 'true'}">
                                 <input  type="checkbox" id="WebApp" name="WebApp" checked>&nbsp;Web App&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </c:if>
                             <c:if test="${web eq 'false'}">
                                 <input  type="checkbox" id="WebApp" name="WebApp" >&nbsp;Web App&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </c:if>
-                            <c:if test="${web eq 'true'}">
+                            <c:if test="${mobile eq 'true'}">
                                 <input  type="checkbox" id="MobileApp" name="MobileApp" checked>&nbsp;App Mobile
                             </c:if>
-                            <c:if test="${web eq 'false'}">
+                            <c:if test="${mobile eq 'false'}">
                                 <input  type="checkbox" id="MobileApp" name="MobileApp" >&nbsp;App Mobile
                             </c:if>
                         </div>
@@ -118,10 +114,10 @@
                     <td>${contador}</td>
                     <td><c:out value="${Perfil.getNombreperfil()}" /></td>
                     <td><c:out value="${Perfil.getDescripcion()}" /></td>
-                    <c:if test="${listaasignada.contains(Perfil.getIdtblperfiles())}">
+                    <c:if test="${listaasignada.contains(Integer.toString(Perfil.getIdtblperfiles()))}">
                         <td style="text-align:center"><input type="checkbox" value="${Perfil.getIdtblperfiles()}" onclick="agregaralista(this.value, '#asignados');" checked/></td>                          
                     </c:if>
-                    <c:if test="${!listaasignada.contains(Perfil.getIdtblperfiles())}">
+                    <c:if test="${!listaasignada.contains(Integer.toString(Perfil.getIdtblperfiles()))}">
                         <td style="text-align:center"><input type="checkbox" value="${Perfil.getIdtblperfiles()}" onclick="agregaralista(this.value, '#asignados');" /></td>                          
                     </c:if>                
                 </tr>
@@ -129,7 +125,7 @@
             </tbody>
         </table>
         </c:if>
-        <input type="hidden" name="asignados" value="${originales}" id="asignados"/>
+        <input type="hidden" name="asignados" value="${perfilesAsig}" id="asignados"/>
         <input type="hidden" name="originales" value="${perfilesAsig}" id="originales"/> 
     </body>
 </html>
