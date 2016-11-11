@@ -13,9 +13,6 @@
         <div class="collapse navbar-collapse" id="myNavbar" >
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" href="#">Documentos</a>                    
-                </li>
-                <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resultados <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('citologia.htm', 'contenido');$('#processing-modal').modal('hide');">Citología</a></li>
@@ -46,7 +43,8 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Parametrizaciones<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Áreas</li>
-                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('NuevaArea.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Nueva Área</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('NuevaArea.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Nueva Área</a></li>          
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('ListadoDeAreas.htm', 'contenido');$('#processing-modal').modal('hide');">Lista de Áreas</a></li>
                         <li class="dropdown-header">Firmas</li>
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('firmas.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Firma</a></li>
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('listaFirmas.htm', 'contenido');$('#processing-modal').modal('hide');">Listar Firmas</a></li>    
@@ -69,3 +67,15 @@
         </div>
     </div>
 </nav>
+<div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="Resources/image/loading.gif" class="icon" alt=""/>
+                    <h4>Cargando...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

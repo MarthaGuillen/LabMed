@@ -100,7 +100,7 @@
         <table  id="TablaUsuarios" class="table table-striped" style="width:70%; margin-left: 15%;">
             <thead>
                 <tr style="text-align:center">
-                    <th style="text-align:center">#</th>
+                    <th style="text-align:center">No.</th>
                     <th style="text-align:center">Tipo</th>
                     <th style="text-align:center">Descripción</th>
                     <th style="text-align:center">Asignar</th>  

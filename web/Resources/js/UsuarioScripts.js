@@ -204,9 +204,7 @@ function actualizaUser(mn,bool){
             }).then(function() {
                 $('#processing-modal').modal('hide');
                 $('#processing-modal').modal('hide');
-                $('#processing-modal').modal('hide');
-                $('#editaper').modal('hide');
-                $('#editaper').modal('hide');
+                $('#editausr').modal('hide');
                 cargarContenido("ListaUsuarios.htm","contenido");
             })
         }

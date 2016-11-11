@@ -64,7 +64,7 @@
         </div>        
     </div>
     <div id="creaNuevo" class="col-md-1"></div>
-</div
+</div>       
 <div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
