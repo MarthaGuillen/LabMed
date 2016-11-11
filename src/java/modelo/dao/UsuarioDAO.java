@@ -152,11 +152,11 @@ public class UsuarioDAO {
         return filmList.get(0).toString();
     }
     
-    public String EditarUsuario(String nombre, String correo, int area, boolean estado, boolean web, boolean mobile, int usuario, String modulo){
+    public String EditarUsuario(String nombre, int area, boolean estado, boolean web, boolean mobile, int idusrmod,int usuario, String modulo){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx;
-        String sql =  "select crearusuario('"+nombre+"','"+correo+"',"+mobile+","+web+","+area+","+estado+");";
+        String sql =  "select updtodousuario('"+nombre+"',"+mobile+","+web+","+area+","+estado+","+idusrmod+");";
         System.out.println(sql);
         List<String> filmList = new ArrayList<String>();
         try {

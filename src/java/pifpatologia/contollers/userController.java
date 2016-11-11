@@ -158,9 +158,9 @@ public class userController {
     } 
     
     @RequestMapping(value = "updUsuarioC.htm", method = RequestMethod.POST) 
-    public ModelAndView updateUser(@RequestParam("Nombre") String nombre, @RequestParam("Correo") String correo, @RequestParam("Area") int area, 
-            @RequestParam("Estado") String estado, @RequestParam("WebApp") boolean web, @RequestParam("MobileApp") boolean mobile, 
-            @RequestParam("asignados") String asignados, @RequestParam("idp") int idp) throws Exception {
+    public ModelAndView updateUser(@RequestParam("Nombre") String nombre, @RequestParam("Area") int area, @RequestParam("Estado") String estado, 
+            @RequestParam("WebApp") boolean web, @RequestParam("MobileApp") boolean mobile, @RequestParam("asignados") String asignados, 
+            @RequestParam("originales") String originales, @RequestParam("id") int id) throws Exception {
          
         ModelAndView mv = new ModelAndView("cargatempPermisos");
         UsuarioDAO usuario = new UsuarioDAO();
@@ -169,11 +169,51 @@ public class userController {
         if(estado.equals("Inactivo"))
             estadoU=false;
                     
-        String num = usuario.EditarUsuario(new String(nombre.getBytes("ISO-8859-1"), "UTF-8"), new String(correo.getBytes("ISO-8859-1"), "UTF-8"), 
-                area, estadoU, web, mobile, 0, "");
+        String num = usuario.EditarUsuario(nombre, area, estadoU, web, mobile,id, 0, "");
+        ArrayList<Integer> IdAsignados = new ArrayList<Integer>();
+        ArrayList<Integer> IdOriginales = new ArrayList<Integer>();
+        
+        String nuevos = "";
+        String quitar = "";
+        
+        String[] separacion;
+        //Crear ArrayList con alumnos seleccionados (Nuevos y viejos)
+        if(!asignados.equals("")){
+            separacion = asignados.split("_xk12x_");
+            for(int i=0; i<separacion.length; i++){
+                IdAsignados.add(Integer.parseInt(separacion[i]));
+            }
+        }
+        
+        if(!originales.equals("")){
+            separacion = originales.split("_xk12x_");        
+            for(int i=0; i<separacion.length; i++){        
+                IdOriginales.add(Integer.parseInt(separacion[i]));
+            }
+        }        
+        
+        
+        for(int i=0; i<IdOriginales.size(); i++){           
+            if(!IdAsignados.contains(IdOriginales.get(i))){                
+                if(quitar.equals("")){            
+                    quitar=IdOriginales.get(i).toString();
+                }else{           
+                    quitar=quitar+"_xk12x_"+IdOriginales.get(i).toString();
+                }
+            }
+        }
+        for(int i=0; i<IdAsignados.size(); i++){
+            if(!IdOriginales.contains(IdAsignados.get(i))){
+                if(nuevos.equals("")){
+                    nuevos=IdAsignados.get(i).toString();
+                }else{
+                    nuevos=nuevos+"_xk12x_"+IdAsignados.get(i).toString();
+                }
+            }
+        }
         
         UsuarioPorPerfilDAO usxp = new UsuarioPorPerfilDAO();
-        usxp.AgregarUsuarioPorPerfil(asignados, Integer.valueOf(num), 0, "");
+        usxp.UpdUsuarioPorPerfil(nuevos, quitar, Integer.valueOf(num), 0, "");
         
         mv.addObject("resp","No");
       return mv;

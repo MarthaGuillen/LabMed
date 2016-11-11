@@ -63,4 +63,44 @@ public class UsuarioPorPerfilDAO {
         
         return Listado;
     }
+    
+    public void UpdUsuarioPorPerfil(String nuevos, String quitar, int usuario, int usuariocrea, String modulo){
+        Transaction tx;
+        String sql = "";
+        List<String> resultado;
+        if(!nuevos.equals("")){
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            sql =  "select crearusuarioperfil('"+nuevos+"',"+usuario+");";
+            System.out.println(sql);
+            resultado = new ArrayList<String>();
+            try {
+                tx = session.beginTransaction();
+                Query q = session.createSQLQuery(sql);
+                resultado=q.list();
+
+                tx.commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            session.close();    
+        }
+        if(!quitar.equals("")){            
+            Session session2 = HibernateUtil.getSessionFactory().openSession();
+            sql =  "select desactivarusuarioperfil('"+quitar+"',"+usuario+");";
+            System.out.println(sql);
+            resultado = new ArrayList<String>();
+            try {
+                tx = session2.beginTransaction();
+                Query q = session2.createSQLQuery(sql);
+                resultado=q.list();
+
+                tx.commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            session2.close(); 
+        }
+    }
 }
