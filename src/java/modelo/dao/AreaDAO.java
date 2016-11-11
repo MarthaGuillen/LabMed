@@ -47,11 +47,11 @@ public class AreaDAO {
         return Listado;
     }
     
-    public void AgregarArea(String nombre, int usuario, String modulo){
+    public void AgregarArea(String nombre, boolean estado, int usuario, String modulo){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx;
-        String sql =  "select creararea('"+nombre+"');";
+        String sql =  "select creararea('"+nombre+"', "+estado+");";
         System.out.println(sql);
         List<String> resultado = new ArrayList<String>();
         try {
@@ -97,5 +97,25 @@ public class AreaDAO {
         session.close(); 
         
         return Listado;
+    }
+    
+    public String updAreaestado(String bool,int idp){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql = "select updarea('"+bool+"','"+idp+"');";
+        System.out.println(sql);
+        List<String> filmList = new ArrayList<String>();
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            //int result = q.executeUpdate();
+            filmList = q.list();
+            tx.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close();
+        return filmList.get(0).toString();
     }
 }

@@ -40,10 +40,10 @@
                                     <td>${contador}</td>
                                     <td><c:out value="${Area.getNombre()}" /></td>
                                     <c:if test="${Area.isEstado()}">
-                                        <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
+                                        <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estAreaEdit('${Area.getIdtblarea()}','${Area.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
                                     <c:if test="${!Area.isEstado()}">
-                                        <td align="center"><img src="Resources/image/activar.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Area.getIdtblarea()}','${!Area.isEstado()}');" style="cursor:pointer;"/></td>
+                                        <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estAreaEdit('${Area.getIdtblarea()}','${Area.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
                                     <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Area.getIdtblarea()})" alt="" height="20" width="20"/></td>                      
                                 </tr>
@@ -64,7 +64,7 @@
     </div>
     <div class="col-md-1"></div>
 </div>
-<div class="modal fade" id="editausr" role="dialog"  data-backdrop="static" aria-hidden="true">
+<div class="modal fade" id="editaarea" role="dialog"  data-backdrop="static" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -72,7 +72,7 @@
           <h4 class="modal-title">Actualizar Area</h4>
         </div>
           <div class="modal-body">
-              <div id="cargaPreviaUser"></div>
+              <div id="cargaPreviaArea"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" onclick="updateUsuario();">Actualizar Area</button>  
