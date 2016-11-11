@@ -52,10 +52,10 @@
                                             <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20"/></td>                                            
                                         </c:if>
                                         <c:if test="${Usuario.isEstado()}">
-                                            <td align="center"><img src="Resources/image/check.png" alt="" height="20" width="20"/></td>
+                                            <td align="center"><img src="Resources/image/check.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Usuario.getIdtblusuarios()}','${!Usuario.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
                                         <c:if test="${!Usuario.isEstado()}">
-                                            <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20"/></td>
+                                            <td align="center"><img src="Resources/image/error.png" alt="" height="20" width="20" onclick="estPerfilEdita('${Usuario.getIdtblusuarios()}','${!Usuario.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
                                         <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Usuario.getIdtblusuarios()})" alt="" height="20" width="20"/></td>                      
                                     </tr>
@@ -63,6 +63,7 @@
                             </tbody>
                         </table>
                         </c:if>
+                    <input type="hidden" id="tempId">
                     </div>
                 </div>                
             </div> 
@@ -80,13 +81,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Actualizar perfil</h4>
+          <h4 class="modal-title">Actualizar Usuario</h4>
         </div>
           <div class="modal-body">
               <div id="cargaPreviaUser"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="updateperfil();">Actualizar perfil</button>  
+          <button type="button" class="btn btn-primary" onclick="updateperfil();">Actualizar Usuario</button>  
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
