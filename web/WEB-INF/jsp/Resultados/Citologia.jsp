@@ -6,33 +6,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
-<script type="text/javascript">
-    $.fn.pressEnter = function(fn) {  
-  
-    return this.each(function() {  
-        $(this).bind('enterPress', fn);
-        $(this).keyup(function(e){
-            if(e.keyCode == 13)
-            {
-              $(this).trigger("enterPress");
-            }
-        })
-    });  
- }; 
-
-
-$('#orden1').pressEnter(function(){alert('here')})
-    
-    
-</script>
 <div class="row" style="font-family: ">
-    <div class="col-md-1"></div>
+    <div class="col-md-1"></div><div id="creaNuevo" class="col-md-1"></div>
     <div class="col-md-10" id="pagina">
         <div class="row" style="background-color: #222; border-bottom:1px solid #5DFDF2;">
             <div class="col-md-12">
                 <h2 style="margin-top: 5px; color: white;">Citología
                     <div class=" pull-right control">                    
-                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary">Generar</a>                  
+                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarCitologia();" >Generar</a>                  
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
@@ -46,7 +27,7 @@ $('#orden1').pressEnter(function(){alert('here')})
             <img src="Resources/image/05Siguiente.png" alt=""/>
             <img src="Resources/image/06Final.png" alt=""/>
             <img src="Resources/image/07Nuevo.png" alt=""/>
-            <img src="Resources/image/08Guardar.png" alt=""/>
+            <img src="Resources/image/08Guardar.png" alt="" onclick="guardarCitologia();"/>
             <img src="Resources/image/09Eliminar.png" alt=""/>
             <img src="Resources/image/16ayuda.png" alt=""/>
         </div>
@@ -190,7 +171,7 @@ $('#orden1').pressEnter(function(){alert('here')})
                     <div class="form-group">
                         <label for="FUR" class="col-md-3 form-control-label">Para:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FUR" name="FUR" placeholder="" >
+                            <input type="date" class="form-control" id="Para" name="Para" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -208,10 +189,11 @@ $('#orden1').pressEnter(function(){alert('here')})
                     <div class="form-group">
                         <label for="idcito" class="col-md-3 form-control-label">ID Cito:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                           <select class="form-control">
-                                <option value="seleccionar">Seleccionar</option>
+                            <select id="idcito" name="idcito" class="form-control"><option value="0">Seleccionar</option>
+                                <option value="opcion2">opcion2</option>
+                                <option value="opcion3">opcion3</option>
                             </select>
-                        </div>
+                          </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -234,9 +216,9 @@ $('#orden1').pressEnter(function(){alert('here')})
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="Otros" class="col-md-3 form-control-label">Otros:</label>
+                        <label for="Otros2" class="col-md-3 form-control-label">Otros:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Otros" name="Otros" placeholder="" >
+                            <input type="text" class="form-control" id="Otros2" name="Otros2" placeholder="" >
                         </div>
                     </div>
                 </div>

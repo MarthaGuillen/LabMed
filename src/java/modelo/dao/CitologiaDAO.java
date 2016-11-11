@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package modelo.dao;
-
+import java.util.Date;
+        
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import modelo.pojo.Perfiles;
+import modelo.pojo.Citologia;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -60,13 +61,14 @@ public class CitologiaDAO {
         return filmList.get(0).toString();
     }*/
     
- /*   public String guardaPerfilp(int idp,int idpp){
+   public String guardarCitologia(boolean deteccioncancer_,boolean indicemaduracion_,String otrosindices_, String diagnosticoclinico_,String fur_, String fup_, String  gravidad_, String para_,int abortos_, int idtblcatcito_, int idtblfirma1_, int  idtblfirma2_,String otros_, Date fechainforme_, Date fechamuestra_, String informe_){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql = "select fn_insertPerfilPermiso('"+idp+"','"+idpp+"');";
+        
         
         List<String> filmList = new ArrayList<String>();
         try {
+            String sql = "select fn_insert_cito('"+ deteccioncancer_ +"','"+ indicemaduracion_ +"','"+ otrosindices_ +"','"+ diagnosticoclinico_ +"','"+ fur_ +"','" + fup_  +"','"+ gravidad_  +"','"+  para_  +"','"+ abortos_ +"','"+ idtblcatcito_ +"','"+ idtblfirma1_ +"','"+ idtblfirma2_ +"','"+ otros_ +"','"+ fechainforme_ +"','"+ fechamuestra_ +"','"+informe_+"' );";
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
             //int result = q.executeUpdate();
@@ -78,7 +80,7 @@ public class CitologiaDAO {
         }
         session.close();
         return filmList.get(0).toString();
-    }*/
+    }
     
     
    /* public List listaPerfiles(){

@@ -1,5 +1,5 @@
 package modelo.pojo;
-// Generated 08-nov-2016 10:26:30 by Hibernate Tools 4.3.1
+// Generated 10-nov-2016 22:20:20 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;

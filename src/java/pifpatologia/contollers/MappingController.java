@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modelo.dao.AreaDAO;
+import modelo.dao.CitologiaDAO;
 import modelo.dao.PerfilesDAO;
 import modelo.dao.UsuarioDAO;
 import modelo.dao.UsuarioPorPerfilDAO;
@@ -54,7 +55,8 @@ public class MappingController {
     }
         
     @RequestMapping("/citologia.htm")
-    public String ResultadoCitologia(){
+    public String Citologia(Model m){
+         CitologiaDAO opc = new CitologiaDAO();
         return "Resultados/Citologia";
     }
     

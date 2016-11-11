@@ -5,6 +5,7 @@
  */
 package pifpatologia.contollers;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import modelo.dao.CitologiaDAO;
 import org.springframework.stereotype.Controller;
@@ -103,23 +104,34 @@ public class citologiaController {
     }
      
      
-//      @RequestMapping(value = "guardarcito.htm", method = RequestMethod.POST) 
-//      public ModelAndView guarda(@RequestParam("idhasa"))
-//      /*public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception */{
-//      ModelAndView mv = new ModelAndView("guardarcito");
-//        CitologiaDAO opc = new CitologiaDAO();
+      @RequestMapping(value = "guardarCitologia.htm", method = RequestMethod.POST) 
+      public ModelAndView guarda(@RequestParam("DetCancer") boolean deteccioncancer_, @RequestParam("IndMaduracion") boolean indicemaduracion_,@RequestParam("Otros") String otrosindices_,@RequestParam("Medico") String diagnosticoclinico_,@RequestParam("FUR") String fur_,@RequestParam("FUP") String fup_,@RequestParam("TOPOG") String  gravidad_,@RequestParam("Para") String para_,@RequestParam("Abortos") int abortos_,@RequestParam("idcito") int idtblcatcito_,@RequestParam("Firma1") int idtblfirma1_, @RequestParam("Firma2") int  idtblfirma2_,@RequestParam("Otros2") String otros_,@RequestParam("FechaInforme") Date fechainforme_,@RequestParam("FechaMuestra") Date fechamuestra_,@RequestParam("DescMacro") String informe_)throws Exception
+      /*public ModelAndView guarda(@RequestParam("nombre") String nombre,@RequestParam("desc") String desc,@RequestParam("per") String per,@RequestParam("bol") String bol) throws Exception */{
+      ModelAndView mv = new ModelAndView("guardarCito");
+        CitologiaDAO opc = new CitologiaDAO();
 //        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
 //        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
-//        
-//        String idper = opc.guardaPerfil(p1,p2,bol);
-//        String[] per1 = per.split(",");
-//        for(int i=0;i<per1.length;i++){
-//             String insertPermiso = opc.guardaPerfilp(Integer.parseInt(per1[i]),Integer.parseInt(idper));
-//        }
-//        
-//        mv.addObject("resp","No");
-//      return mv;
-//    } 
+//        boolean deteccioncancer_;
+//        boolean indicemaduracion_
+//        String otrosindices_, 
+//        String diagnosticoclinico_,
+//        String fur_, 
+//        String fup_, 
+//        String  gravidad_, 
+//        String para_,
+//        int abortos_, 
+//        int idtblcatcito_, 
+//        int idtblfirma1_, 
+//        int  idtblfirma2_,
+//        String otros_, 
+//        Date fechainforme_, 
+//        Date fechamuestra_,
+//        String informe_
+        String idCito = opc.guardarCitologia( deteccioncancer_, indicemaduracion_, otrosindices_,  diagnosticoclinico_, fur_,  fup_,   gravidad_,  para_, abortos_,  idtblcatcito_,  idtblfirma1_,   idtblfirma2_, otros_,  fechainforme_,  fechamuestra_,  informe_);
+       
+        mv.addObject("resp","No");
+      return mv;
+    } 
      
      
      
