@@ -13,28 +13,21 @@
             <div class="col-md-12">
                 <h2 style="margin-top: 5px; color: white;">Citología
                     <div class=" pull-right control">                    
-                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarCitologia();" >Generar</a>                  
+                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarTemporal();" >Generar</a>                  
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
             </div>              
         </div>
-        <div class="row menubotones">
-            <img src="Resources/image/01CamposConsulta2.png" alt="" style="margin-left: 28%;"/>
-            <img src="Resources/image/02Consultar03.png" alt=""/>
-            <img src="Resources/image/03Inicio.png" alt=""/>
-            <img src="Resources/image/04Anterior.png" alt=""/>
-            <img src="Resources/image/05Siguiente.png" alt=""/>
-            <img src="Resources/image/06Final.png" alt=""/>
-            <img src="Resources/image/07Nuevo.png" alt=""/>
-            <img src="Resources/image/08Guardar.png" alt="" onclick="guardarCitologia();"/>
-            <img src="Resources/image/09Eliminar.png" alt=""/>
-            <img src="Resources/image/16ayuda.png" alt=""/>
+         <div class="row menubotones " style="text-align: center;">
+            <a onclick="guardarTemporal();" data-toggle="tooltip" title="Guardar Perfil"><img src="Resources/image/08Guardar.png" alt=""/></a>
+            <a onclick="" data-toggle="tooltip" title="Ayuda"><img src="Resources/image/16ayuda.png" alt=""/></a>
         </div>
         <form id="loginform" class="form-horizontal" role="form" action="#" method="POST">
             <div class="row">
                 <br/>
                 <br/>
+                <!-- campos hansa -->
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="Orden1" class="col-md-3 form-control-label">Orden:</label>
@@ -44,7 +37,7 @@
                         </div>
                         <label for="Orden2" style="padding-left: 2px; padding-right: 2px;" class="col-md-1 form-control-label">-</label>                            
                         <div class="col-md-4" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Orden2" name="Orden2" placeholder="" enabled = "false" >
+                            <input type="text" class="form-control" id="Orden2" name="Orden2" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -52,7 +45,7 @@
                     <div class="form-group">
                         <label for="Paciente" class="col-md-2 form-control-label">Paciente:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Paciente" name="Paciente" placeholder="" >
+                            <input type="text" class="form-control" id="Paciente" name="Paciente" disabled="true" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -60,7 +53,7 @@
                     <div class="form-group">
                         <label for="Edad" class="col-md-3 form-control-label">Edad:</label>
                         <div class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Edad" name="Edad" placeholder="" >
+                            <input type="text" class="form-control" id="Edad" name="Edad" disabled="true" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -70,7 +63,7 @@
                     <div class="form-group">
                         <label for="Corr" class="col-md-3 form-control-label">Corr:</label>
                         <div class="col-md-8" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Corr" name="Orden1" placeholder="" >
+                            <input type="email" class="form-control" id="Corr" name="Orden1" disabled="true" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -78,7 +71,7 @@
                     <div class="form-group">
                         <label for="Direccion" class="col-md-2 form-control-label">Dirección:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Direccion" name="Direccion" placeholder="" >
+                            <input type="text" class="form-control" id="Direccion" name="Direccion"  disabled="true" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -86,7 +79,7 @@
                     <div class="form-group">
                         <label for="Sexo" class="col-md-3 form-control-label">Sexo:</label>
                         <div class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Sexo" name="Sexo" placeholder="" >
+                            <input type="text" class="form-control" id="Sexo" name="Sexo"  disabled="true" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -98,13 +91,14 @@
                     <div class="form-group">
                         <label for="Medico" class="col-md-2 form-control-label">Médico:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Medico" name="Medico" placeholder="" >
+                            <input type="text" class="form-control" id="Medico" name="Medico" disabled="true" placeholder="" >
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                 </div>
             </div>
+            <!-- campos hansa -->
             <div class="row">
                 <hr style="border: 1px solid #C6C8CA;"/>
                 <div class="col-md-4">
@@ -145,7 +139,7 @@
                     <div class="form-group">
                         <label for="FUR" class="col-md-3 form-control-label">F.U.R.:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FUR" name="FUR" placeholder="" >
+                            <input type="text" class="form-control" id="FUR" name="FUR" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -153,7 +147,7 @@
                     <div class="form-group">
                         <label for="FUP" class="col-md-3 form-control-label">F.U.P:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="search" class="form-control" id="FUP" name="FUP" placeholder="" >
+                            <input type="texto" class="form-control" id="FUP" name="FUP" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -171,7 +165,7 @@
                     <div class="form-group">
                         <label for="FUR" class="col-md-3 form-control-label">Para:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="Para" name="Para" placeholder="" >
+                            <input type="text" class="form-control" id="Para" name="Para" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -190,8 +184,10 @@
                         <label for="idcito" class="col-md-3 form-control-label">ID Cito:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
                             <select id="idcito" name="idcito" class="form-control"><option value="0">Seleccionar</option>
-                                <option value="opcion2">opcion2</option>
-                                <option value="opcion3">opcion3</option>
+                                <option value="opcion2">Negativo</option>
+                                <option value="opcion3">Ascus</option>
+                                <option value="opcion3">Bajo Grado Nic I</option>
+                                <option value="opcion3">Alto Grado Nic II</option>
                             </select>
                           </div>
                     </div>
@@ -200,7 +196,13 @@
                     <div class="form-group">
                         <label for="Firma1" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >
+                             <select id="idfima1" name="idfima1" class="form-control"><option value="0">Seleccionar</option>
+                                <option value="opcion2">DR.Danilo Alvarado</option>
+                                <option value="opcion3">DR.Reina I. Rivera</option>   
+                            </select>
+                            
+                            
+                            <!--<input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >-->
                         </div>
                     </div>
                 </div>
