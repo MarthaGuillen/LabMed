@@ -125,4 +125,45 @@ public class UsuarioDAO {
         
         return Listado;
     }
+    
+    public String updUsrestado(String bool,int idp){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql = "select fn_updPerfilest('"+bool+"','"+idp+"');";
+       
+        List<String> filmList = new ArrayList<String>();
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            //int result = q.executeUpdate();
+            filmList = q.list();
+            tx.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close();
+        return filmList.get(0).toString();
+    }
+    
+    public String EditarUsuario(String nombre, String correo, int area, boolean estado, boolean web, boolean mobile, int usuario, String modulo){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx;
+        String sql =  "select crearusuario('"+nombre+"','"+correo+"',"+mobile+","+web+","+area+","+estado+");";
+        System.out.println(sql);
+        List<String> filmList = new ArrayList<String>();
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            filmList = q.list();
+            
+            tx.commit();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close();    
+        return filmList.get(0).toString();
+    }
 }
