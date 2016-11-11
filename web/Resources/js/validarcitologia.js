@@ -5,8 +5,8 @@
  */
 function validarCitologia(){
    
-    var deteccioncancer_ = $('#DetCancer').val(); 
-    var indicemaduracion_ = $('#IndMaduracion').val().trim();
+    var deteccioncancer_ = $('input[name="DetCancer]:checked').val(); 
+    var indicemaduracion_ = $('[name="IndMaduracioninput]:checked ').val().trim();
     var otrosindices_ = $('Otros').val().trim();
     var diagnosticoclinico_ = $('#Medico').val();
     var fur_ = $('#FUR').val().trim();
