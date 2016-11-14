@@ -19,12 +19,15 @@ import org.hibernate.Transaction;
  */
 public class FirmasDAO {
     
-        public ArrayList<Firmasmedicos> ObtenerFirmas(){        
+       
+    
+        
+         public ArrayList<Firmasmedicos> ObtenerFirmas(){        
         Session session = HibernateUtil.getSessionFactory().openSession();
         String sql =  "SELECT * FROM listafirmas();";
         Firmasmedicos cat;
-        ArrayList<Firmasmedicos> Listado= new ArrayList<Firmasmedicos>();
-         
+        ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
+        
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
@@ -36,15 +39,16 @@ public class FirmasDAO {
                 cat.setIdtblfirmamed((int) registro[0]);
                 cat.setNombre((String) registro[1]);
                 cat.setCodigo((String) registro[2]);
-                Listado.add(cat);
+                ListadoFirmas.add(cat);
+                
             }
             
         } catch (Exception e) {
             e.printStackTrace();
         }
         session.close(); 
-       
-        return Listado;
+        
+        return ListadoFirmas;
     }
     
     

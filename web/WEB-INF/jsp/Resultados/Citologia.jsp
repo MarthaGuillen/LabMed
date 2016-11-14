@@ -1,10 +1,6 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <div class="row" style="font-family: ">
     <div class="col-md-1"></div>
@@ -23,7 +19,7 @@
             <a onclick="guardarTemporal();" data-toggle="tooltip" title="Guardar Perfil"><img src="Resources/image/08Guardar.png" alt=""/></a>
             <a onclick="" data-toggle="tooltip" title="Ayuda"><img src="Resources/image/16ayuda.png" alt=""/></a>
         </div>
-        <form id="loginform" class="form-horizontal" role="form" action="#" method="POST">
+        <form id="CitologiaForm" class="form-horizontal" role="form" action="#" method="POST">
             <div class="row">
                 <br/>
                 <br/>
@@ -194,18 +190,13 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="Firma1" class="col-md-3 form-control-label">Firma 1:</label>
+                        <label for="Area" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                             
-                                 <select id="Area" name="Area" class="form-control"><option value="0">Seleccionar</option>
+                            <select id="Area" name="Area" class="form-control"><option value="0">Seleccionar</option>
                             <c:forEach items="${listaAreas}" var="Area">
                                 <option value="${Area.getIdtblarea()}">${Area.getNombre()}</option>
-                            </c:forEach>
-                            
-                                 
-                                 
-                                 
-                                 
+                            </c:forEach>                            
                             </select>
                             <!--<input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >-->
                         </div>

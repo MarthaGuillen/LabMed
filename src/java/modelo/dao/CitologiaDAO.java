@@ -10,9 +10,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import modelo.pojo.Citologia;
+import modelo.pojo.Firmasmedicos;
+import modelo.pojo.Area;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+
 
 /**
  *
