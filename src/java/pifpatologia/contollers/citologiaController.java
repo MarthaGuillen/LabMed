@@ -4,17 +4,16 @@
  * and open the template in the editor.
  */
 package pifpatologia.contollers;
-
-
-import java.security.SecureRandom;
 import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import modelo.dao.AreaDAO;
 import modelo.dao.CitologiaDAO;
-import modelo.dao.FirmasDAO;
-import modelo.pojo.Firmasmedicos;
+import modelo.dao.UsuarioDAO;
+import modelo.dao.UsuarioPorPerfilDAO;
+import modelo.pojo.Area;
 import modelo.pojo.Citologia;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,20 +22,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+
 /**
  *
  * @author SIST001
  */
 @Controller
 public class citologiaController {
-        
-    @RequestMapping("/Citologia.htm")
-    public String Nuevacitologia(Model m, HttpServletRequest request){
-        FirmasDAO Firmasmedicos = new FirmasDAO();
-        ArrayList<Firmasmedicos> Listafirmas = Firmasmedicos.ObtenerFirmas();
-        m.addAttribute("Listafirmas", Listafirmas); 
-        return "Resultados/Citologia";
+    
+//        
+//    @RequestMapping("/Citologia.htm")
+//    public String Nuevacitologia(Model m, HttpServletRequest request){
+//        FirmasDAO Firmasmedicos = new FirmasDAO();
+//        ArrayList<Firmasmedicos> Listafirmas = Firmasmedicos.ObtenerFirmas();
+//        m.addAttribute("Listafirmas", Listafirmas); 
+//        return "Resultados/Citologia";
+//    }
+//    
+     @RequestMapping("/Citologia.htm")
+     public String NuevoUsuario(Model m, HttpServletRequest request){
+        AreaDAO areas = new AreaDAO();
+        ArrayList<Area> listaAreas = areas.ObtenerAreasEstado(true);
+        m.addAttribute("listaAreas", listaAreas);        
+        return "Seguridad/NuevoUsuario";
     }
+    
     
 
     @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
@@ -81,33 +91,33 @@ public class citologiaController {
     }
      
      
-      @RequestMapping(value = "guardarCitologia.htm", method = RequestMethod.POST) 
-      public ModelAndView guarda(@RequestParam("DetCancer") boolean deteccioncancer_, @RequestParam("IndMaduracion") boolean indicemaduracion_,@RequestParam("Otros") String otrosindices_,@RequestParam("Medico") String diagnosticoclinico_,@RequestParam("FUR") String fur_,@RequestParam("FUP") String fup_,@RequestParam("TOPOG") String  gravidad_,@RequestParam("Para") String para_,@RequestParam("Abortos") int abortos_,@RequestParam("idcito") int idtblcatcito_,@RequestParam("Firma1") int idtblfirma1_, @RequestParam("Firma2") int  idtblfirma2_,@RequestParam("Otros2") String otros_,@RequestParam("FechaInforme") Date fechainforme_,@RequestParam("FechaMuestra") Date fechamuestra_,@RequestParam("DescMacro") String informe_)throws Exception{
-      ModelAndView mv = new ModelAndView("guardarCitologia");
-        CitologiaDAO opc = new CitologiaDAO();
-//        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
-//        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
-//        boolean deteccioncancer_;
-//        boolean indicemaduracion_
-//        String otrosindices_, 
-//        String diagnosticoclinico_,
-//        String fur_, 
-//        String fup_, 
-//        String  gravidad_, 
-//        String para_,
-//        int abortos_, 
-//        int idtblcatcito_, 
-//        int idtblfirma1_, 
-//        int  idtblfirma2_,
-//        String otros_, 
-//        Date fechainforme_, 
-//        Date fechamuestra_,
-//        String informe_
-        String idCito = opc.guardarCitologia( deteccioncancer_, indicemaduracion_, otrosindices_,  diagnosticoclinico_, fur_,  fup_,   gravidad_,  para_, abortos_,  idtblcatcito_,  idtblfirma1_,   idtblfirma2_, otros_,  fechainforme_,  fechamuestra_,  informe_);
-       
-        mv.addObject("resp","No");
-      return mv;
-    } 
+//      @RequestMapping(value = "guardarCitologia.htm", method = RequestMethod.POST) 
+//      public ModelAndView guarda(@RequestParam("DetCancer") boolean deteccioncancer_, @RequestParam("IndMaduracion") boolean indicemaduracion_,@RequestParam("Otros") String otrosindices_,@RequestParam("Medico") String diagnosticoclinico_,@RequestParam("FUR") String fur_,@RequestParam("FUP") String fup_,@RequestParam("TOPOG") String  gravidad_,@RequestParam("Para") String para_,@RequestParam("Abortos") int abortos_,@RequestParam("idcito") int idtblcatcito_,@RequestParam("Firma1") int idtblfirma1_, @RequestParam("Firma2") int  idtblfirma2_,@RequestParam("Otros2") String otros_,@RequestParam("FechaInforme") Date fechainforme_,@RequestParam("FechaMuestra") Date fechamuestra_,@RequestParam("DescMacro") String informe_)throws Exception{
+//      ModelAndView mv = new ModelAndView("guardarCitologia");
+//        CitologiaDAO opc = new CitologiaDAO();
+////        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
+////        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
+////        boolean deteccioncancer_;
+////        boolean indicemaduracion_
+////        String otrosindices_, 
+////        String diagnosticoclinico_,
+////        String fur_, 
+////        String fup_, 
+////        String  gravidad_, 
+////        String para_,
+////        int abortos_, 
+////        int idtblcatcito_, 
+////        int idtblfirma1_, 
+////        int  idtblfirma2_,
+////        String otros_, 
+////        Date fechainforme_, 
+////        Date fechamuestra_,
+////        String informe_
+//        String idCito = opc.guardarCitologia( deteccioncancer_, indicemaduracion_, otrosindices_,  diagnosticoclinico_, fur_,  fup_,   gravidad_,  para_, abortos_,  idtblcatcito_,  idtblfirma1_,   idtblfirma2_, otros_,  fechainforme_,  fechamuestra_,  informe_);
+//       
+//        mv.addObject("resp","No");
+//      return mv;
+//    } 
      
  
 }
