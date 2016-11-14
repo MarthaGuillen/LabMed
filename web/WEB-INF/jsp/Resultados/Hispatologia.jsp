@@ -5,7 +5,7 @@
     <div class="col-md-10" id="pagina">
         <div class="row" style="background-color: #222; border-bottom:1px solid #5DFDF2;">
             <div class="col-md-12">
-                <h2 style="margin-top: 5px; color: white;">Hispatología <small style="color: #9d9d9d;">&nbsp;Id: </small>
+                <h2 style="margin-top: 5px; color: white;">Histopatología <small style="color: #9d9d9d;">&nbsp;Id: </small>
                     <div class=" pull-right control">                    
                         <a id="btn-login" href="#" class="btn btn-md mybtn-primary">Generar</a>                  
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    

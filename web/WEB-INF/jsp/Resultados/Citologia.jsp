@@ -197,12 +197,13 @@
                         <label for="Firma1" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                              <select id="idfima1" name="idfima1" class="form-control"><option value="0">Seleccionar</option>
-                                <option value="opcion2">DR. Danilo Alvarado</option>
-                                <option value="opcion3">DR. Reina I. Rivera</option>   
+                                 <c:forEach items="${Listafirmas}" var='Listafirmas' >
+                                 <option value="${Firmasmedicos.get(getIdtblfirmamed)}">${Firmasmedicos.getNombre()}</option>
+                                </c:forEach>  
                             </select>
                             <!--<input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >-->
                         </div>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
@@ -251,49 +252,6 @@
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                             <textarea class="form-control" id="DescMacro" name="DescMacro" rows="5"></textarea>
                         </div>
-                    </div>
-                </div>                
-            </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="form-group">
-                        <label for="DescMicro" class="col-md-3 form-control-label">¿Desea adicionar variables?:</label>
-                        <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="checkbox" name="SiVariables"> Si&emsp;
-                            <input type="checkbox" name="NoVariables"> No
-                        </div>
-                    </div>
-                </div>                
-            </div>
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="form-group">
-                        <table style="width:70%; margin-left: 15%;">
-                            <tr>
-                                <th>Nombre Campo</th>
-                                <th>Resultado</th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Nombre del campo" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Detalle del resultado" ></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Nombre del campo" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Detalle del resultado" ></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Nombre del campo" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Detalle del resultado" ></td>
-                                <td><a style="color: green;">&emsp;Agregar </a></td>
-                                <td><a style="color: red;"> Eliminar </a></td>
-                            </tr>
-                        </table>
                     </div>
                 </div>                
             </div>

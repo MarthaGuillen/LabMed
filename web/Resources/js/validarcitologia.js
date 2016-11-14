@@ -3,66 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function validarCitologia(){
-   
-    var deteccioncancer_ = $('input[name="DetCancer]:checked').val(); 
-    var indicemaduracion_ = $('[name="IndMaduracioninput]:checked ').val().trim();
-    var otrosindices_ = $('Otros').val().trim();
-    var diagnosticoclinico_ = $('#Medico').val();
-    var fur_ = $('#FUR').val().trim();
-    var fup_ = $('#FUP').val();
-    var gravidad_ = $('#TOPOG').val().trim();
-    var para_ = $('#Para').val();
-    var abortos_ = $('#Abortos').val().trim();
-    var idtblcatcito_ = $('#idcito').val();
-    var idtblfirma1_ = $('#Firma1').val();
-    var  otros_= $('#Otros2').val().trim();
-    var fechainforme_ = $('#FechaInforme').val();
-    var  fechamuestra_= $('#FechaMuestra').val().trim();
-    var informe_ = $('#DescMacro').val();
-           
-    var e=0;
-    if(nomp===""){
-        e = 1;
-    }
-    if(desc===""){
-        e = 1; 
-    }
-    if (e===1) {
-        swal(
-            'Alerta:',
-            'Por favor verifique el nombre del perfil y la descripción.',
-            'error'
-        );
-    }else{
-       if($("input:checkbox:checked").length>0){
-        
-       var cont=0;
-       $('#processing-modal').modal('show');
-       $("input:checkbox:checked").each(function(){
-	//cada elemento seleccionado
-        var mensaje = $(this).val();
-        permisos.push(mensaje);
-        cont++;
-        if(cont==$("input:checkbox:checked").length)
-        {
-            enviarPerfil(permisos.toString(),bool);
-            
-        }
-        });
-        }else{
-            swal(
-                'Alerta:',
-                'Por favor seleccione, los perfiles que desea asignar.',
-                'error'
-            );
-        }    
-        
-    }
-    
-    
-}
-
 function guardarTemporal(){
 
     var xhttp = new XMLHttpRequest();

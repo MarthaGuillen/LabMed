@@ -4,11 +4,20 @@
  * and open the template in the editor.
  */
 package pifpatologia.contollers;
+
+
+import java.security.SecureRandom;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import modelo.dao.CitologiaDAO;
+import modelo.dao.FirmasDAO;
+import modelo.pojo.Firmasmedicos;
+import modelo.pojo.Citologia;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +29,14 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class citologiaController {
+        
+    @RequestMapping("/Citologia.htm")
+    public String Nuevacitologia(Model m, HttpServletRequest request){
+        FirmasDAO Firmasmedicos = new FirmasDAO();
+        ArrayList<Firmasmedicos> Listafirmas = Firmasmedicos.ObtenerFirmas();
+        m.addAttribute("Listafirmas", Listafirmas); 
+        return "Resultados/Citologia";
+    }
     
 
     @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
