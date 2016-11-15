@@ -193,9 +193,9 @@
                         <label for="Area" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                             
-                            <select id="Area" name="Area" class="form-control"><option value="0">Seleccionar</option>
-                            <c:forEach items="${listaAreas}" var="Area">
-                                <option value="${Area.getIdtblarea()}">${Area.getNombre()}</option>
+                            <select id="Firma1" name="Area" class="form-control"><option value="0">Seleccionar</option>
+                            <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
+                                <option value="${Firmasmedicos.getIdtblfirmamed()}">${Firmasmedicos.getNombre()}</option>
                             </c:forEach>                            
                             </select>
                             <!--<input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >-->

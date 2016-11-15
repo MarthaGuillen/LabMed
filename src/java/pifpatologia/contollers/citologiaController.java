@@ -31,11 +31,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class citologiaController {
     
     
-    @RequestMapping("/Citologia.htm")
+    @RequestMapping("/citologia.htm")
     public String Citologia(Model m, HttpServletRequest request){
-        FirmasDAO Firmasmedicos = new FirmasDAO();
-        ArrayList<Firmasmedicos> ListaFirmas = Firmasmedicos.ObtenerFirmas();
-        m.addAttribute("ListaFirmas", ListaFirmas);     
+        FirmasDAO Firmasm = new FirmasDAO();
+        ArrayList<Firmasmedicos> ListaFirmas = Firmasm.ObtenerFirmas();
+        m.addAttribute("ListaFirmas", ListaFirmas);  
+       
+        
+            
         return "Resultados/Citologia";
     }
             

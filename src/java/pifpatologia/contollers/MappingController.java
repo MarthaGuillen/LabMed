@@ -54,11 +54,11 @@ public class MappingController {
         return "Resultados/Hispatologia";
     }
         
-    @RequestMapping("/citologia.htm")
-    public String Citologia(Model m){
-         CitologiaDAO opc = new CitologiaDAO();
-        return "Resultados/Citologia";
-    }
+//    @RequestMapping("/citologia.htm")
+//    public String Citologia(Model m){
+//         CitologiaDAO opc = new CitologiaDAO();
+//        return "Resultados/Citologia";
+//    }
     
     @RequestMapping("/firmas.htm")
     public String AgreagarFirma(){
