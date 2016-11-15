@@ -32,7 +32,7 @@ public class FirmasDAO {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
             Iterator listasecciones =  q.list().iterator();
-System.out.println("-------------------------------------------------llego 2");
+            System.out.println("-------------------------------------------------llego 2 "+sql );
       
             while(listasecciones.hasNext()){
                 Object[] registro= (Object[]) listasecciones.next();

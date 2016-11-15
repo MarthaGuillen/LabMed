@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="LabMed" match-schema="public"/>
-  <table-filter match-name="bitacora"/>
-  <table-filter match-name="usuariosporperfil"/>
-  <table-filter match-name="histopatologia"/>
-  <table-filter match-name="catalogocitologias"/>
-  <table-filter match-name="area"/>
-  <table-filter match-name="usuarios"/>
-  <table-filter match-name="perfilporpermiso"/>
-  <table-filter match-name="variablescitologia"/>
+  <schema-selection match-catalog="labmed" match-schema="public"/>
   <table-filter match-name="fotoshisto"/>
-  <table-filter match-name="perfiles"/>
   <table-filter match-name="catalogotipobitacora"/>
-  <table-filter match-name="permisos"/>
-  <table-filter match-name="camposhansa"/>
-  <table-filter match-name="citologia"/>
+  <table-filter match-name="perfilporpermiso"/>
+  <table-filter match-name="usuarios"/>
+  <table-filter match-name="usuariosporperfil"/>
   <table-filter match-name="dispositivosmoviles"/>
+  <table-filter match-name="perfiles"/>
+  <table-filter match-name="camposhansa"/>
+  <table-filter match-name="area"/>
+  <table-filter match-name="bitacora"/>
+  <table-filter match-name="citologia"/>
+  <table-filter match-name="histopatologia"/>
+  <table-filter match-name="permisos"/>
   <table-filter match-name="firmasmedicos"/>
+  <table-filter match-name="catalogocitologias"/>
+  <table-filter match-name="variablescitologia"/>
 </hibernate-reverse-engineering>

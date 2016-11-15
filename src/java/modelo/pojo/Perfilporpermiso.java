@@ -1,5 +1,5 @@
 package modelo.pojo;
-// Generated 10-nov-2016 22:20:20 by Hibernate Tools 4.3.1
+// Generated 15-nov-2016 8:51:03 by Hibernate Tools 4.3.1
 
 
 
