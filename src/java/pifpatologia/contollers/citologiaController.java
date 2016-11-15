@@ -34,11 +34,8 @@ public class citologiaController {
     @RequestMapping("/citologia.htm")
     public String Citologia(Model m, HttpServletRequest request){
         FirmasDAO Firmasm = new FirmasDAO();
-        ArrayList<Firmasmedicos> ListaFirmas = Firmasm.ObtenerFirmas();
+        ArrayList<Firmasmedicos> ListaFirmas = Firmasm.ObtenerFirmasEstado(true);
         m.addAttribute("ListaFirmas", ListaFirmas);  
-       
-        
-            
         return "Resultados/Citologia";
     }
             

@@ -32,7 +32,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class FirmasController {
     
-    
      @RequestMapping("/Firmas.htm")
        public String ListaFirmas(Model m, HttpServletRequest request){
         FirmasDAO Firmasmedicos = new FirmasDAO();        

@@ -192,8 +192,7 @@
                     <div class="form-group">
                         <label for="Area" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            
-                            <select id="Firma1" name="Area" class="form-control"><option value="0">Seleccionar</option>
+                            <select id="Firma1" name="Firma1" class="form-control"><option value="0">Seleccionar</option>
                             <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
                                 <option value="${Firmasmedicos.getIdtblfirmamed()}">${Firmasmedicos.getNombre()}</option>
                             </c:forEach>                            
@@ -225,9 +224,10 @@
                         <label for="Firma2" class="col-md-3 form-control-label">Firma 2:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                             <!-- <input type="search" class="form-control" id="Firma2" name="Firma2" placeholder="" >-->
-                            <select id="idfima1" name="idfima1" class="form-control"><option value="0">Seleccionar</option>
-                                <option value="opcion2">DRA. Juana Alvarado</option>
-                                <option value="opcion3">DR. Daysi Castro</option>   
+                            <select id="idfima2" name="idfima2" class="form-control"><option value="0">Seleccionar</option>
+                                <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
+                                <option value="${Firmasmedicos.getIdtblfirmamed()}">${Firmasmedicos.getNombre()}</option>
+                            </c:forEach> 
                             </select>
                         </div>
                     </div>

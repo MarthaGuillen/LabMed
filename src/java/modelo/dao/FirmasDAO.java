@@ -19,21 +19,15 @@ import org.hibernate.Transaction;
  */
 public class FirmasDAO {
     
-       
-    
-        
         public ArrayList<Firmasmedicos> ObtenerFirmas(){        
         Session session = HibernateUtil.getSessionFactory().openSession();
         String sql =  "SELECT * FROM listafirmas();";
         Firmasmedicos cat;
         ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
-        System.out.println("-------------------------------------------------llego");
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
             Iterator listasecciones =  q.list().iterator();
-            System.out.println("-------------------------------------------------llego 2 "+sql );
-      
             while(listasecciones.hasNext()){
                 Object[] registro= (Object[]) listasecciones.next();
                 cat= new Firmasmedicos();
@@ -41,11 +35,41 @@ public class FirmasDAO {
                 cat.setNombre((String) registro[1]);
                 cat.setCodigo((String) registro[2]);
                 ListadoFirmas.add(cat);
-                
                 System.out.println((int) registro[0]);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close(); 
+        
+        return ListadoFirmas;
+    }
         
         
         
+        
+        
+        public ArrayList<Firmasmedicos> ObtenerFirmasEstado(boolean estado){        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql =  "SELECT * FROM listafirmasestado("+Estado+");";
+        Firmasmedicos cat;
+        ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
+        System.out.println("--------------------------------------1");
+        try {
+            System.out.println("--------------------------------------2");
+            Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            Iterator listasecciones =  q.list().iterator();
+            while(listasecciones.hasNext()){
+                Object[] registro= (Object[]) listasecciones.next();
+                cat= new Firmasmedicos();
+                cat.setIdtblfirmamed((int) registro[0]);
+                cat.setNombre((String) registro[1]);
+                cat.setCodigo((String) registro[2]);
+                ListadoFirmas.add(cat);
+                System.out.println((int) registro[0]);
+            
             }
             
         } catch (Exception e) {
@@ -56,9 +80,5 @@ public class FirmasDAO {
         return ListadoFirmas;
     }
     
-    
-    
-    
-    
-    
+  
 }
