@@ -40,5 +40,17 @@ public class FirmasController {
         return "Parametria/ListaFirmas";
         
     }
+       
+     @RequestMapping(value="/NuevaFirma.htm", method = RequestMethod.POST)
+        public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
+        FirmasDAO firmas = new FirmasDAO();
+        boolean estadoU=true;
+        if(estado.equals("Inactivo"))
+            estadoU=false;
+        firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
+        return "principal";
+    }
+       
+       
     
 }

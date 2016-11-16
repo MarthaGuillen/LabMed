@@ -22,5 +22,6 @@
         <script src="Resources/js/UsuarioScripts.js" type="text/javascript"></script>
         <script src="Resources/js/AreaScripts.js" type="text/javascript"></script>
         <script src="Resources/js/validarcitologia.js" type="text/javascript"></script>
+        <script src="Resources/js/FirmasScript.js" type="text/javascript"></script>
     </body>
 </html>

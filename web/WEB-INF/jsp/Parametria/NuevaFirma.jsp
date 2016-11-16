@@ -7,7 +7,8 @@
             <div class="col-md-12">
                 <h2 style="margin-top: 5px; color: white;">Firmas
                     <div class=" pull-right control">                    
-                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary">Guardar</a>                  
+                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarFirma();">Guardar</a>                  
+                        
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
@@ -65,13 +66,13 @@
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label for="CodDoc" class="col-md-2 form-control-label">Estado:</label>
+                        <label for="Estado" class="col-md-2 form-control-label">Estado:</label>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default active">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Activo
+                                <input type="radio" name="Estado" id="Estado" autocomplete="off" checked> Activo
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="options" id="option2" autocomplete="off"> Inactivo
+                                <input type="radio" name="Estado" id="Estado" autocomplete="off"> Inactivo
                             </label>
                         </div>
                     </div>
