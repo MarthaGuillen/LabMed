@@ -49,7 +49,7 @@ public class AreaController {
         return "principal";
     }
     
-    @RequestMapping("/ListadoDeAreas.htm")
+    @RequestMapping("/ListaAreas.htm")
     public String ListaAreas(Model m, HttpServletRequest request){
         
         AreaDAO area = new AreaDAO();        
