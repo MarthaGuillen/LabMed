@@ -60,9 +60,9 @@ public class MappingController {
 //        return "Resultados/Citologia";
 //    }
     
-    @RequestMapping("/firmas.htm")
-    public String AgreagarFirma(){
-     return "Parametria/NuevaFirma";
+    @RequestMapping("/NuevaFirma.htm")
+    public String guardarFirma(){
+        return "Parametria/NuevaFirma";
     }
     
     @RequestMapping("/idCito.htm")

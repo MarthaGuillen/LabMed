@@ -80,12 +80,23 @@
                 <div class="col-md-2">
                 </div>
             </div> 
-        </form>
+       </form>
         <br/>
         <br/>
         <div class="row" style="background-color: #222; border-top:1px solid #5DFDF2; min-height: 50px;">                      
         </div>        
     </div>
-    <div class="col-md-1"></div>
+    <div id="creaNuevo" class="col-md-1"></div>
+</div>       
+<div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="Resources/image/loading.gif" class="icon" alt=""/>
+                    <h4>Cargando...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

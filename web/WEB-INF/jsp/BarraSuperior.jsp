@@ -46,7 +46,7 @@
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('NuevaArea.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Nueva Área</a></li>          
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('ListadoDeAreas.htm', 'contenido');$('#processing-modal').modal('hide');">Lista de Áreas</a></li>
                         <li class="dropdown-header">Firmas</li>
-                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('firmas.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Firma</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('NuevaFirma.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar Firma</a></li>
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('listaFirmas.htm', 'contenido');$('#processing-modal').modal('hide');">Listar Firmas</a></li>    
                         <li class="dropdown-header">ID Citología</li>
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('idCito.htm', 'contenido');$('#processing-modal').modal('hide');">Agregar ID Citología</a></li>             
