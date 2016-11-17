@@ -71,7 +71,7 @@ public class MappingController {
              
     @RequestMapping("/NuevaFirma.htm")
     public String NuevaFirma(){        
-        return "Parametria/NuevaFirma";
+    return "Parametria/NuevaFirma";
     }
     
     

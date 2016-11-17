@@ -32,14 +32,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class FirmasController {
     
     
-     @RequestMapping("/NuevaFirma.htm")
-       public String ListaFirmas(Model m, HttpServletRequest request){
-        FirmasDAO Firmasmedicos = new FirmasDAO();        
-        ArrayList<Firmasmedicos> ListaFirmas = Firmasmedicos.ObtenerFirmas();
-        m.addAttribute("listaFirmas", ListaFirmas);
-        return "Parametria/ListaFirmas";
-        
-    }
+//     @RequestMapping("/NuevaFirma.htm")
+//       public String ListaFirmas(Model m, HttpServletRequest request){
+//        FirmasDAO Firmasmedicos = new FirmasDAO();        
+//        ArrayList<Firmasmedicos> ListaFirmas = Firmasmedicos.ObtenerFirmas();
+//        m.addAttribute("listaFirmas", ListaFirmas);
+//        return "Parametria/ListaFirmas";
+//        
+//    }
        
      @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
         public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
