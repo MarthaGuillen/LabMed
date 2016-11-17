@@ -60,7 +60,9 @@ function enviarFirma(){
     }
     alert('hola 4');
     xhttp.open("POST","NuevaFirma.htm", true);
+    alert('hola 5');
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    alert('hola 6');
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
-   
+    alert('hola 7');
 }

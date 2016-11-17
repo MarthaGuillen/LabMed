@@ -28,7 +28,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class FirmasController {
     
-     @RequestMapping("/Firma.htm")
+    
+    
+     @RequestMapping("/NuevaFirma.htm")
        public String ListaFirmas(Model m, HttpServletRequest request){
         FirmasDAO Firmasmedicos = new FirmasDAO();        
         ArrayList<Firmasmedicos> ListaFirmas = Firmasmedicos.ObtenerFirmas();
@@ -37,29 +39,29 @@ public class FirmasController {
         
     }
        
-//     @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
-//        public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
-//        FirmasDAO firmas = new FirmasDAO();
-//        boolean estadoU=true;
-//        if(estado.equals("Inactivo"))
-//            estadoU=false;
-//        
-//        firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
-//        return "Parametria/ListaFirmas";
-//    }
-        
-        @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
-        public ModelAndView guardar(@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado) throws Exception {
-        ModelAndView mv = new ModelAndView("cargatempPermisos");
-         FirmasDAO firmas = new FirmasDAO();
+     @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
+        public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
+        System.out.println("----------------------------------------------------adads");
+        FirmasDAO firmas = new FirmasDAO();
         boolean estadoU=true;
         if(estado.equals("Inactivo"))
             estadoU=false;
-        System.out.println("-----dasdasdasdasda-----------------asdasdad--------------------adasdad----------adads");
         firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
+        return "Parametria/ListaFirmas";
+    }
         
-        mv.addObject("resp","No");
-      return mv;
-    } 
+//        @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
+//        public ModelAndView guardar(@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado) throws Exception {
+//        ModelAndView mv = new ModelAndView("cargatempPermisos");
+//         FirmasDAO firmas = new FirmasDAO();
+//        boolean estadoU=true;
+//        if(estado.equals("Inactivo"))
+//            estadoU=false;
+//        System.out.println("-----dasdasdasdasda-----------------asdasdad--------------------adasdad----------adads");
+//        firmas.AgregarFirma(nombre, codigo, estadoU);
+//        
+//        mv.addObject("resp","No");
+//      return mv;
+//    } 
        
 }

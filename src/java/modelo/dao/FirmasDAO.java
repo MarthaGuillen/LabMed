@@ -53,6 +53,7 @@ public class FirmasDAO {
         
         public ArrayList<Firmasmedicos> ObtenerFirmasEstado(boolean estado){        
         Session session = HibernateUtil.getSessionFactory().openSession();
+        System.out.println("---------------------------------------sdasdadsads");
         String sql =  "SELECT * FROM listafirmasestado("+estado+");";
         Firmasmedicos cat;
         ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
@@ -96,4 +97,31 @@ public class FirmasDAO {
         }
         session.close();    
     }
+        
+//        
+//         public String AgregarFirma(String nombre,String code,boolean estado){
+//        
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        String sql = "select fn_insertfirma('"+nombre+"','"+code+"',"+estado+");";
+//        
+//        List<String> filmList = new ArrayList<String>();
+//        try {
+//            org.hibernate.Transaction tx = session.beginTransaction();
+//            Query q = session.createSQLQuery(sql);
+//            //int result = q.executeUpdate();
+//            filmList = q.list();
+//            tx.commit();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        session.close();
+//        return filmList.get(0).toString();
+//    }
+        
+        
+        
+        
+        
+        
 }
