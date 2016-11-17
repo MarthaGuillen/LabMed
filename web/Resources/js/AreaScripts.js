@@ -61,7 +61,7 @@ function enviarArea(){
             }).then(function() {                
                 $('#processing-modal').modal('hide');
                 $('#processing-modal').modal('hide');
-                cargarContenido("ListaAreas.htm","contenido");
+                cargarContenido("ListadoDeAreas.htm","contenido");
             })
         }
     }
