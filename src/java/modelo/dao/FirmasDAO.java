@@ -82,7 +82,7 @@ public class FirmasDAO {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx;
         System.out.println("---------------------------------------------------------------------------1");
-        String sql =  "select fn_insertfirma('"+nombre+"','"+code+"',"+estado+");";
+        String sql =  "select fn_insert_firma('"+nombre+"','"+code+"',"+estado+");";
         System.out.println(sql);
         List<String> resultado = new ArrayList<String>();
         try {

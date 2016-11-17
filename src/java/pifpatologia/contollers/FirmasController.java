@@ -21,14 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
-
-
-
-
-/**
- *
- * @author SIST001
- */
+@Controller
 public class FirmasController {
     
     
@@ -41,9 +34,11 @@ public class FirmasController {
 //        
 //    }
        
-     @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
-        public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
-        System.out.println("----------------------------------------------------adads");
+     @RequestMapping(value="NuevaFirma2.htm", method = RequestMethod.POST)
+        public String InsertNuevaFirma(Model m, HttpServletRequest request, 
+                @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,
+                @RequestParam("Estado") String estado){
+        System.out.println("--------------s--------------------------------------adads");
         FirmasDAO firmas = new FirmasDAO();
         boolean estadoU=true;
         if(estado.equals("Inactivo"))

@@ -59,9 +59,36 @@ function enviarFirma(){
         }
     }
     alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
-    xhttp.open("POST","NuevaFirma.htm", true);
+    xhttp.open("POST","NuevaFirma2.htm", true);
     alert('hola 5');
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     alert('hola 6');
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
 }
+//
+//
+//function enviarArea(){    
+//    var nomp = $('#NombreArea').val().trim();
+//    var estado = $('input[name="Estado"]:checked').val();
+//
+//    var xhttp = new XMLHttpRequest();
+//    xhttp.onreadystatechange = function() {
+//        if (xhttp.readyState == 4 && xhttp.status == 200) {
+//            document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
+//            swal({
+//                title:'Area creada correctamente.',
+//                text: "",
+//                type:'success',
+//                confirmButtonText: 'Ok'
+//            }).then(function() {                
+//                $('#processing-modal').modal('hide');
+//                $('#processing-modal').modal('hide');
+//                cargarContenido("ListadoDeAreas.htm","contenido");
+//            })
+//        }
+//    }
+//    xhttp.open("POST", "NuevaFirma2.htm", true);
+//    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//    xhttp.send("NombreArea="+nomp+"&Estado="+estado);
+//    
+//}
