@@ -5,19 +5,15 @@
  */
 package pifpatologia.contollers;
 
+
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import modelo.dao.AreaDAO;
 import modelo.dao.FirmasDAO;
-import modelo.dao.UsuarioDAO;
-import modelo.dao.UsuarioPorPerfilDAO;
-import modelo.pojo.Area;
+import modelo.dao.perfilDAO;
 import modelo.pojo.Firmasmedicos;
-import modelo.pojo.Usuarios;
-import modelo.util.EnviarCorreo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 public class FirmasController {
     
-     @RequestMapping("/Firmas.htm")
+     @RequestMapping("/Firma.htm")
        public String ListaFirmas(Model m, HttpServletRequest request){
         FirmasDAO Firmasmedicos = new FirmasDAO();        
         ArrayList<Firmasmedicos> ListaFirmas = Firmasmedicos.ObtenerFirmas();
@@ -41,16 +37,29 @@ public class FirmasController {
         
     }
        
-     @RequestMapping(value="/NuevaFirma.htm", method = RequestMethod.POST)
-        public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
-        FirmasDAO firmas = new FirmasDAO();
+//     @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
+//        public String InsertNuevaFirma(Model m, HttpServletRequest request, @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado){
+//        FirmasDAO firmas = new FirmasDAO();
+//        boolean estadoU=true;
+//        if(estado.equals("Inactivo"))
+//            estadoU=false;
+//        
+//        firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
+//        return "Parametria/ListaFirmas";
+//    }
+        
+        @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
+        public ModelAndView guardar(@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
+         FirmasDAO firmas = new FirmasDAO();
         boolean estadoU=true;
         if(estado.equals("Inactivo"))
             estadoU=false;
+        System.out.println("-----dasdasdasdasda-----------------asdasdad--------------------adasdad----------adads");
         firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
-        return "principal";
-    }
+        
+        mv.addObject("resp","No");
+      return mv;
+    } 
        
-       
-    
 }

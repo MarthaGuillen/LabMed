@@ -7,8 +7,8 @@
 
 function guardarFirma(){
     $('#processing-modal').modal('show');        
-    var nomp = $('#Firma').val().trim();
-    var code = $('#Codigo').val().trim();
+    var nomp = $('#NombreDoc').val().trim();
+    var code = $('#CodDoc').val().trim();
        
     var e=0;
     var variables="";
@@ -35,15 +35,13 @@ function guardarFirma(){
     }else{
         enviarFirma();    
     }  
-    alert('hola');
 }
 
 
 function enviarFirma(){    
-    var nomp = $('#Firma').val().trim();
-    var code = $('#Code').val().trim();
+    var nomp = $('#NombreDoc').val().trim();
+    var code = $('#CodDoc').val().trim();
     var estado = $('input[name="Estado"]:checked').val();
-
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -56,13 +54,13 @@ function enviarFirma(){
             }).then(function() {                
                 $('#processing-modal').modal('hide');
                 $('#processing-modal').modal('hide');
-                cargarContenido("listafirmas.htm","contenido");
+                cargarContenido("listaFirmas.htm","contenido");
             })
         }
     }
-    xhttp.open("POST", "NuevaFirma.htm", true);
+    alert('hola 4');
+    xhttp.open("POST","NuevaFirma.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("NombreDoc="+nomp+"CodDoc="+code+"&Estado="+estado);
-    
+    xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
+   
 }
-

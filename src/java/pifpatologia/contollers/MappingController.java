@@ -62,7 +62,7 @@ public class MappingController {
     
     @RequestMapping("/firmas.htm")
     public String AgreagarFirma(){
-        return "Parametria/NuevaFirma";
+     return "Parametria/NuevaFirma";
     }
     
     @RequestMapping("/idCito.htm")
