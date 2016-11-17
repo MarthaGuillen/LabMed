@@ -69,10 +69,10 @@
                         <label for="Estado" class="col-md-2 form-control-label">Estado:</label>
                         <div class="btn-group" data-toggle="buttons">
                             <label class="btn btn-default active">
-                                <input type="radio" name="Estado" id="Estado" autocomplete="off" checked> Activo
+                                <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo" checked> Activo
                             </label>
                             <label class="btn btn-default">
-                                <input type="radio" name="Estado" id="Estado" autocomplete="off"> Inactivo
+                                <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Inactivo"> Inactivo
                             </label>
                         </div>
                     </div>

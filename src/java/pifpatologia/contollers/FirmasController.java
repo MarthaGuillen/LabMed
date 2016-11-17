@@ -49,7 +49,7 @@ public class FirmasController {
         if(estado.equals("Inactivo"))
             estadoU=false;
         firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
-        return "Parametria/NuevaFirma";
+        return "principal";
     }
         
 //        @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
