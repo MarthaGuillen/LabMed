@@ -11,12 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modelo.dao.AreaDAO;
+import modelo.dao.FirmasDAO;
 import modelo.dao.CitologiaDAO;
 import modelo.dao.PerfilesDAO;
 import modelo.dao.UsuarioDAO;
 import modelo.dao.UsuarioPorPerfilDAO;
 import modelo.dao.perfilDAO;
 import modelo.pojo.Area;
+import modelo.pojo.Firmasmedicos;
 import modelo.pojo.Perfiles;
 import modelo.pojo.Permisos;
 import modelo.pojo.Usuarios;
@@ -59,11 +61,19 @@ public class MappingController {
 //         CitologiaDAO opc = new CitologiaDAO();
 //        return "Resultados/Citologia";
 //    }
+//    
+//    @RequestMapping("/NuevaFirma.htm")
+//    public String AgreagarFirma(){
+//        return "Parametria/NuevaFirma";
+//    }
+//    
     
+             
     @RequestMapping("/NuevaFirma.htm")
-    public String guardarFirma(){
+    public String NuevaFirma(){        
         return "Parametria/NuevaFirma";
     }
+    
     
     @RequestMapping("/idCito.htm")
     public String AgregarIdCitologia(){

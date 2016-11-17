@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modelo.dao.FirmasDAO;
-import modelo.dao.perfilDAO;
 import modelo.pojo.Firmasmedicos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +21,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
+
+
+
+
 /**
  *
  * @author SIST001
  */
 public class FirmasController {
-    
     
     
      @RequestMapping("/NuevaFirma.htm")
@@ -47,19 +49,20 @@ public class FirmasController {
         if(estado.equals("Inactivo"))
             estadoU=false;
         firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
-        return "Parametria/ListaFirmas";
+        return "Parametria/NuevaFirma";
     }
         
 //        @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
 //        public ModelAndView guardar(@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado) throws Exception {
+//        System.out.println("------------------------------------------------------------------------------------1");
 //        ModelAndView mv = new ModelAndView("cargatempPermisos");
-//         FirmasDAO firmas = new FirmasDAO();
+//        FirmasDAO firmas = new FirmasDAO();
 //        boolean estadoU=true;
 //        if(estado.equals("Inactivo"))
 //            estadoU=false;
-//        System.out.println("-----dasdasdasdasda-----------------asdasdad--------------------adasdad----------adads");
-//        firmas.AgregarFirma(nombre, codigo, estadoU);
-//        
+//        System.out.println("------------------------------------------------------------------------------------adads");
+//        //firmas.AgregarFirma(nombre, codigo, estadoU);
+//       firmas.AgregarFirma(nombre, codigo, estadoU);
 //        mv.addObject("resp","No");
 //      return mv;
 //    } 

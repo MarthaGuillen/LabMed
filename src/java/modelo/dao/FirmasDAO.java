@@ -99,11 +99,11 @@ public class FirmasDAO {
     }
         
 //        
-//         public String AgregarFirma(String nombre,String code,boolean estado){
+//         public String AgregarFirma(String nombre,String codigo,boolean estado){
 //        
 //        Session session = HibernateUtil.getSessionFactory().openSession();
-//        String sql = "select fn_insertfirma('"+nombre+"','"+code+"',"+estado+");";
-//        
+//        String sql = "select fn_insertfirma('"+nombre+"','"+codigo+"',"+estado+");";
+//        System.out.println(sql);
 //        List<String> filmList = new ArrayList<String>();
 //        try {
 //            org.hibernate.Transaction tx = session.beginTransaction();

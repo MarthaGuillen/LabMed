@@ -64,5 +64,4 @@ function enviarFirma(){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     alert('hola 6');
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
-    alert('hola 7');
 }
