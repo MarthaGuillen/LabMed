@@ -53,7 +53,6 @@ public class FirmasDAO {
         
         public ArrayList<Firmasmedicos> ObtenerFirmasEstado(boolean estado){        
         Session session = HibernateUtil.getSessionFactory().openSession();
-        System.out.println("---------------------------------------sdasdadsads");
         String sql =  "SELECT * FROM listafirmasestado("+estado+");";
         Firmasmedicos cat;
         ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
@@ -81,7 +80,6 @@ public class FirmasDAO {
         public void AgregarFirma(String nombre,String code,boolean estado, int usuario, String modulo){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx;
-        System.out.println("---------------------------------------------------------------------------1");
         String sql =  "select fn_insert_firma('"+nombre+"','"+code+"',"+estado+");";
         System.out.println(sql);
         List<String> resultado = new ArrayList<String>();

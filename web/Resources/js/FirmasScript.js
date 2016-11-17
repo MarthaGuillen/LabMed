@@ -12,7 +12,6 @@ function guardarFirma(){
        
     var e=0;
     var variables="";
-    alert('hola2');
     if(nomp===""){
         e = 1;
         document.getElementById("NombreDoc").style["border-color"]="#A94442";
@@ -60,9 +59,7 @@ function enviarFirma(){
     }
     alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
     xhttp.open("POST","NuevaFirma2.htm", true);
-    alert('hola 5');
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    alert('hola 6');
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
 }
 //

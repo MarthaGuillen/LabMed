@@ -38,7 +38,6 @@ public class FirmasController {
         public String InsertNuevaFirma(Model m, HttpServletRequest request, 
                 @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,
                 @RequestParam("Estado") String estado){
-        System.out.println("--------------s--------------------------------------adads");
         FirmasDAO firmas = new FirmasDAO();
         boolean estadoU=true;
         if(estado.equals("Inactivo"))
