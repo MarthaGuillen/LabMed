@@ -1,5 +1,5 @@
 package modelo.pojo;
-// Generated 15-nov-2016 8:51:03 by Hibernate Tools 4.3.1
+// Generated 21-nov-2016 11:19:50 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,19 +13,22 @@ public class Catalogocitologias  implements java.io.Serializable {
 
      private int idtblcatcitologias;
      private String nombre;
+     private boolean estado;
      private Set citologias = new HashSet(0);
 
     public Catalogocitologias() {
     }
 
 	
-    public Catalogocitologias(int idtblcatcitologias, String nombre) {
+    public Catalogocitologias(int idtblcatcitologias, String nombre, boolean estado) {
         this.idtblcatcitologias = idtblcatcitologias;
         this.nombre = nombre;
+        this.estado = estado;
     }
-    public Catalogocitologias(int idtblcatcitologias, String nombre, Set citologias) {
+    public Catalogocitologias(int idtblcatcitologias, String nombre, boolean estado, Set citologias) {
        this.idtblcatcitologias = idtblcatcitologias;
        this.nombre = nombre;
+       this.estado = estado;
        this.citologias = citologias;
     }
    
@@ -42,6 +45,13 @@ public class Catalogocitologias  implements java.io.Serializable {
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public boolean isEstado() {
+        return this.estado;
+    }
+    
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     public Set getCitologias() {
         return this.citologias;

@@ -131,10 +131,10 @@ public class MappingController {
         return "EstadisticaPatologia/Patologia";
     }
     
-    @RequestMapping("/listaFirmas.htm")
-    public String listaFirmas(){
-        return "Parametria/listaFirmas";
-    }
+//    @RequestMapping("/listaFirmas.htm")
+//    public String listaFirmas(){
+//        return "Parametria/listaFirmas";
+//    }
    
     @RequestMapping("/ListaIDCitologia.htm")
     public String ListaIDCitologia(){

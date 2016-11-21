@@ -14,8 +14,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modelo.dao.CitologiaDAO;
 import modelo.dao.FirmasDAO;
+import modelo.dao.CatCitoDAO;
 import modelo.pojo.Firmasmedicos;
 import modelo.pojo.Citologia;
+import modelo.pojo.Catalogocitologias;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,14 +34,15 @@ public class citologiaController {
     
     
     @RequestMapping("/citologia.htm")
-    public String Citologia(Model m, HttpServletRequest request){
+    public String Firmas(Model m, HttpServletRequest request){
         FirmasDAO Firmasm = new FirmasDAO();
         ArrayList<Firmasmedicos> ListaFirmas = Firmasm.ObtenerFirmasEstado(true);
         m.addAttribute("ListaFirmas", ListaFirmas);  
+        CatCitoDAO catcito = new CatCitoDAO();
+        ArrayList<Catalogocitologias> ListaCatCito = catcito.ObtenerCatCitoEstado(true);
+        m.addAttribute("ListaCatCito", ListaCatCito);  
         return "Resultados/Citologia";
     }
-            
-    
 
     @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
      public ModelAndView guarda(@RequestParam("idh") int idh) throws Exception {

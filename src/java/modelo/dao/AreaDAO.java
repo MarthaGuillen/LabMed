@@ -25,7 +25,6 @@ public class AreaDAO {
         String sql =  "SELECT * FROM ListarAreas("+Estado+");";
         Area cat;
         ArrayList<Area> Listado= new ArrayList<Area>();
-        System.out.println(sql);
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
@@ -72,7 +71,7 @@ public class AreaDAO {
         String sql =  "SELECT * FROM ListarTodasAreas();";
         Area cat;
         ArrayList<Area> Listado= new ArrayList<Area>();
-        
+        System.out.println(sql);
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);

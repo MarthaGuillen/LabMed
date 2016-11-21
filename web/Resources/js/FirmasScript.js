@@ -57,35 +57,44 @@ function enviarFirma(){
             })
         }
     }
-    alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
+    //alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
     xhttp.open("POST","NuevaFirma2.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
 }
-//
-//
-//function enviarArea(){    
-//    var nomp = $('#NombreArea').val().trim();
-//    var estado = $('input[name="Estado"]:checked').val();
-//
-//    var xhttp = new XMLHttpRequest();
-//    xhttp.onreadystatechange = function() {
-//        if (xhttp.readyState == 4 && xhttp.status == 200) {
-//            document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
-//            swal({
-//                title:'Area creada correctamente.',
-//                text: "",
-//                type:'success',
-//                confirmButtonText: 'Ok'
-//            }).then(function() {                
-//                $('#processing-modal').modal('hide');
-//                $('#processing-modal').modal('hide');
-//                cargarContenido("ListadoDeAreas.htm","contenido");
-//            })
-//        }
+
+
+//function estFirmaEdit(id,est){
+//    var estadoA = "";
+//    if(est==="true"){
+//        est='false';
+//        estadoA="Desactivado";
+//    }else{
+//        est='true';
+//        estadoA="Activado"
+//    ;}
+//   alert("---------------hola");
+//    swal({
+//        title: 'Alerta!',
+//        text: "Desea cambiar el estado de la Firma, al modo "+estadoA+"?",
+//        type: 'warning',
+//        showCancelButton: true,
+//        confirmButtonColor: '#3085d6',
+//        cancelButtonColor: '#d33',
+//        confirmButtonText: 'Si',
+//        cancelButtonText: 'No'
+//    }).then(function() {
+//            $('#processing-modal').modal('show');
+//            var xhttp = new XMLHttpRequest();
+//            xhttp.onreadystatechange = function () {
+//                if (xhttp.readyState == 4 && xhttp.status == 200) {
+//                    $('#processing-modal').modal('hide');
+//                    cargarContenido("listaFirmas.htm","contenido");
+//                }
+//            }
+//            alert("---------------hola 2");
+//            xhttp.open("POST", "upFirmaEstado.htm", true);
+//            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//            xhttp.send("idp=" + id +"&bol="+est);
+//    });
 //    }
-//    xhttp.open("POST", "NuevaFirma2.htm", true);
-//    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//    xhttp.send("NombreArea="+nomp+"&Estado="+estado);
-//    
-//}

@@ -8,6 +8,7 @@ package modelo.dao;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import modelo.pojo.Area;
 import modelo.pojo.Firmasmedicos;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
@@ -20,32 +21,89 @@ import org.hibernate.Transaction;
  */
 public class FirmasDAO {
     
+//        public ArrayList<Firmasmedicos> ObtenerFirmas(){        
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        String sql =  "SELECT * FROM listafirmas();";
+//        Firmasmedicos cat;
+//        System.out.println(sql);
+//        System.out.println("-------------------------------------------------------------------1");
+//
+//        ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
+//        try {
+//            Transaction tx = session.beginTransaction();
+//            Query q = session.createSQLQuery(sql);
+//            Iterator listasecciones =  q.list().iterator();
+//            while(listasecciones.hasNext()){
+//                Object[] registro= (Object[]) listasecciones.next();
+//                cat= new Firmasmedicos();
+//                cat.setIdtblfirmamed((int) registro[0]);
+//                cat.setNombre((String) registro[1]);
+//                cat.setCodigo((String) registro[2]);
+//                 if(((String) registro[2]).equals("true")){
+//                    cat.setEstado(true);
+//                }else{
+//                    cat.setEstado(false);
+//                }
+//                ListadoFirmas.add(cat);
+//                System.out.println((int) registro[0]);
+//            }
+//            
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        session.close(); 
+//        System.out.println("-------------------------------------------------------------------2");
+//        return ListadoFirmas;
+//    }
+        
+        
+        
+        
+        
+        
         public ArrayList<Firmasmedicos> ObtenerFirmas(){        
         Session session = HibernateUtil.getSessionFactory().openSession();
         String sql =  "SELECT * FROM listafirmas();";
         Firmasmedicos cat;
-        ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
+        ArrayList<Firmasmedicos> Listado= new ArrayList<Firmasmedicos>();
+        System.out.println(sql);
         try {
             Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
             Iterator listasecciones =  q.list().iterator();
+
             while(listasecciones.hasNext()){
                 Object[] registro= (Object[]) listasecciones.next();
                 cat= new Firmasmedicos();
                 cat.setIdtblfirmamed((int) registro[0]);
                 cat.setNombre((String) registro[1]);
-                cat.setCodigo((String) registro[2]);
-                ListadoFirmas.add(cat);
-                System.out.println((int) registro[0]);
+                cat.setCodigo((String) registro[1]);
+                if(((String) registro[2]).equals("true")){
+                    cat.setEstado(true);
+                }else{
+                    cat.setEstado(false);
+                }
+                Listado.add(cat);
             }
             
         } catch (Exception e) {
             e.printStackTrace();
         }
         session.close(); 
-        
-        return ListadoFirmas;
+        System.out.println("------------------------------------------------------1");
+        return Listado;
     }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -96,6 +154,27 @@ public class FirmasDAO {
         session.close();    
     }
         
+//        
+//        public String updFirmaestado(String bool,int idp){
+//        
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        String sql = "select up_firmas('"+bool+"','"+idp+"');";
+//        System.out.println(sql);
+//        List<String> filmList = new ArrayList<String>();
+//        try {
+//            org.hibernate.Transaction tx = session.beginTransaction();
+//            Query q = session.createSQLQuery(sql);
+//            //int result = q.executeUpdate();
+//            filmList = q.list();
+//            tx.commit();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        session.close();
+//        return filmList.get(0).toString();
+//    }
+//        
 //        
 //         public String AgregarFirma(String nombre,String codigo,boolean estado){
 //        

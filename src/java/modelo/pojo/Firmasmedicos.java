@@ -1,5 +1,5 @@
 package modelo.pojo;
-// Generated 15-nov-2016 8:51:03 by Hibernate Tools 4.3.1
+// Generated 21-nov-2016 11:19:50 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,6 +14,7 @@ public class Firmasmedicos  implements java.io.Serializable {
      private int idtblfirmamed;
      private String nombre;
      private String codigo;
+     private boolean estado;
      private Set citologiasForIdtblfirma2 = new HashSet(0);
      private Set citologiasForIdtblfirma1 = new HashSet(0);
      private Set histopatologias = new HashSet(0);
@@ -22,15 +23,17 @@ public class Firmasmedicos  implements java.io.Serializable {
     }
 
 	
-    public Firmasmedicos(int idtblfirmamed, String nombre, String codigo) {
+    public Firmasmedicos(int idtblfirmamed, String nombre, String codigo, boolean estado) {
         this.idtblfirmamed = idtblfirmamed;
         this.nombre = nombre;
         this.codigo = codigo;
+        this.estado = estado;
     }
-    public Firmasmedicos(int idtblfirmamed, String nombre, String codigo, Set citologiasForIdtblfirma2, Set citologiasForIdtblfirma1, Set histopatologias) {
+    public Firmasmedicos(int idtblfirmamed, String nombre, String codigo, boolean estado, Set citologiasForIdtblfirma2, Set citologiasForIdtblfirma1, Set histopatologias) {
        this.idtblfirmamed = idtblfirmamed;
        this.nombre = nombre;
        this.codigo = codigo;
+       this.estado = estado;
        this.citologiasForIdtblfirma2 = citologiasForIdtblfirma2;
        this.citologiasForIdtblfirma1 = citologiasForIdtblfirma1;
        this.histopatologias = histopatologias;
@@ -56,6 +59,13 @@ public class Firmasmedicos  implements java.io.Serializable {
     
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+    public boolean isEstado() {
+        return this.estado;
+    }
+    
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
     public Set getCitologiasForIdtblfirma2() {
         return this.citologiasForIdtblfirma2;

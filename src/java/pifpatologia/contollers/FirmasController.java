@@ -11,7 +11,9 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import modelo.dao.AreaDAO;
 import modelo.dao.FirmasDAO;
+import modelo.pojo.Area;
 import modelo.pojo.Firmasmedicos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,20 +26,31 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class FirmasController {
     
+ 
+
     
-//     @RequestMapping("/NuevaFirma.htm")
-//       public String ListaFirmas(Model m, HttpServletRequest request){
-//        FirmasDAO Firmasmedicos = new FirmasDAO();        
-//        ArrayList<Firmasmedicos> ListaFirmas = Firmasmedicos.ObtenerFirmas();
-//        m.addAttribute("listaFirmas", ListaFirmas);
-//        return "Parametria/ListaFirmas";
-//        
-//    }
-       
-     @RequestMapping(value="NuevaFirma2.htm", method = RequestMethod.POST)
-        public String InsertNuevaFirma(Model m, HttpServletRequest request, 
-                @RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,
-                @RequestParam("Estado") String estado){
+    @RequestMapping("/listaFirmas.htm")
+    public String ListaFirmas(Model m, HttpServletRequest request){
+        FirmasDAO Firmasm = new FirmasDAO();
+        ArrayList<Firmasmedicos> ListaFirmas = Firmasm.ObtenerFirmas();
+        m.addAttribute("ListaFirmas", ListaFirmas); 
+        return "Parametria/listaFirmas";
+    }
+           
+     
+//    
+//    
+//    @RequestMapping(value = "upFirmaEstado.htm", method = RequestMethod.POST) 
+//    public ModelAndView upFirmaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
+//        ModelAndView mv = new ModelAndView("cargatempPermisos");
+//        FirmasDAO opc = new FirmasDAO();
+//        String idper = opc.updFirmaestado(bol, idp);      
+//        mv.addObject("resp","No");
+//        return mv;
+//    } 
+//    
+       @RequestMapping(value="NuevaFirma2.htm", method = RequestMethod.POST)
+        public String InsertNuevaFirma(Model m, HttpServletRequest request,@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo,@RequestParam("Estado") String estado){
         FirmasDAO firmas = new FirmasDAO();
         boolean estadoU=true;
         if(estado.equals("Inactivo"))
@@ -46,19 +59,6 @@ public class FirmasController {
         return "principal";
     }
         
-//        @RequestMapping(value="NuevaFirma.htm", method = RequestMethod.POST)
-//        public ModelAndView guardar(@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo ,@RequestParam("Estado") String estado) throws Exception {
-//        System.out.println("------------------------------------------------------------------------------------1");
-//        ModelAndView mv = new ModelAndView("cargatempPermisos");
-//        FirmasDAO firmas = new FirmasDAO();
-//        boolean estadoU=true;
-//        if(estado.equals("Inactivo"))
-//            estadoU=false;
-//        System.out.println("------------------------------------------------------------------------------------adads");
-//        //firmas.AgregarFirma(nombre, codigo, estadoU);
-//       firmas.AgregarFirma(nombre, codigo, estadoU);
-//        mv.addObject("resp","No");
-//      return mv;
-//    } 
+
        
 }

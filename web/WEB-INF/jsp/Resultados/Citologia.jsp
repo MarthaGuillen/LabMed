@@ -26,14 +26,10 @@
                 <!-- campos hansa -->
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="Orden1" class="col-md-3 form-control-label">Orden:</label>
+                        <label for="Factura" class="col-md-4 form-control-label">No.Factura:</label>
                         <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
                            
-                            <input type="text" class="form-control" id="Orden1" name="Orden1" placeholder="" >
-                        </div>
-                        <label for="Orden2" style="padding-left: 2px; padding-right: 2px;" class="col-md-1 form-control-label">-</label>                            
-                        <div class="col-md-4" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Orden2" name="Orden2" placeholder="" >
+                            <input type="text" class="form-control" id="Factura" name="Factura" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -41,7 +37,7 @@
                     <div class="form-group">
                         <label for="Paciente" class="col-md-2 form-control-label">Paciente:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Paciente" name="Paciente" disabled="true" placeholder="" >
+                            <input type="text" class="form-control" id="Paciente" name="Paciente" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -49,7 +45,7 @@
                     <div class="form-group">
                         <label for="Edad" class="col-md-3 form-control-label">Edad:</label>
                         <div class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Edad" name="Edad" disabled="true" placeholder="" >
+                            <input type="text" class="form-control" id="Edad" name="Edad" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -59,7 +55,7 @@
                     <div class="form-group">
                         <label for="Corr" class="col-md-3 form-control-label">Corr:</label>
                         <div class="col-md-8" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="email" class="form-control" id="Corr" name="Orden1" disabled="true" placeholder="" >
+                            <input type="email" class="form-control" id="Corr" name="Orden1"  placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -67,7 +63,7 @@
                     <div class="form-group">
                         <label for="Direccion" class="col-md-2 form-control-label">Dirección:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Direccion" name="Direccion"  disabled="true" placeholder="" >
+                            <input type="text" class="form-control" id="Direccion" name="Direccion" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -75,7 +71,7 @@
                     <div class="form-group">
                         <label for="Sexo" class="col-md-3 form-control-label">Sexo:</label>
                         <div class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Sexo" name="Sexo"  disabled="true" placeholder="" >
+                            <input type="text" class="form-control" id="Sexo" name="Sexo" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -87,7 +83,7 @@
                     <div class="form-group">
                         <label for="Medico" class="col-md-2 form-control-label">Médico:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Medico" name="Medico" disabled="true" placeholder="" >
+                            <input type="text" class="form-control" id="Medico" name="Medico" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -180,10 +176,9 @@
                         <label for="idcito" class="col-md-3 form-control-label">ID Cito:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
                             <select id="idcito" name="idcito" class="form-control"><option value="0">Seleccionar</option>
-                                <option value="opcion2">Negativo</option>
-                                <option value="opcion3">Ascus</option>
-                                <option value="opcion3">Bajo Grado Nic I</option>
-                                <option value="opcion3">Alto Grado Nic II</option>
+                            <c:forEach items="${ListaCatCito}" var="CatCitologia">
+                                <option value="${CatCitologia.getIdtblcatcitologias()}">${CatCitologia.getNombre()}</option>
+                            </c:forEach>                            
                             </select>
                           </div>
                     </div>
