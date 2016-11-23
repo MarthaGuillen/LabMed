@@ -189,3 +189,4 @@ function estAreaEdit(id,est){
 //    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //    xhttp.send("Nombre="+nomp+"&Correo="+correo+"&Area="+area+"&Estado="+estado+"&WebApp="+boolaw+"&MobileApp="+boolam+"&asignados="+perfiles+"&id="+id);
 //}
+

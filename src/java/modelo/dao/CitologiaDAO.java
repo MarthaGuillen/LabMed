@@ -11,63 +11,89 @@ import java.util.Iterator;
 import java.util.List;
 import modelo.pojo.Citologia;
 import modelo.pojo.Firmasmedicos;
-import modelo.pojo.Area;
 import modelo.util.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
-
 
 /**
  *
  * @author SIST001
  */
 public class CitologiaDAO {  
+
     
+//   public String guardarCitologia(boolean deteccioncancer_,boolean indicemaduracion_,String otrosindices_, String diagnosticoclinico_,String fur_, String fup_, String  gravidad_, String para_,int abortos_, int idtblcatcito_, int idtblfirma1_, int  idtblfirma2_,String otros_, Date fechainforme_, Date fechamuestra_, String informe_){
+//        
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        String sql = "select fn_insert_cito('"+ deteccioncancer_ +"','"+ indicemaduracion_ +"','"+ otrosindices_ +"','"+ diagnosticoclinico_ +"','"+ fur_ +"','" + fup_  +"','"+ gravidad_  +"','"+  para_  +"','"+ abortos_ +"','"+ idtblcatcito_ +"','"+ idtblfirma1_ +"','"+ idtblfirma2_ +"','"+ otros_ +"','"+ fechainforme_ +"','"+ fechamuestra_ +"','"+informe_+"' );";
+//        
+//        List<String> filmList = new ArrayList<String>();
+//        try {
+//            
+//            org.hibernate.Transaction tx = session.beginTransaction();
+//            Query q = session.createSQLQuery(sql);
+//            //int result = q.executeUpdate();
+//            filmList = q.list();
+//            tx.commit();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        session.close();
+//        return filmList.get(0).toString();
+//    }
     
-   public String guardarCitologia(boolean deteccioncancer_,boolean indicemaduracion_,String otrosindices_, String diagnosticoclinico_,String fur_, String fup_, String  gravidad_, String para_,int abortos_, int idtblcatcito_, int idtblfirma1_, int  idtblfirma2_,String otros_, Date fechainforme_, Date fechamuestra_, String informe_){
-        
+      
+    
+   
+    public void AgregarCitologia(boolean detcancer, boolean indmadura,String otros,String diag,String fur,String fup,String topog,String para,int aborto,int idcatcito, int firma1,int firma2,String otros2,Date fechainf,Date fechamuest,String desmacro){
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql = "select fn_insert_cito('"+ deteccioncancer_ +"','"+ indicemaduracion_ +"','"+ otrosindices_ +"','"+ diagnosticoclinico_ +"','"+ fur_ +"','" + fup_  +"','"+ gravidad_  +"','"+  para_  +"','"+ abortos_ +"','"+ idtblcatcito_ +"','"+ idtblfirma1_ +"','"+ idtblfirma2_ +"','"+ otros_ +"','"+ fechainforme_ +"','"+ fechamuestra_ +"','"+informe_+"' );";
-        
-        List<String> filmList = new ArrayList<String>();
+        System.out.println("-------------------------------------------------------------123");
+        Transaction tx;
+        String sql = "select fn_insert_cito('"+detcancer+"','"+indmadura+"','"+otros+"','"+diag+"','"+fur+"','"+fup+"','"+topog+"','"+para+"','"+aborto+"','"+idcatcito+"','"+firma1+"','"+firma2+"','"+otros2+"','"+fechainf+"','"+fechamuest+"','"+desmacro+"');";
+        System.out.println(sql);
+        List<String> resultado = new ArrayList<String>();
         try {
+            tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            resultado=q.list();
             
-            org.hibernate.Transaction tx = session.beginTransaction();
-            Query q = session.createSQLQuery(sql);
-            //int result = q.executeUpdate();
-            filmList = q.list();
             tx.commit();
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
-        session.close();
-        return filmList.get(0).toString();
+        session.close();    
     }
-    
- 
-    
-    public List cargacamposhansa(int idhansa){
         
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql = "Select * from listarcamposhansbyid('"+idhansa+"')";
-        
-        List<Object[]> listaget = new ArrayList<Object[]>();
-        try {
-            org.hibernate.Transaction tx = session.beginTransaction();
-            Query q = session.createSQLQuery(sql);
-            listaget = q.list();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally { 
-          session.close();
-        }
-
-       
-        return listaget;
-    }
+   
+   
+   
+   
+   
+   
+   
+    
+//    public List cargacamposhansa(int idhansa){
+//        
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        String sql = "Select * from listarcamposhansbyid('"+idhansa+"')";
+//        
+//        List<Object[]> listaget = new ArrayList<Object[]>();
+//        try {
+//            org.hibernate.Transaction tx = session.beginTransaction();
+//            Query q = session.createSQLQuery(sql);
+//            listaget = q.list();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }finally { 
+//          session.close();
+//        }
+//
+//       
+//        return listaget;
+//    }
   
 }

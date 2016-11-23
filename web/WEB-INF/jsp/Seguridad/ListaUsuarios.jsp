@@ -57,7 +57,7 @@
                                         <c:if test="${!Usuario.isEstado()}">
                                             <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estUserEdit('${Usuario.getIdtblusuarios()}','${Usuario.isEstado()}');" style="cursor:pointer;"/></td>
                                         </c:if>
-                                        <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Usuario.getIdtblusuarios()})" alt="" height="20" width="20"/></td>                      
+                                        <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoUsuarios(${Usuario.getIdtblusuarios()})" alt="" height="30" width="30"/></td>                      
                                     </tr>
                             </c:forEach>    
                             </tbody>

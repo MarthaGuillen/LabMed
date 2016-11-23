@@ -32,7 +32,7 @@
                                 <tr>
                                     <th style="text-align:center">No.</th>
                                     <th style="text-align:center">Nombre</th>
-                                    <th style="text-align:center">Código</th>
+                                    <th style="text-align:center">Codigo</th>
                                     <th style="text-align:center">Estado</th>                                  
                                     <th style="text-align:center">Editar</th>
                                 </tr>
@@ -51,7 +51,7 @@
                                     <c:if test="${!Firmas.isEstado()}">
                                         <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estFirmasEdit('${Firmas.getIdtblfirmamed()}','${Firmas.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
-                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoFirma(${Firmas.getIdtblfirmamed()})" alt="" height="20" width="20"/></td>                      
+                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoFirma(${Firmas.getIdtblfirmamed()})" alt="" height="30" width="30"/></td>                      
                                 </tr>   
                             </c:forEach>    
                             </tbody>

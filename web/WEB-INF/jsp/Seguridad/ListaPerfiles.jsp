@@ -32,7 +32,7 @@
                             <c:if test="${valida > 0}"> 
                             <br>
                             
-                           <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                           <table id="tablaperfiles" class="table table-striped table-bordered" cellspacing="0" width="100%">
                               <thead>
 					<tr>
 						<th>No.</th>
@@ -58,7 +58,7 @@
                                                         <a onclick="estPerfilEdita('${idp[i]}','${estL[i]}');" style="cursor:pointer;"><img src="Resources/image/desactivar.png" alt="" width="40"/></a>
                                                     </c:if>
                                                 </td>   
-                                                <td align="center"><a style="cursor:pointer;" onclick="cargaPerfilEdita('${idp[i]}');"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/></a></td>   
+                                                <td align="center"><a style="cursor:pointer;" onclick="cargaPerfilEdita('${idp[i]}');"><img src="Resources/image/Ver.png" alt="" height="30" width="30"/></a></td>   
 					</tr>
                                     </c:forEach>	
 				</tbody>

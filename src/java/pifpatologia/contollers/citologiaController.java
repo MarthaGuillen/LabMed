@@ -39,82 +39,77 @@ public class citologiaController {
         ArrayList<Firmasmedicos> ListaFirmas = Firmasm.ObtenerFirmasEstado(true);
         m.addAttribute("ListaFirmas", ListaFirmas);  
         CatCitoDAO catcito = new CatCitoDAO();
+          System.out.println("------------------------------------------------------------------------controller55");
         ArrayList<Catalogocitologias> ListaCatCito = catcito.ObtenerCatCitoEstado(true);
         m.addAttribute("ListaCatCito", ListaCatCito);  
         return "Resultados/Citologia";
     }
 
-    @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
-     public ModelAndView guarda(@RequestParam("idh") int idh) throws Exception {
-      ModelAndView mv = new ModelAndView("cargacamphansa");
-        CitologiaDAO opc = new CitologiaDAO();
-        
-        List listaP1 = opc.cargacamposhansa(idh);
-        String idhansa = "";
-        String orden = "";
-        String correo = "";
-        String paciente = "";
-        String direccion = "";
-        String medico = "";
-        String edad = "";
-        String sexo = "";
-        String sede = "";
-        
-        List<Object[]> listDatosp = listaP1;
-        for (Object[] datos : listDatosp) {
-            idhansa = (String) datos[0].toString();
-            orden = (String) datos[1].toString();
-            correo = (String) datos[2].toString();
-            paciente = (String) datos[3].toString( );
-            direccion = (String) datos[4].toString();
-            medico = (String) datos[5].toString();
-            edad = (String) datos[6].toString();
-            sexo = (String) datos[7].toString();
-            sede = (String) datos[8].toString();
-        }
-        mv.addObject("idhansa",idh);
-        mv.addObject("orden",orden);
-        mv.addObject("correo",correo);
-        mv.addObject("paciente",paciente);
-        mv.addObject("direccion",direccion);
-        mv.addObject("medico",medico);
-        mv.addObject("edad",edad);
-        mv.addObject("sexo",edad);
-        mv.addObject("sede",sede);
-        
-      return mv;
-    }
-     
-     
-      @RequestMapping(value = "guardarCitologia.htm", method = RequestMethod.POST) 
-      public ModelAndView guarda(@RequestParam("DetCancer") boolean deteccioncancer_, @RequestParam("IndMaduracion") boolean indicemaduracion_,@RequestParam("Otros") String otrosindices_,@RequestParam("Medico") String diagnosticoclinico_,@RequestParam("FUR") String fur_,@RequestParam("FUP") String fup_,@RequestParam("TOPOG") String  gravidad_,@RequestParam("Para") String para_,@RequestParam("Abortos") int abortos_,@RequestParam("idcito") int idtblcatcito_,@RequestParam("Firma1") int idtblfirma1_, @RequestParam("Firma2") int  idtblfirma2_,@RequestParam("Otros2") String otros_,@RequestParam("FechaInforme") Date fechainforme_,@RequestParam("FechaMuestra") Date fechamuestra_,@RequestParam("DescMacro") String informe_)throws Exception{
-      ModelAndView mv = new ModelAndView("guardarCitologia");
-        CitologiaDAO opc = new CitologiaDAO();
-//        String p1 = new String(nombre.getBytes("ISO-8859-1"), "UTF-8");
-//        String p2 = new String(desc.getBytes("ISO-8859-1"), "UTF-8");
-//        boolean deteccioncancer_;
-//        boolean indicemaduracion_
-//        String otrosindices_, 
-//        String diagnosticoclinico_,
-//        String fur_, 
-//        String fup_, 
-//        String  gravidad_, 
-//        String para_,
-//        int abortos_, 
-//        int idtblcatcito_, 
-//        int idtblfirma1_, 
-//        int  idtblfirma2_,
-//        String otros_, 
-//        Date fechainforme_, 
-//        Date fechamuestra_,
-//        String informe_
-        String idCito = opc.guardarCitologia( deteccioncancer_, indicemaduracion_, otrosindices_,  diagnosticoclinico_, fur_,  fup_,   gravidad_,  para_, abortos_,  idtblcatcito_,  idtblfirma1_,   idtblfirma2_, otros_,  fechainforme_,  fechamuestra_,  informe_);
+    @RequestMapping(value="citologia.htm", method = RequestMethod.POST)
+    public String InsertNuevaCitologia(Model m, HttpServletRequest request,@RequestParam("DetCancer") boolean detcancer,@RequestParam("IndMaduracion") boolean indmadura,@RequestParam("Otros") String otros,@RequestParam("Diagnostico") String diag,@RequestParam("FUR") String fur,@RequestParam("FUP") String fup,            @RequestParam("TOPOG") String topog,@RequestParam("Para") String para,@RequestParam("Abortos") int aborto, @RequestParam("idcatcito") int idcatcito,            @RequestParam("Firma1") int firma1,@RequestParam("Firma2") int firma2,@RequestParam("Otros2") String otros2,@RequestParam("FechaInforme") Date fechainf,@RequestParam("FechaMuestra") Date fechamuest, @RequestParam("DescMacro") String desmacro){
+        CitologiaDAO cito = new CitologiaDAO();      
+        cito.AgregarCitologia(detcancer, indmadura,otros, diag, fur, fup, topog, para, aborto, idcatcito, firma1, firma2, otros2, fechainf, fechamuest, desmacro);
+        System.out.println("------------------------------------------------------------------------controller3");
+        return "principal";
+    }   
+    
        
-        mv.addObject("resp","No");
-      return mv;
-    } 
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
+//     public ModelAndView guarda(@RequestParam("idh") int idh) throws Exception {
+//      ModelAndView mv = new ModelAndView("cargacamphansa");
+//        CitologiaDAO opc = new CitologiaDAO();
+//        
+//        List listaP1 = opc.cargacamposhansa(idh);
+//        String idhansa = "";
+//        String orden = "";
+//        String correo = "";
+//        String paciente = "";
+//        String direccion = "";
+//        String medico = "";
+//        String edad = "";
+//        String sexo = "";
+//        String sede = "";
+//        
+//        List<Object[]> listDatosp = listaP1;
+//        for (Object[] datos : listDatosp) {
+//            idhansa = (String) datos[0].toString();
+//            orden = (String) datos[1].toString();
+//            correo = (String) datos[2].toString();
+//            paciente = (String) datos[3].toString( );
+//            direccion = (String) datos[4].toString();
+//            medico = (String) datos[5].toString();
+//            edad = (String) datos[6].toString();
+//            sexo = (String) datos[7].toString();
+//            sede = (String) datos[8].toString();
+//        }
+//        mv.addObject("idhansa",idh);
+//        mv.addObject("orden",orden);
+//        mv.addObject("correo",correo);
+//        mv.addObject("paciente",paciente);
+//        mv.addObject("direccion",direccion);
+//        mv.addObject("medico",medico);
+//        mv.addObject("edad",edad);
+//        mv.addObject("sexo",edad);
+//        mv.addObject("sede",sede);
+//        
+//      return mv;
+//    }
      
- 
+
 }
 
 

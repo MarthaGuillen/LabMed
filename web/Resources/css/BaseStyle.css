@@ -13,9 +13,10 @@ body{
 }
 
 .dropdown-header {
-    font-size: 13px;
-    color: blue;
+    font-size: 14px;
+    color: black;
     white-space: nowrap;
+    font-weight: bold;
 }
 
 #pagina {   

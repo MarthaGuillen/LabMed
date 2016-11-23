@@ -3,90 +3,88 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function guardarTemporal(){
 
+
+    function guardarCitologia(){
+    $('#processing-modal').modal('show');        
+    var diag = $('#Diagnostico').val().trim();
+    var desmacro = $('#DescMacro').val().trim(); 
+    var idcatcito = document.getElementById("idcatcito").options[document.getElementById("idcatcito").selectedIndex].value;
+    var firma1 = document.getElementById("Firma1").options[document.getElementById("Firma1").selectedIndex].value;
+       
+    var e=0;
+    var variables="";
+    if(diag===""){
+        e = 1;
+        document.getElementById("Diagnostico").style["border-color"]="#A94442";
+        variables += "- Diagnostico\n";
+    }
+    if(desmacro===""){
+        e = 2;
+        document.getElementById("DescMacro").style["border-color"]="#A94442";
+        variables += "- Detalle Informe\n";
+    }
+    if(idcatcito==="0"){
+        e=3;
+        document.getElementById("idcatcito").style["border-color"]="#A94442";
+        variables += "- ID Citologia\n";
+    }
+    if(firma1==="0"){
+        e=4;
+         document.getElementById("Firma1").style["border-color"]="#A94442";
+        variables += "- Firma Medico\n";
+    }
+    if (e!==0) {
+        var mensaje = '<h2>Favor validar:</h2>';
+        $('#processing-modal').modal('hide');
+        $('#processing-modal').modal('hide');
+        swal({
+            title: '',
+            text:  mensaje+'<p>'+variables+'</p>',
+            type: 'error'
+        });
+    }else{
+        enviarcitologia();    
+    }  
+}
+     
+
+   function enviarcitologia(){  
+    var detcancer =document.getElementById('DetCancer').checked;
+    var indmadura =document.getElementById('IndMaduracion').checked;
+    var otros = $('#Otros').val().trim();
+    var diag = $('#Diagnostico').val().trim();
+    var fup = $('#FUP').val().trim();
+    var fur = $('#FUR').val().trim();
+    var topog = $('#TOPOG').val().trim();
+    var para = $('#Para').val().trim();
+    var aborto = $('#Abortos').val().trim();
+    var idcatcito = document.getElementById("idcatcito").options[document.getElementById("idcatcito").selectedIndex].value;
+    var firma1 = document.getElementById("Firma1").options[document.getElementById("Firma1").selectedIndex].value;
+    var firma2 = document.getElementById("Firma2").options[document.getElementById("Firma2").selectedIndex].value;
+    var otros2 = $('#Otros2').val().trim();
+    var fechainf = $('#FechaInforme').val().trim(); 
+    var fechamuest = $('#FechaMuestra').val().trim(); 
+    var desmacro = $('#DescMacro').val().trim(); 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
             swal({
-                title: 'Citologia ingresada correctamente.',
+                title: 'Citologia creada correctamente.',
                 text: "",
                 type: 'success',
                 confirmButtonText: 'Ok'
             }).then(function() {                
-               
+                $('#processing-modal').modal('hide');
+                $('#processing-modal').modal('hide');
                 cargarContenido("principal.htm","contenido");
             })
         }
-   
-    xhttp.open("POST", "guardaCitologia.htm", true);
+    }
+    xhttp.open("POST", "citologia.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-    
-}
+    //alert("DetCancer="+detcancer+"&IndMaduracion="+indmadura+"&Otros="+otros+"&Diagnostico="+diag+"&FUR="+fur+"&FUP="+fup+"&TOPOG="+topog+"&Para="+para+"&Abortos="+aborto+"&idcatcito="+idcatcito+"&Firma1="+firma1+"&Firma2="+firma2+"&Otros2="+otros2+"&FechaInforme="+fechainf+"&FechaMuestra="+fechamuest+"&DescMacro="+desmacro);
+    xhttp.send("DetCancer="+detcancer+"&IndMaduracion="+indmadura+"&Otros="+otros+"&Diagnostico="+diag+"&FUR="+fur+"&FUP="+fup+"&TOPOG="+topog+"&Para="+para+"&Abortos="+aborto+"&idcatcito="+idcatcito+"&Firma1="+firma1+"&Firma2="+firma2+"&Otros2="+otros2+"&FechaInforme="+fechainf+"&FechaMuestra="+fechamuest+"&DescMacro="+desmacro);                   
+ }
 
-
-
-
-
-
-
-
-
-
-
-
-//{
-//                var xhttp = new XMLHttpRequest();
-//            xhttp.onreadystatechange = function() {
-//            if (xhttp.readyState == 4 && xhttp.status == 200) {
-//                document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
-//                $('#processing-modal').modal('hide');
-//                swal({
-//                    title: 'Perfil creado correctamente.',
-//                    text: "",
-//                    type: 'success',
-//                    confirmButtonText: 'Ok'
-//                }).then(function() {
-//                    cargarContenido("ListaPerfiles.htm","contenido");
-//                })
-//            }
-//            }
-//            xhttp.open("POST", "guardarCitologia.htm", true);
-//            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//            xhttp.send("nombre="+nomp+"&desc="+desc+"&per="+mn+"&bol="+bool);
-//            deteccioncancer_, indicemaduracion_, otrosindices_,  diagnosticoclinico_, fur_,  fup_,   gravidad_,  para_, abortos_,  idtblcatcito_,  idtblfirma1_,   idtblfirma2_, otros_,  fechainforme_,  fechamuestra_,  informe_
-//           // @RequestParam("DetCancer") boolean deteccioncancer_, @RequestParam("IndMaduracion") boolean indicemaduracion_,@RequestParam("Otros") String otrosindices_,@RequestParam("Medico") String diagnosticoclinico_,@RequestParam("FUR") String fur_,@RequestParam("FUP") String fup_,@RequestParam("TOPOG") String  gravidad_,@RequestParam("Para") String para_,@RequestParam("Abortos") int abortos_,@RequestParam("idcito") int idtblcatcito_,@RequestParam("Firma1") int idtblfirma1_, @RequestParam("Firma2") int  idtblfirma2_,@RequestParam("Otros2") String otros_,@RequestParam("FechaInforme") Date fechainforme_,@RequestParam("FechaMuestra") Date fechamuestra_,@RequestParam("DescMacro") String informe_
-//}
-
-
-
-
-
-
-
-
-
-//
-//function guardarCitologia()
-//{
-//                var xhttp = new XMLHttpRequest();
-//            xhttp.onreadystatechange = function() {
-//            if (xhttp.readyState == 4 && xhttp.status == 200) {
-//                document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
-//                $('#processing-modal').modal('hide');
-//                swal({
-//                    title: 'Perfil creado correctamente.',
-//                    text: "",
-//                    type: 'success',
-//                    confirmButtonText: 'Ok'
-//                }).then(function() {
-//                    cargarContenido("ListaPerfiles.htm","contenido");
-//                })
-//            }
-//            }
-//            xhttp.open("POST", "guardarCitologia.htm", true);
-//            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//            xhttp.send("nombre="+nomp+"&desc="+desc+"&per="+mn+"&bol="+bool);
-//            deteccioncancer_, indicemaduracion_, otrosindices_,  diagnosticoclinico_, fur_,  fup_,   gravidad_,  para_, abortos_,  idtblcatcito_,  idtblfirma1_,   idtblfirma2_, otros_,  fechainforme_,  fechamuestra_,  informe_
-//           // @RequestParam("DetCancer") boolean deteccioncancer_, @RequestParam("IndMaduracion") boolean indicemaduracion_,@RequestParam("Otros") String otrosindices_,@RequestParam("Medico") String diagnosticoclinico_,@RequestParam("FUR") String fur_,@RequestParam("FUP") String fup_,@RequestParam("TOPOG") String  gravidad_,@RequestParam("Para") String para_,@RequestParam("Abortos") int abortos_,@RequestParam("idcito") int idtblcatcito_,@RequestParam("Firma1") int idtblfirma1_, @RequestParam("Firma2") int  idtblfirma2_,@RequestParam("Otros2") String otros_,@RequestParam("FechaInforme") Date fechainforme_,@RequestParam("FechaMuestra") Date fechamuestra_,@RequestParam("DescMacro") String informe_
-//}

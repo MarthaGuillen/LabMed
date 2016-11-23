@@ -9,14 +9,14 @@
             <div class="col-md-12">
                 <h2 style="margin-top: 5px; color: white;">Citología
                     <div class=" pull-right control">                    
-                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarTemporal();" >Generar</a>                  
+                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarCitologia();" >Generar</a>                  
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
             </div>              
         </div>
          <div class="row menubotones " style="text-align: center;">
-            <a onclick="guardarTemporal();" data-toggle="tooltip" title="Guardar Perfil"><img src="Resources/image/08Guardar.png" alt=""/></a>
+            <a onclick="guardarCitologia();" data-toggle="tooltip" title="Guardar Perfil"><img src="Resources/image/08Guardar.png" alt=""/></a>
             <a onclick="" data-toggle="tooltip" title="Ayuda"><img src="Resources/image/16ayuda.png" alt=""/></a>
         </div>
         <form id="CitologiaForm" class="form-horizontal" role="form" action="#" method="POST">
@@ -96,14 +96,15 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <div style="padding-left: 15px; padding-right: 2px;">
-                            <input type="checkbox" name="DetCancer" style="margin-left: 5px;"> <b>Detección del Cancer</b>
+                            <input type="checkbox" id="DetCancer"  name="DetCancer" style="margin-left: 5px;"> <b>Detección del Cancer</b>
+                         
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <div style="padding-left: 2px; padding-right: 2px;">
-                            <input type="checkbox" name="IndMaduracion"> <b>Indice de Maduración</b>
+                            <input type="checkbox" id="IndMaduracion" name="IndMaduracion"> <b>Indice de Maduración</b>
                         </div>
                     </div>
                 </div>
@@ -121,7 +122,7 @@
                     <div class="form-group">
                         <label for="Medico" class="col-md-2 form-control-label">Diagnóstico Clínico:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Medico" name="Medico" placeholder="" >
+                            <input type="text" class="form-control" id="Diagnostico" name="Diagnostico" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -175,7 +176,7 @@
                     <div class="form-group">
                         <label for="idcito" class="col-md-3 form-control-label">ID Cito:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <select id="idcito" name="idcito" class="form-control"><option value="0">Seleccionar</option>
+                            <select id="idcatcito" name="idcatcito" class="form-control"><option value="0">Seleccionar</option>
                             <c:forEach items="${ListaCatCito}" var="CatCitologia">
                                 <option value="${CatCitologia.getIdtblcatcitologias()}">${CatCitologia.getNombre()}</option>
                             </c:forEach>                            
@@ -185,7 +186,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="Area" class="col-md-3 form-control-label">Firma 1:</label>
+                        <label for="Firma1" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                             <select id="Firma1" name="Firma1" class="form-control"><option value="0">Seleccionar</option>
                             <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
@@ -219,7 +220,7 @@
                         <label for="Firma2" class="col-md-3 form-control-label">Firma 2:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
                             <!-- <input type="search" class="form-control" id="Firma2" name="Firma2" placeholder="" >-->
-                            <select id="idfima2" name="idfima2" class="form-control"><option value="0">Seleccionar</option>
+                            <select id="Firma2" name="Firma2" class="form-control"><option value="0">Seleccionar</option>
                                 <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
                                 <option value="${Firmasmedicos.getIdtblfirmamed()}">${Firmasmedicos.getNombre()}</option>
                             </c:forEach> 
@@ -254,4 +255,17 @@
         </div>        
     </div>
     <div class="col-md-1"></div>
+    <div id="creaNuevo" class="col-md-1"></div>
+</div>
+<div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="Resources/image/loading.gif" class="icon" alt=""/>
+                    <h4>Cargando...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

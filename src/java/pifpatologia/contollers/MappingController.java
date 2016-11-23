@@ -61,13 +61,7 @@ public class MappingController {
 //         CitologiaDAO opc = new CitologiaDAO();
 //        return "Resultados/Citologia";
 //    }
-//    
-//    @RequestMapping("/NuevaFirma.htm")
-//    public String AgreagarFirma(){
-//        return "Parametria/NuevaFirma";
-//    }
-//    
-    
+
              
     @RequestMapping("/NuevaFirma.htm")
     public String NuevaFirma(){        

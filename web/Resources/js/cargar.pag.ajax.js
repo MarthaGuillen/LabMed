@@ -17,13 +17,26 @@ function nuevoAjax(xmlhttp){
 function cargarContenido(pagina,destino){
     var contenedor;
     var ajax;
-
+    
     contenedor = document.getElementById(destino);
     ajax = nuevoAjax(ajax);
     ajax.open("GET", pagina, true);
     ajax.onreadystatechange=function() {
         if (ajax.readyState==4) {
             contenedor.innerHTML = ajax.responseText;
+            //Asigna la clase de DataTable a los grid de las vistas*/
+            if(pagina==='ListadoDeAreas.htm'){
+                $('#TablaAreas').DataTable();
+            }
+            if(pagina==='ListaPerfiles.htm'){
+                $('#tablaperfiles').DataTable();
+            }
+            if(pagina==='ListaUsuarios.htm'){
+                $('#TablapermisosUsuarios').DataTable();
+            }
+             if(pagina==='listaFirmas.htm'){
+                $('#TablaListaFirmas').DataTable();
+            }
         }
     }
     ajax.send(null);
@@ -32,7 +45,7 @@ function cargarContenido(pagina,destino){
 function agregarContenido(pagina,destino){
     var contenedor;
     var ajax;
-
+    
     contenedor = document.getElementById(destino);
     ajax = nuevoAjax(ajax);
     ajax.open("GET", pagina, true);

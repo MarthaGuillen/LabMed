@@ -9,7 +9,8 @@
         <link href="Resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="Resources/css/BaseStyle.css" rel="stylesheet" type="text/css"/> 
         <script src="Resources/js/jquery-1.12.4.min.js" type="text/javascript"></script> 
-        <link href="Resources/css/sweetalert2.min.css"  rel="stylesheet" type="text/css">        
+        <link href="Resources/css/sweetalert2.min.css"  rel="stylesheet" type="text/css"> 
+        <link href="Resources/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body id="imagenBack" onload="cargarContenido('menu.htm', 'page-menu');">   
         <div id="page-menu"></div>
@@ -23,5 +24,6 @@
         <script src="Resources/js/AreaScripts.js" type="text/javascript"></script>
         <script src="Resources/js/validarcitologia.js" type="text/javascript"></script>
         <script src="Resources/js/FirmasScript.js" type="text/javascript"></script>
+        <script src="Resources/js/jquery.dataTables.min.js" type="text/javascript"></script>    
     </body>
 </html>
