@@ -57,7 +57,7 @@ function enviarFirma(){
             })
         }
     }
-    //alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
+    alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
     xhttp.open("POST","NuevaFirma2.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);

@@ -47,11 +47,11 @@ public class CitologiaDAO {
       
     
    
-    public void AgregarCitologia(boolean detcancer, boolean indmadura,String otros,String diag,String fur,String fup,String topog,String para,int aborto,int idcatcito, int firma1,int firma2,String otros2,Date fechainf,Date fechamuest,String desmacro){
+    public void AgregarCitologia(boolean detcancer, boolean indmadura,String otros,String diag,String fur,String fup,String gravidad,String para,int aborto,int catalogocito, int firmas1,int firmas2,String otros2,String fi,String fm,String info){             
         Session session = HibernateUtil.getSessionFactory().openSession();
         System.out.println("-------------------------------------------------------------123");
         Transaction tx;
-        String sql = "select fn_insert_cito('"+detcancer+"','"+indmadura+"','"+otros+"','"+diag+"','"+fur+"','"+fup+"','"+topog+"','"+para+"','"+aborto+"','"+idcatcito+"','"+firma1+"','"+firma2+"','"+otros2+"','"+fechainf+"','"+fechamuest+"','"+desmacro+"');";
+        String sql = "select fn_insert_cito('"+detcancer+"','"+indmadura+"','"+otros+"','"+diag+"','"+fur+"','"+fup+"','"+gravidad+"','"+para+"','"+aborto+"','"+catalogocito+"','"+firmas1+"','"+firmas2+"','"+otros2+"','"+fi+"','"+fm+"','"+info+"');";
         System.out.println(sql);
         List<String> resultado = new ArrayList<String>();
         try {
@@ -64,8 +64,8 @@ public class CitologiaDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        session.close();    
-    }
+        session.close();  
+         }
         
    
    

@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="FUR" class="col-md-3 form-control-label">Para:</label>
+                        <label for="Para" class="col-md-3 form-control-label">Para:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
                             <input type="text" class="form-control" id="Para" name="Para" placeholder="" >
                         </div>
@@ -166,7 +166,7 @@
                     <div class="form-group">
                         <label for="Abortos" class="col-md-3 form-control-label">Abortos:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="number" class="form-control" id="Abortos" name="Abortos" placeholder="" >
+                            <input type="number" class="form-control" id="Abortos" name="Abortos" placeholder="" value ="0" >
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@
                     <div class="form-group">
                         <label for="FechaInforme" class="col-md-3 form-control-label">Fecha Informe:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FechaInforme" name="FechaInforme" placeholder="" >
+                            <input type="date" class="form-control" id="FechaInforme" name="FechaInforme" placeholder=""  >
                         </div>
                     </div>
                 </div>
@@ -230,9 +230,9 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="FechaMuestra" class="col-md-3 form-control-label">Fecha Muestra:</label>
+                        <label for="Fmuestra" class="col-md-3 form-control-label">Fecha Muestra:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FechaMuestra" name="FechaMuestra" placeholder="" >
+                             <input type="date" class="form-control" id="Fmuestra" name="Fmuestra" placeholder="" value >
                         </div>
                     </div>
                 </div>

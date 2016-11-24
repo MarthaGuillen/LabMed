@@ -26,7 +26,7 @@
                 <div class="col-md-10">
                     <div class="form-group">
                         <c:if test="${!empty listaArea}">
-                        <table  id="TablaAreas" class="display" style="font-family:Georgia" cellspacing="0" width="100%">
+                        <table  id="TablaAreas"  style="font-family:Georgia" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th style="text-align:center">No.</th>
