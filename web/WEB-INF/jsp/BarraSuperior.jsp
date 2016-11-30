@@ -16,7 +16,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resultados <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('citologia.htm', 'contenido');$('#processing-modal').modal('hide');">Citología</a></li>
-                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('hispatologia.htm', 'contenido');$('#processing-modal').modal('hide');">Hispatología</a></li>
+                        <li><a href="#" onclick="$('#processing-modal').modal('show');cargarContenido('histopatologia.htm', 'contenido');$('#processing-modal').modal('hide');">Histopatología</a></li>
                     </ul>
                 </li>
                  <li class="dropdown">

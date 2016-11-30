@@ -51,22 +51,7 @@ public class citologiaController {
         cito.AgregarCitologia(detcancer, indmadura, otros, diag, fur, fup, gravidad, para, abortos, catalogocito, firmas1, firmas2, otro2, fi, fm1, info);
         return "principal";
     }   
-    
-       
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 //    @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
 //     public ModelAndView guarda(@RequestParam("idh") int idh) throws Exception {
 //      ModelAndView mv = new ModelAndView("cargacamphansa");

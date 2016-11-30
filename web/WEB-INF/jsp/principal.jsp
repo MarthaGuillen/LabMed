@@ -23,7 +23,8 @@
         <script src="Resources/js/UsuarioScripts.js" type="text/javascript"></script>
         <script src="Resources/js/AreaScripts.js" type="text/javascript"></script>
         <script src="Resources/js/CitologiaScripts.js" type="text/javascript"></script>
+        <script src="Resources/js/HistopatologiaScripts.js" type="text/javascript"></script>
         <script src="Resources/js/FirmasScript.js" type="text/javascript"></script>
-        <script src="Resources/js/jquery.dataTables.min.js" type="text/javascript"></script>    
+        <script src="Resources/js/jquery.dataTables.min.js" type="text/javascript"></script>  
     </body>
 </html>

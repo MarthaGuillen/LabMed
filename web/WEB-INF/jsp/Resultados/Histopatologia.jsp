@@ -1,13 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10" id="pagina">
         <div class="row" style="background-color: #222; border-bottom:1px solid #5DFDF2;">
             <div class="col-md-12">
-                <h2 style="margin-top: 5px; color: white;">Histopatología <small style="color: #9d9d9d;">&nbsp;Id: </small>
+                <h2 style="margin-top: 5px; color: white;">Histopatología <small style="color: #9d9d9d;">
+                        <input type="hidden" id="code" value="${codigo}">
+                        <label id="codigofotohisto" class="form-control-label" >Id:<strong> ${codigo} </strong></label>
+                    </small>
                     <div class=" pull-right control">                    
-                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary">Generar</a>                  
+                        <a id="btn-login" href="#" class="btn btn-md mybtn-primary" onclick="guardarHistopatologia();">Guardar</a>                  
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
@@ -31,15 +35,11 @@
                 <br/>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="Orden1" class="col-md-3 form-control-label">Orden:</label>
+                        <label for="Nofactura" class="col-md-4 form-control-label">No.Factura</label>
                         <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Orden1" name="Orden1" placeholder="" >
+                            <input type="text" class="form-control" id="Nofactura" name="Nofactura" placeholder="" >
                         </div>
-                        <label for="Orden2" style="padding-left: 2px; padding-right: 2px;" class="col-md-1 form-control-label">-</label>                            
-                        <div class="col-md-4" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Orden2" name="Orden2" placeholder="" >
-                        </div>
-                    </div>
+                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
@@ -98,21 +98,22 @@
                 <div class="col-md-3">
                 </div>
             </div>
+            <!-------------Campos HANSA --------------->
             <div class="row">  
                 <hr style="border: 1px solid #C6C8CA;"/>
                 <div class="col-md-9">
                     <div class="form-group">
-                        <label for="Medico" class="col-md-2 form-control-label">Diagnóstico Clínico:</label>
+                        <label for="DiagnosticoClinico" class="col-md-2 form-control-label">Diagnóstico Clínico:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Medico" name="Medico" placeholder="" >
+                            <input type="text" class="form-control" id="DiagnosticoClinico" name="DiagnosticoClinico" placeholder="" >
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="Edad" class="col-md-3 form-control-label">MOR1:</label>
+                        <label for="Mor1" class="col-md-3 form-control-label">MOR1:</label>
                         <div class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Edad" name="Edad" placeholder="" >
+                            <input type="text" class="form-control" id="Mor1" name="Mor1" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -120,17 +121,17 @@
             <div class="row">
                 <div class="col-md-9">
                     <div class="form-group">
-                        <label for="Medico" class="col-md-2 form-control-label">Muestra:</label>
+                        <label for="Muestra" class="col-md-2 form-control-label">Muestra:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Medico" name="Medico" placeholder="" >
+                            <input type="text" class="form-control" id="Muestra" name="Muestra" placeholder="" >
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="Edad" class="col-md-3 form-control-label">MOR2:</label>
+                        <label for="Mor2" class="col-md-3 form-control-label">MOR2:</label>
                         <div class="col-md-6" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="text" class="form-control" id="Edad" name="Edad" placeholder="" >
+                            <input type="text" class="form-control" id="Mor2" name="Mor2" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -139,9 +140,9 @@
                 <hr style="border: 1px solid #C6C8CA;"/>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="FechaInforme" class="col-md-3 form-control-label">Fecha Informe:</label>
+                        <label for="Finforme" class="col-md-3 form-control-label">Fecha Informe:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FechaInforme" name="FechaInforme" placeholder="" >
+                            <input type="date" class="form-control" id="Finforme" name="Finforme" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -149,8 +150,13 @@
                     <div class="form-group">
                         <label for="Firma1" class="col-md-3 form-control-label">Firma 1:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" >
-                        </div>
+                           <!-- <input type="search" class="form-control" id="Firma1" name="Firma1" placeholder="" > -->
+                             <select id="Firma1" name="Firma1" class="form-control"><option value="0">Seleccionar</option>
+                                <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
+                                <option value="${Firmasmedicos.getIdtblfirmamed()}">${Firmasmedicos.getNombre()}</option>
+                            </c:forEach> 
+                            </select>
+                        </div>                      
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -165,9 +171,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="FechaBiopsia" class="col-md-3 form-control-label">Fecha Biopsia:</label>
+                        <label for="FBiopsia" class="col-md-3 form-control-label">Fecha Biopsia:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FechaBiopsia" name="FechaBiopsia" placeholder="" >
+                            <input type="date" class="form-control" id="FBiopsia" name="FBiopsia" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -175,15 +181,19 @@
                     <div class="form-group">
                         <label for="Firma2" class="col-md-3 form-control-label">Firma 2:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="search" class="form-control" id="Firma2" name="Firma2" placeholder="" >
+                            <select id="Firma2" name="Firma2" class="form-control"><option value="0">Seleccionar</option>
+                                <c:forEach items="${ListaFirmas}" var="Firmasmedicos">
+                                <option value="${Firmasmedicos.getIdtblfirmamed()}">${Firmasmedicos.getNombre()}</option>
+                            </c:forEach> 
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="FechaMuestra" class="col-md-3 form-control-label">Fecha Muestra:</label>
+                        <label for="FMuestra" class="col-md-3 form-control-label">Fecha Muestra:</label>
                         <div class="col-md-7" style="padding-left: 2px; padding-right: 2px;">
-                            <input type="date" class="form-control" id="FechaMuestra" name="FechaMuestra" placeholder="" >
+                            <input type="date" class="form-control" id="FMuestra" name="FMuestra" placeholder="" >
                         </div>
                     </div>
                 </div>
@@ -214,7 +224,7 @@
                     <div class="form-group">
                         <label for="Diagnostico:" class="col-md-3 form-control-label">Diagnóstico:</label>
                         <div class="col-md-9" style="padding-left: 2px; padding-right: 2px;">
-                            <textarea class="form-control" id="Diagnostico:" name="Diagnostico:" rows="5"></textarea>
+                            <textarea class="form-control" id="Diagnostico" name="Diagnostico:" rows="5"></textarea>
                         </div>
                     </div>
                 </div>                
@@ -226,4 +236,18 @@
         </div>        
       </div>
     <div class="col-md-1"></div>
+    <div id="creaNuevo" class="col-md-1"></div>
 </div>
+<div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="Resources/image/loading.gif" class="icon" alt=""/>
+                    <h4>Cargando...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

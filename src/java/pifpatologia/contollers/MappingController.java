@@ -51,10 +51,10 @@ public class MappingController {
         return "BarraSuperior";
     }
     
-    @RequestMapping("/hispatologia.htm")
-    public String ResultadoHispatologia(){
-        return "Resultados/Hispatologia";
-    }
+//    @RequestMapping("/histopatologia.htm")
+//    public String ResultadoHispatologia(){
+//        return "Resultados/Histopatologia";
+//    }
         
 //    @RequestMapping("/citologia.htm")
 //    public String Citologia(Model m){
