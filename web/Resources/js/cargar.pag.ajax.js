@@ -37,6 +37,9 @@ function cargarContenido(pagina,destino){
              if(pagina==='listaFirmas.htm'){
                 $('#TablaListaFirmas').DataTable();
             }
+            if (pagina==='cargaPreviaUser.htm'){
+                $('#TablaUsuarios').DataTable();
+            }
         }
     }
     ajax.send(null);

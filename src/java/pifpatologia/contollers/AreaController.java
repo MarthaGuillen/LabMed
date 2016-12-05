@@ -59,14 +59,36 @@ public class AreaController {
         
     }
        
-@RequestMapping(value = "upAreaEstado.htm", method = RequestMethod.POST) 
-    public ModelAndView upAreaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
-        ModelAndView mv = new ModelAndView("cargatempPermisos");
-        AreaDAO opc = new AreaDAO();
-
-        String idper = opc.updAreaestado(bol,idp);       
-
-        mv.addObject("resp","No");
-        return mv;
+//@RequestMapping(value = "upAreaEstado.htm", method = RequestMethod.POST) 
+//    public ModelAndView upAreaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
+//        ModelAndView mv = new ModelAndView("cargatempPermisos");
+//        AreaDAO opc = new AreaDAO();
+//
+//        String idper = opc.updAreaestado(bol,idp);       
+//
+//        mv.addObject("resp","No");
+//        return mv;
+//    } 
+    
+   
+    
+    @RequestMapping(value = "caea.htm", method = RequestMethod.POST) 
+     public ModelAndView guarhda(@RequestParam("id") int idp) throws Exception {
+       ModelAndView mv = new ModelAndView("pgLista");
+         AreaDAO opc = new AreaDAO();
+        System.out.println("controler"+idp);
+//        ArrayList<Area> lista = opc.ObtenerArea(idp);
+//        String nombre = "";
+//        boolean estado = true;
+//        for (Area datos : lista) {
+//            nombre = datos.getNombre();
+//            estado = datos.isEstado();
+//           }
+//        mv.addObject("nombre",nombre);
+//        mv.addObject("resp","No");
+      return mv;
     } 
+    
+    
+    
 }

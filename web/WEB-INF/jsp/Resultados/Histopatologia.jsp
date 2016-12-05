@@ -85,8 +85,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                </div>
+               <div class="col-md-3">
+                    
+                </div>               
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="Medico" class="col-md-2 form-control-label">Médico:</label>

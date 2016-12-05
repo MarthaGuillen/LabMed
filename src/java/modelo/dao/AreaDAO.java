@@ -20,6 +20,41 @@ import org.hibernate.Transaction;
  */
 public class AreaDAO {
     
+    public ArrayList<Area> ObtenerArea(int id){        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql =  "SELECT * FROM listaareasespecifica("+id+");";
+        Area cat;
+        ArrayList<Area> Listado= new ArrayList<Area>();
+        System.out.println(sql);
+        try {
+            Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            Iterator listasecciones =  q.list().iterator();
+
+            while(listasecciones.hasNext()){
+                Object[] registro= (Object[]) listasecciones.next();
+                cat= new Area();
+                cat.setNombre((String) registro[0]);                              
+                if(((String) registro[1]).equals("true")){
+                    cat.setEstado(true);
+                }else{
+                    cat.setEstado(false);
+                }
+                Listado.add(cat);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close(); 
+        
+        return Listado;
+    }
+    
+    
+    
+    
+    
     public ArrayList<Area> ObtenerAreasEstado(boolean Estado){        
         Session session = HibernateUtil.getSessionFactory().openSession();
         String sql =  "SELECT * FROM ListarAreas("+Estado+");";

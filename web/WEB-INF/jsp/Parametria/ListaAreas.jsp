@@ -1,9 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<script> $( document ).ready(function() {
-            
-        });</script>
+
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10" id="pagina">
@@ -48,7 +46,7 @@
                                     <c:if test="${!Area.isEstado()}">
                                         <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estAreaEdit('${Area.getIdtblarea()}','${Area.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
-                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoArea(${Area.getIdtblarea()})" alt="" height="30" width="30"/></td>                      
+                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoArea(${Area.getIdtblarea()})" alt="" height="30" width="30"/></td>                       
                                 </tr>
                             </c:forEach>    
                             </tbody>
@@ -67,23 +65,28 @@
     </div>
     <div class="col-md-1"></div>
 </div>
-<div class="modal fade" id="editaarea" role="dialog"  data-backdrop="static" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
+<div class="modal fade" id="editaarea" role="dialog"  data-backdrop="static" aria-hidden="true" data-toggle="modal">
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content" style="height:650px; overflow-y: auto; resize:vertical;" >
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Actualizar Area</h4>
         </div>
-          <div class="modal-body">
+          <div class="modal-body"  style="overflow-y: auto;" >
               <div id="cargaPreviaArea"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="updateUsuario();">Actualizar Area</button>  
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <!--  <button type="button" class="btn btn-primary" onclick="updateUsuario();">Actualizar Usuario</button>  
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button> -->
         </div>
       </div>
     </div>
-    </div>   
+    </div>  
+<div id="prueba">
+    
+   
+</div>
+
 
 <div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
