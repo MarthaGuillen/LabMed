@@ -73,18 +73,18 @@ public class areaController {
      public ModelAndView guarda(@RequestParam("idp") int idp) throws Exception {
         ModelAndView mv = new ModelAndView("Parametria/pgCargaVistaArea");
         AreaDAO opc = new AreaDAO();
-        List listaP1 = opc.ObtenerArea(idp);
+        ArrayList<Area> listaP1 = opc.ObtenerArea(idp);
         System.out.println(idp);
         String nombre = "";
-        String estado = "";
-        List<Object[]> listDatosp = listaP1;
-        for (Object[] datos : listDatosp) {
-            nombre = (String) datos[0].toString();
-            estado = (String) datos[1].toString();
+        boolean estado = false;
+        for (int i = 0; i< listaP1.size(); i++) {
+            nombre = listaP1.get(i).getNombre();
+            estado = listaP1.get(i).isEstado();
          }
         mv.addObject("Nombre",nombre);
-        mv.addObject("estado",estado);
+        mv.addObject("estado",true);
        
+        mv.addObject("resp","No");
       return mv;
     }
     
