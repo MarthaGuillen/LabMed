@@ -7,22 +7,25 @@
 function cargaInfoArea(id){
     $("#tempId").val(id);
     $('#processing-modal').modal('show');
-    var xhttp = new XMLHttpRequest();
     alert(id);
+    var xhttp = new XMLHttpRequest();
+     alert("2");
     xhttp.onreadystatechange = function () {
+        alert("3");
         if (xhttp.readyState == 4 && xhttp.status == 200) {
-            document.getElementById("prueba").innerHTML = xhttp.responseText;
-            alert("hsdasdasd");
-            $('#processing-modal').modal('hide');
-            $('#editausr').modal('show');
-
+            alert("4");
+            document.getElementById("cargaPreviaArea").innerHTML = xhttp.responseText;
+             $('#processing-modal').modal('hide');
+             $('#editaarea').modal('show');
         }
     }
-    xhttp.open("POST", "caea.htm", true);
+    alert("5");
+    xhttp.open("POST", "CargaVistaArea.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("id=" + id);
+    alert(id);
+    xhttp.send("idp="+id);
+    
 }
-
 
 
 function guardarArea(){
@@ -112,87 +115,3 @@ function enviarArea(){
 //    
 //}
 //
-//function updateUsuario(){
-//    $('#processing-modal').modal('show');        
-//    var nomp = $('#Nombre').val().trim();
-//    var correo = $('#Correo').val().trim();
-//    var area = document.getElementById("Area").options[document.getElementById("Area").selectedIndex].value;
-//    var estado = $('input[name="Estado"]:checked').val();
-//    var boolaw =document.getElementById('WebApp').checked;
-//    var boolam =document.getElementById('MobileApp').checked;
-//    var perfiles = $('#asignados').val().trim();
-//       
-//    var e=0;
-//    var variables="";
-//    if(nomp===""){
-//        e = 1;
-//        document.getElementById("Nombre").style["border-color"]="#A94442";
-//        variables += "- Nombre de usuario\n";
-//    }
-//    if(correo===""){
-//        e = 2;
-//        document.getElementById("Correo").style["border-color"]="#A94442";
-//        variables += "- Correo\n";
-//    }
-//    if(area==="0"){
-//        e=3;
-//        document.getElementById("Area").style["border-color"]="#A94442";
-//        variables += "- Area\n";
-//    }
-//    if(!(boolaw || boolam)){
-//        e=4;
-//        document.getElementById("WebApp").style["outline"]="1px solid #A94442";
-//        document.getElementById("MobileApp").style["outline"]="1px solid #A94442";
-//        variables += "- Accesos a app web y movil (Seleccionar al menos uno)\n";
-//    }
-//    if(perfiles===""){
-//        e=5; 
-//        variables += "- Asignar Perfiles\n";
-//    }
-//    if (e!==0) {
-//        var mensaje = '<h2>Favor validar:</h2>';
-//        $('#processing-modal').modal('hide');
-//        $('#processing-modal').modal('hide');
-//        swal({
-//            title: '',
-//            text:  mensaje+'<p>'+variables+'</p>',
-//            type: 'error'
-//        });
-//    }else{
-//        actualizaUser();    
-//    }  
-//}
-//
-//function actualizaPer(mn,bool){
-//    
-//    var id =  $("#tempId").val();
-//    var nomp = $('#Nombre').val().trim();
-//    var correo = $('#Correo').val().trim();
-//    var area = document.getElementById("Area").options[document.getElementById("Area").selectedIndex].value;
-//    var estado = $('input[name="Estado"]:checked').val();
-//    var boolaw =document.getElementById('WebApp').checked;
-//    var boolam =document.getElementById('MobileApp').checked;
-//    var perfiles = $('#asignados').val().trim();
-//
-//    var xhttp = new XMLHttpRequest();
-//    xhttp.onreadystatechange = function() {
-//        if (xhttp.readyState == 4 && xhttp.status == 200) {
-//            document.getElementById("cargaPreviaPerfil").innerHTML = xhttp.responseText;
-//            swal({
-//                title:'Usuario modificado correctamente.',
-//                text: "",
-//                type: 'success',
-//                confirmButtonText: 'Ok'
-//            }).then(function() {
-//                $('#processing-modal').modal('hide');
-//                $('#processing-modal').modal('hide');
-//                $('#editaper').modal('hide');
-//                    cargarContenido("ListaUsuarios.htm","contenido");
-//            })
-//        }
-//    }
-//    xhttp.open("POST", "updUsuarioC.htm", true);
-//    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//    xhttp.send("Nombre="+nomp+"&Correo="+correo+"&Area="+area+"&Estado="+estado+"&WebApp="+boolaw+"&MobileApp="+boolam+"&asignados="+perfiles+"&id="+id);
-//}
-

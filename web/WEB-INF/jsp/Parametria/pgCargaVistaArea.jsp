@@ -1,5 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
@@ -7,6 +6,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <html>
     
     <body>
@@ -14,7 +15,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Nombre" class="col-md-2 form-control-label">Nombre:</label>
-                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${nombre}">
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${Nombre}">
                     </div>
                 </div>
             </div>

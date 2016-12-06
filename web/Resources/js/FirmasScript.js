@@ -63,6 +63,34 @@ function enviarFirma(){
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
 }
 
+function cargaInfoFirma(idf){
+    
+    
+    $("#tempIdPerfil").val(idf);
+    $('#processing-modal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            document.getElementById("cargaPreviaFirma").innerHTML = xhttp.responseText;
+             $('#processing-modal').modal('hide');
+             $('#editaper').modal('show');
+        }
+    }
+    xhttp.open("POST", "cargaVistaFirma.htm", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("idp=" + idf);
+    
+}
+
+
+
+
+
+
+
+
+
+
 
 //function estFirmaEdit(id,est){
 //    var estadoA = "";

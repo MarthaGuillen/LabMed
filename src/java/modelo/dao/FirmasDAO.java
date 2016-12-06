@@ -21,46 +21,7 @@ import org.hibernate.Transaction;
  */
 public class FirmasDAO {
     
-//        public ArrayList<Firmasmedicos> ObtenerFirmas(){        
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        String sql =  "SELECT * FROM listafirmas();";
-//        Firmasmedicos cat;
-//        System.out.println(sql);
-//        System.out.println("-------------------------------------------------------------------1");
-//
-//        ArrayList<Firmasmedicos> ListadoFirmas= new ArrayList<Firmasmedicos>();
-//        try {
-//            Transaction tx = session.beginTransaction();
-//            Query q = session.createSQLQuery(sql);
-//            Iterator listasecciones =  q.list().iterator();
-//            while(listasecciones.hasNext()){
-//                Object[] registro= (Object[]) listasecciones.next();
-//                cat= new Firmasmedicos();
-//                cat.setIdtblfirmamed((int) registro[0]);
-//                cat.setNombre((String) registro[1]);
-//                cat.setCodigo((String) registro[2]);
-//                 if(((String) registro[2]).equals("true")){
-//                    cat.setEstado(true);
-//                }else{
-//                    cat.setEstado(false);
-//                }
-//                ListadoFirmas.add(cat);
-//                System.out.println((int) registro[0]);
-//            }
-//            
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        session.close(); 
-//        System.out.println("-------------------------------------------------------------------2");
-//        return ListadoFirmas;
-//    }
-        
-        
-        
-        
-        
-        
+            
         public ArrayList<Firmasmedicos> ObtenerFirmas(){        
         Session session = HibernateUtil.getSessionFactory().openSession();
         String sql =  "SELECT * FROM listafirmas();";
@@ -90,24 +51,8 @@ public class FirmasDAO {
             e.printStackTrace();
         }
         session.close(); 
-        System.out.println("------------------------------------------------------1");
         return Listado;
     }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         public ArrayList<Firmasmedicos> ObtenerFirmasEstado(boolean estado){        
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -153,6 +98,32 @@ public class FirmasDAO {
         }
         session.close();    
     }
+        
+        
+         
+    public List cargaInfoArea(int idf){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql = "Select * from listafirmasespecifica('"+idf+"')";
+        
+        List<Object[]> listaget = new ArrayList<Object[]>();
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            listaget = q.list();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally { 
+          session.close();
+        }
+
+       System.out.println(sql);
+        return listaget;
+    }
+        
+        
+        
         
 //        
 //        public String updFirmaestado(String bool,int idp){

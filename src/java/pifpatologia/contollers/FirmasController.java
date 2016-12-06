@@ -36,19 +36,7 @@ public class FirmasController {
         m.addAttribute("ListaFirmas", ListaFirmas); 
         return "Parametria/listaFirmas";
     }
-           
-     
-//    
-//    
-//    @RequestMapping(value = "upFirmaEstado.htm", method = RequestMethod.POST) 
-//    public ModelAndView upFirmaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
-//        ModelAndView mv = new ModelAndView("cargatempPermisos");
-//        FirmasDAO opc = new FirmasDAO();
-//        String idper = opc.updFirmaestado(bol, idp);      
-//        mv.addObject("resp","No");
-//        return mv;
-//    } 
-//    
+              
        @RequestMapping(value="NuevaFirma2.htm", method = RequestMethod.POST)
         public String InsertNuevaFirma(Model m, HttpServletRequest request,@RequestParam("NombreDoc") String nombre, @RequestParam("CodDoc") String codigo,@RequestParam("Estado") String estado){
         FirmasDAO firmas = new FirmasDAO();
@@ -58,6 +46,32 @@ public class FirmasController {
         firmas.AgregarFirma(nombre, codigo, estadoU, 0,"");
         return "principal";
     }
+        
+      @RequestMapping(value = "cargaVistaFirma.htm", method = RequestMethod.POST) 
+     public ModelAndView guarda(@RequestParam("idp") int idf) throws Exception {
+      ModelAndView mv = new ModelAndView("pgCargaVistaFirma");
+        FirmasDAO opc = new FirmasDAO();
+
+        
+        List listaP1 = opc.cargaInfoArea(idf);
+        String nombre = "";
+        String codigo = "";
+        String estado = "";
+        List<Object[]> listDatosp = listaP1;
+        for (Object[] datos : listDatosp) {
+            nombre = (String) datos[0].toString();
+            codigo = (String) datos[1].toString();
+            estado = (String) datos[2].toString();
+        }
+        mv.addObject("nombre",nombre);
+        mv.addObject("codigo",codigo);
+        mv.addObject("estado",estado);
+        
+        mv.addObject("resp","No");
+      return mv;
+    }   
+        
+        
         
 
        

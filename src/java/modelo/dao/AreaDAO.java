@@ -20,9 +20,9 @@ import org.hibernate.Transaction;
  */
 public class AreaDAO {
     
-    public ArrayList<Area> ObtenerArea(int id){        
+    public ArrayList<Area> ObtenerArea(int idp){        
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql =  "SELECT * FROM listaareasespecifica("+id+");";
+        String sql =  "SELECT * FROM listaareasespecifica("+idp+");";
         Area cat;
         ArrayList<Area> Listado= new ArrayList<Area>();
         System.out.println(sql);
