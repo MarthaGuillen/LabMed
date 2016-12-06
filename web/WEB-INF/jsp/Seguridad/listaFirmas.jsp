@@ -78,10 +78,10 @@
           <h4 class="modal-title">Actualizar Firma</h4>
         </div>
           <div class="modal-body">
-              <div id="cargaPreviaArea"></div>
+              <div id="cargaPreviaFirma"></div>
         </div>
         <div class="modal-footer">
-          <!<button type="button" class="btn btn-primary" onclick="updateperfil();">Actualizar perfil</button>  
+          <button type="button" class="btn btn-primary" onclick="updateperfil();">Actualizar perfil</button>  
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>

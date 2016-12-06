@@ -63,22 +63,22 @@ function enviarFirma(){
     xhttp.send("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
 }
 
-function cargaInfoFirma(idf){
+function cargaInfoFirma(id){
     
     
-    $("#tempIdPerfil").val(idf);
+    $("#tempId").val(id);
     $('#processing-modal').modal('show');
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             document.getElementById("cargaPreviaFirma").innerHTML = xhttp.responseText;
              $('#processing-modal').modal('hide');
-             $('#editaper').modal('show');
+             $('#editafirma').modal('show');
         }
     }
     xhttp.open("POST", "cargaVistaFirma.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("idp=" + idf);
+    xhttp.send("idp=" + id);
     
 }
 

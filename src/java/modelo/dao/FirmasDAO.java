@@ -101,25 +101,37 @@ public class FirmasDAO {
         
         
          
-    public List cargaInfoArea(int idf){
+    public ArrayList<Firmasmedicos> cargaInfoFirma(int idp){
         
         Session session = HibernateUtil.getSessionFactory().openSession();
-        String sql = "Select * from listafirmasespecifica('"+idf+"')";
-        
-        List<Object[]> listaget = new ArrayList<Object[]>();
+        String sql = "Select * from listafirmasespecifica('"+idp+"')";
+        Firmasmedicos cat;
+        ArrayList<Firmasmedicos> Listado= new ArrayList<Firmasmedicos>();
+        System.out.println(sql);
         try {
-            org.hibernate.Transaction tx = session.beginTransaction();
+              Transaction tx = session.beginTransaction();
             Query q = session.createSQLQuery(sql);
-            listaget = q.list();
+            Iterator listasecciones =  q.list().iterator();
 
+            while(listasecciones.hasNext()){
+                Object[] registro= (Object[]) listasecciones.next();
+                cat= new Firmasmedicos();
+                
+                cat.setNombre((String) registro[0]);                              
+                if(((String) registro[1]).equals("true")){
+                    cat.setEstado(true);
+                }else{
+                    cat.setEstado(false);
+                }
+                Listado.add(cat);
+            }
+            
         } catch (Exception e) {
             e.printStackTrace();
-        }finally { 
-          session.close();
         }
-
-       System.out.println(sql);
-        return listaget;
+        session.close(); 
+        
+        return Listado;
     }
         
         

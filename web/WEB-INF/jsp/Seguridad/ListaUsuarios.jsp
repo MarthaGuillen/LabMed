@@ -81,7 +81,7 @@
         <div class="modal-content" style="height:650px; overflow-y: auto; resize:vertical;" >
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Actualizar Usuario</h4>
+          <h4 class="modal-title" style="font-weight:bold;">Actualizar Usuario</h4>
         </div>
           <div class="modal-body"  style="overflow-y: auto;" >
               <div id="cargaPreviaUser"></div>

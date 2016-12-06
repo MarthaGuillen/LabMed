@@ -13,7 +13,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Pefil">Nombre:</label>
-                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${nombreFirma}">
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${Nombre}">
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label for="Desc">Codigo</label>
-                        <textarea class="form-control" id="Desc" name="Desc" rows="3">${codgoFirma}</textarea>
+                        <input type="text" class="form-control" id="Codigo" name="Codigo" placeholder="" value="${Codigo}">
                         
                     </div>
                 </div>

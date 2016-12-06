@@ -48,31 +48,26 @@ public class FirmasController {
     }
         
       @RequestMapping(value = "cargaVistaFirma.htm", method = RequestMethod.POST) 
-     public ModelAndView guarda(@RequestParam("idp") int idf) throws Exception {
-      ModelAndView mv = new ModelAndView("pgCargaVistaFirma");
+        public ModelAndView guarda(@RequestParam("idp") int idp) throws Exception {
+        ModelAndView mv = new ModelAndView("Seguridad/pgCargaVistaFirma");
         FirmasDAO opc = new FirmasDAO();
-
-        
-        List listaP1 = opc.cargaInfoArea(idf);
+        ArrayList<Firmasmedicos> Listado = opc.cargaInfoFirma(idp);
+        System.out.println(idp);
         String nombre = "";
         String codigo = "";
-        String estado = "";
-        List<Object[]> listDatosp = listaP1;
-        for (Object[] datos : listDatosp) {
-            nombre = (String) datos[0].toString();
-            codigo = (String) datos[1].toString();
-            estado = (String) datos[2].toString();
+        boolean estado = false;
+        for (int i=0; i< Listado.size(); i++){
+            nombre = Listado.get(i).getNombre();
+            codigo = Listado.get(i).getCodigo();
+            estado = Listado.get(i).isEstado();
         }
-        mv.addObject("nombre",nombre);
-        mv.addObject("codigo",codigo);
-        mv.addObject("estado",estado);
-        
+                    
+        mv.addObject("Nombre",nombre);
+        mv.addObject("Codigo",codigo);
+        mv.addObject("estado",true);          
+                    
         mv.addObject("resp","No");
       return mv;
     }   
-        
-        
-        
-
        
 }

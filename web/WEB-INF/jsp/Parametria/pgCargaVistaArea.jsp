@@ -11,6 +11,7 @@
 <html>
     
     <body>
+         <br>
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
@@ -19,9 +20,11 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <div   clas="col-md-2"></div>
              <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
+                   <div class="col-md-8">
+                     <div class="form-group">
                         <label for="Estado" class="col-md-2 form-control-label">Estado:</label>
                         <c:if test="${estado eq 'true'}">
                             <div class="btn-group" data-toggle="buttons">
