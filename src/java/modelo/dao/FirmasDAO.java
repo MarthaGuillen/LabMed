@@ -38,8 +38,8 @@ public class FirmasDAO {
                 cat= new Firmasmedicos();
                 cat.setIdtblfirmamed((int) registro[0]);
                 cat.setNombre((String) registro[1]);
-                cat.setCodigo((String) registro[1]);
-                if(((String) registro[2]).equals("true")){
+                cat.setCodigo((String) registro[2]);
+                if(((String) registro[3]).equals("true")){
                     cat.setEstado(true);
                 }else{
                     cat.setEstado(false);
@@ -132,56 +132,28 @@ public class FirmasDAO {
         session.close(); 
         
         return Listado;
+    } 
+    
+    
+    
+public String updFirmaestado(String bool,int idp){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql = "select upd_firmas('"+bool+"','"+idp+"');";
+        System.out.println(sql);
+        List<String> filmList = new ArrayList<String>();
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            filmList = q.list();
+            tx.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close();
+        return filmList.get(0).toString();
     }
-        
-        
-        
-        
-//        
-//        public String updFirmaestado(String bool,int idp){
-//        
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        String sql = "select up_firmas('"+bool+"','"+idp+"');";
-//        System.out.println(sql);
-//        List<String> filmList = new ArrayList<String>();
-//        try {
-//            org.hibernate.Transaction tx = session.beginTransaction();
-//            Query q = session.createSQLQuery(sql);
-//            //int result = q.executeUpdate();
-//            filmList = q.list();
-//            tx.commit();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        session.close();
-//        return filmList.get(0).toString();
-//    }
-//        
-//        
-//         public String AgregarFirma(String nombre,String codigo,boolean estado){
-//        
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        String sql = "select fn_insertfirma('"+nombre+"','"+codigo+"',"+estado+");";
-//        System.out.println(sql);
-//        List<String> filmList = new ArrayList<String>();
-//        try {
-//            org.hibernate.Transaction tx = session.beginTransaction();
-//            Query q = session.createSQLQuery(sql);
-//            //int result = q.executeUpdate();
-//            filmList = q.list();
-//            tx.commit();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        session.close();
-//        return filmList.get(0).toString();
-//    }
-        
-        
-        
-        
-        
-        
 }
+    
+

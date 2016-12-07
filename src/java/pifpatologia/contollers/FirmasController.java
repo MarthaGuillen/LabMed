@@ -47,27 +47,37 @@ public class FirmasController {
         return "principal";
     }
         
-      @RequestMapping(value = "cargaVistaFirma.htm", method = RequestMethod.POST) 
+        
+        @RequestMapping(value = "cargaVistaFirma.htm", method = RequestMethod.POST) 
         public ModelAndView guarda(@RequestParam("idp") int idp) throws Exception {
-        ModelAndView mv = new ModelAndView("Seguridad/pgCargaVistaFirma");
+        ModelAndView mv = new ModelAndView("Parametria/pgCargaVistaFirma");
         FirmasDAO opc = new FirmasDAO();
-        ArrayList<Firmasmedicos> Listado = opc.cargaInfoFirma(idp);
+        ArrayList<Firmasmedicos> listaP1 = opc.cargaInfoFirma(idp);
         System.out.println(idp);
-        String nombre = "";
+        String nombre = ""; 
         String codigo = "";
         boolean estado = false;
-        for (int i=0; i< Listado.size(); i++){
-            nombre = Listado.get(i).getNombre();
-            codigo = Listado.get(i).getCodigo();
-            estado = Listado.get(i).isEstado();
-        }
-                    
+        for (int i = 0; i< listaP1.size(); i++) {
+            nombre = listaP1.get(i).getNombre();
+            codigo = listaP1.get(i).getCodigo();
+            estado = listaP1.get(i).isEstado();
+         }
         mv.addObject("Nombre",nombre);
         mv.addObject("Codigo",codigo);
-        mv.addObject("estado",true);          
-                    
+        mv.addObject("estado",true);
         mv.addObject("resp","No");
       return mv;
-    }   
+    }
+        
+        
+        @RequestMapping(value = "upFirmaEstado.htm", method = RequestMethod.POST) 
+        public ModelAndView upAreaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
+        FirmasDAO opc = new FirmasDAO();      
+        String idper = opc.updFirmaestado(bol, idp);
+        mv.addObject("resp","No");
+        return mv;
+    } 
+    
        
 }

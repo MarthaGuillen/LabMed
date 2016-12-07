@@ -58,10 +58,8 @@ public class areaController {
 @RequestMapping(value = "upAreaEstado.htm", method = RequestMethod.POST) 
     public ModelAndView upAreaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
         ModelAndView mv = new ModelAndView("cargatempPermisos");
-        AreaDAO opc = new AreaDAO();
-        
+        AreaDAO opc = new AreaDAO(); 
         String idper = opc.updAreaestado(bol,idp);       
-
         mv.addObject("resp","No");
         return mv;
     } 
@@ -83,9 +81,7 @@ public class areaController {
          }
         mv.addObject("Nombre",nombre);
         mv.addObject("estado",true);
-       
         mv.addObject("resp","No");
       return mv;
     }
-    
 }

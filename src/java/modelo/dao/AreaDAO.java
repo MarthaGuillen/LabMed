@@ -133,9 +133,7 @@ public class AreaDAO {
         return Listado;
     }
     
-    public String updAreaestado(String bool,int idp){
-        
-        Session session = HibernateUtil.getSessionFactory().openSession();
+    public String updAreaestado(String bool,int idp){        Session session = HibernateUtil.getSessionFactory().openSession();
         String sql = "select updarea('"+bool+"','"+idp+"');";
         System.out.println(sql);
         List<String> filmList = new ArrayList<String>();
