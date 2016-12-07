@@ -84,4 +84,21 @@ public class areaController {
         mv.addObject("resp","No");
       return mv;
     }
+     
+     
+     
+     
+ @RequestMapping(value = "upd_area.htm", method = RequestMethod.POST) 
+        public ModelAndView updateUser(@RequestParam("id") int idarea,@RequestParam("Nombre") String nombre,@RequestParam("Estado") String estado) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
+        AreaDAO Area = new AreaDAO();
+        boolean estadoU=true;
+        if(estado.equals("Inactivo"))
+            estadoU=false;          
+        String num = Area.EditarArea(idarea,nombre, estadoU, 0, "");
+        mv.addObject("resp","No");
+      return mv;
+    }    
+        
+     
 }

@@ -76,7 +76,7 @@
               <div id="cargaPreviaArea"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="updateUsuario();">Actualizar Area</button>  
+          <button type="button" class="btn btn-primary" onclick="updateArea();">Actualizar Area</button>  
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
