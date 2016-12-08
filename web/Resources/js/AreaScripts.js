@@ -103,7 +103,6 @@ function estAreaEdit(id,est){
                 }
             }
             xhttp.open("POST", "upAreaEstado.htm", true);
-            alert(id,est);
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xhttp.send("idp=" + id +"&bol="+est);
     });

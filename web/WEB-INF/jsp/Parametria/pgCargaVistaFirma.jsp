@@ -11,38 +11,54 @@
 <html>
     <body>
             <div class="row">
-                <div class="col-md-8">
+                <div  class="col-md-1"></div>
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="Pefil">Nombre:</label>
+                        <label for="Nombre">Nombre:</label>
                         <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="" value="${Nombre}">
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div  class="col-md-1"></div>
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label for="Desc">Codigo</label>
+                        <label for="Codigo">Código:</label>
                         <input type="text" class="form-control" id="Codigo" name="Codigo" placeholder="" value="${Codigo}">
                         
                     </div>
                 </div>
-            </div>            
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label for="CodDoc">Estado:</label>
-                        <div class="form-group" style="font-size: 20px;">
-                            <c:if test="${estado eq 'true'}">
-                                <label class="radio-inline"><input type="radio" name="optestado" checked="checked"  value="true">Activado</label>  
-                                <label class="radio-inline"><input type="radio" name="optestado" value="false">Desactivado</label>
-                            </c:if>
-                            <c:if test="${estado eq 'false'}">
-                                <label class="radio-inline"><input type="radio" name="optestado" value="true">Activado</label>  
-                                <label class="radio-inline"><input type="radio" name="optestado" checked="checked"   value="false">Desactivado</label>
-                            </c:if>
-                        </div>
+            </div>           
+             <div class="row">
+                  <div  class="col-md-1"></div>
+                   <div class="col-md-8">
+                     <div class="form-group">
+                        <label for="Estado" class="col-md-2 form-control-label">Estado:</label>
+                        <c:if test="${estado eq 'true'}">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo" checked> Activo
+                                </label>
+                                <label class="btn btn-default ">
+                                    <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Inactivo"> Inactivo
+                                </label>
+                            </div>
+                        </c:if>
+                        <c:if test="${estado eq 'false'}">
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default ">
+                                    <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Activo" > Activo
+                                </label>
+                                <label class="btn btn-default active">
+                                    <input type="radio" name="Estado" id="Estado" autocomplete="off" value="Inactivo" checked> Inactivo
+                                </label>
+                            </div>
+                        </c:if>
                     </div>
                 </div>
-            </div>      
+            </div>
+                        
+                        
+                        
     </body>
 </html>

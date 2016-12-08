@@ -98,7 +98,7 @@ public class areaController {
         String num = Area.EditarArea(idarea,nombre, estadoU, 0, "");
         mv.addObject("resp","No");
       return mv;
-    }    
+    }       
         
      
 }

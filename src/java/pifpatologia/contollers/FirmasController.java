@@ -62,6 +62,7 @@ public class FirmasController {
             codigo = listaP1.get(i).getCodigo();
             estado = listaP1.get(i).isEstado();
          }
+        System.out.println(codigo);
         mv.addObject("Nombre",nombre);
         mv.addObject("Codigo",codigo);
         mv.addObject("estado",true);
@@ -79,5 +80,16 @@ public class FirmasController {
         return mv;
     } 
     
+        @RequestMapping(value = "upd_firma.htm", method = RequestMethod.POST) 
+        public ModelAndView updateUser(@RequestParam("id") int idfirma,@RequestParam("Nombre") String nombre,@RequestParam("Codigo") String codigo,@RequestParam("Estado") String estado) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
+        FirmasDAO firma = new FirmasDAO();
+        boolean estadoU=true;
+        if(estado.equals("Inactivo"))
+            estadoU=false;          
+        String num = firma.EditarFirma(idfirma, nombre, codigo, estadoU, 0, "");
+        mv.addObject("resp","No");
+      return mv;
+    }   
        
 }
