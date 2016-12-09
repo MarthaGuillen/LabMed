@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <div class="row">
     <div class="col-md-1"></div>
@@ -18,53 +19,44 @@
                 <br/>
                 <div class="col-md-3">
                 </div>
-                <div class="col-md-8">
-                    <div class="form-inline">
-                    <div class="form-group">
-                        <label for="BuscarIDCito">Buscar ID:</label>
-                          <input type="text" class="form-control" id="BuscarIDCito" name="BuscarIDCito" placeholder="" >
-                         </div>
-                     </div>
                 </div>
-            </div>
             <br/>
             <br/>
-            <div class="col-md-3">
+            <div class="col-md-1">
             </div>
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div class="form-group">
-                        <table  id="Tablaperfiles" style="width:70%;">
-                            <tr>
-                                <th>Identificador</th>
-                                <th>Estado</th>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Identificador" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Estado" ></td>
-                                <td align="center"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/>&nbsp;&nbsp;&nbsp;<img src="Resources/image/editar.png" alt="" height="20" width="20"/></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Identificador" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Estado" ></td>
-                                <td align="center"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/>&nbsp;&nbsp;&nbsp;<img src="Resources/image/editar.png" alt="" height="20" width="20"/></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Identificador" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Estado" ></td>
-                                <td align="center"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/>&nbsp;&nbsp;&nbsp;<img src="Resources/image/editar.png" alt="" height="20" width="20"/></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Identificador" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Estado" ></td>
-                                <td align="center"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/>&nbsp;&nbsp;&nbsp;<img src="Resources/image/editar.png" alt="" height="20" width="20"/></td>
-                            </tr>
-                            <tr>
-                                 <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Identificador" ></td>
-                                <td><input type="text" class="form-control" id="Otros" name="Otros" placeholder="Estado" ></td>
-                                <td align="center"><img src="Resources/image/Ver.png" alt="" height="20" width="20"/>&nbsp;&nbsp;&nbsp;<img src="Resources/image/editar.png" alt="" height="20" width="20"/></td>
-                            </tr>
+                        <c:if test="${!empty listacatcitologia}">
+                         <table  id="TablaCatCitologia"  style="font-family:Georgia" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center">No.</th>
+                                    <th style="text-align:center">Nombre</th>
+                                    <th style="text-align:center">Estado</th>                                  
+                                    <th style="text-align:center">Editar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <c:set var="contador" value="${0}" />
+                            <c:forEach items="${listacatcitologia}" var="Catcitologia">
+                                <c:set var="contador" value="${contador+1}" />
+                                <tr  scope="row">
+                                    <td>${contador}</td>
+                                    <td><c:out value="${Catcitologia.getNombre()}" /></td>
+                                    <c:if test="${Catcitologia.isEstado()}">
+                                        <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estCatCitologoEdit('${Catcitologia.getIdtblcatcitologias()}','${Catcitologia.isEstado()}');" style="cursor:pointer;"/></td>
+                                    </c:if>
+                                    <c:if test="${!Catcitologia.isEstado()}">
+                                        <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estCatCitologoEdit('${Catcitologia.getIdtblcatcitologias()}','${Catcitologia.isEstado()}');" style="cursor:pointer;"/></td>
+                                    </c:if>
+                                    <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoCatCitologia(${Catcitologia.getIdtblcatcitologias()})" alt="" height="30" width="30"/></td>                       
+                                </tr>
+                            </c:forEach>    
+                            </tbody>
                         </table>
+                        </c:if>  
+                        <input type="hidden" id="tempId">
                     </div>
                 </div>                
             </div> 
@@ -74,5 +66,40 @@
         </div>        
     </div>
     <div class="col-md-1"></div>
+</div>
+<div class="modal fade" id="editcatcilotogia" role="dialog"  data-backdrop="static" aria-hidden="true" data-toggle="modal">
+    <div class="modal-dialog modal-lg" >
+        <div class="modal-content" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="font-weight:bold;" >Actualizar Area</h4>
+        </div>
+          <div class="modal-body" style="height:200px; overflow-y: auto;" >
+              <div id="cargaPreviaCatCitologia"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="updateCatCitologia();">Actualizar Registro</button>  
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+    </div>  
+<div id="tempId">
+    
+   
+</div>
+
+
+<div class="modal modal-static fade" data-keyboard="false" data-backdrop="static" id="processing-modal" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="Resources/image/loading.gif" class="icon" alt=""/>
+                    <h4>Cargando...</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

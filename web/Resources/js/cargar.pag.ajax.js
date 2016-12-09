@@ -37,8 +37,8 @@ function cargarContenido(pagina,destino){
              if(pagina==='listaFirmas.htm'){
                 $('#TablaListaFirmas').DataTable();
             }
-            if (pagina==='cargaPreviaUser.htm'){
-                $('#TablaUsuarios').DataTable();
+            if (pagina==='ListaIDCitologia.htm'){
+                $('#TablaCatCitologia').DataTable();
             }
         }
     }

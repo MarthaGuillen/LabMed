@@ -11,14 +11,8 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import modelo.dao.AreaDAO;
-import modelo.dao.PerfilesDAO;
 import modelo.dao.CatCitoDAO;
-import modelo.dao.UsuarioPorPerfilDAO;
-import modelo.pojo.Area;
-import modelo.pojo.Perfiles;
 import modelo.pojo.Catalogocitologias;
-import modelo.util.EnviarCorreo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,26 +36,26 @@ public class CatCitologiaController {
     }
     
       
-     @RequestMapping(value="NuevoCatCito.htm", method = RequestMethod.POST)
-    public String InsertNuevaCatCitologia(Model m, HttpServletRequest request, @RequestParam("NombreCatCitologia") String nombre, @RequestParam("Estado") String estado){
+     @RequestMapping(value="idCito.htm", method = RequestMethod.POST)
+    public String InsertNuevaCatCitologia(Model m, HttpServletRequest request, @RequestParam("NombreCatCitologia") String nomp, @RequestParam("Estado") String estado){
         CatCitoDAO catcitologia = new CatCitoDAO();
         boolean estadoU=true;
         if(estado.equals("Inactivo"))
             estadoU=false;
-        catcitologia.AgregarCatCito(nombre, estadoU, 0, "");
-        return "Parametria/ListasIDCitologia";
+        catcitologia.AgregarCatCito(nomp, estadoU, 0, "");
+        return "principal";
     }
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+     @RequestMapping("/ListaIDCitologia.htm")
+    public String ListaCatCito(Model m, HttpServletRequest request){
+        CatCitoDAO  catcitologia= new CatCitoDAO();
+        System.out.println("------------------------------------------------controller");   
+        ArrayList<Catalogocitologias> listacatcitologia = catcitologia.ObtenerTodosCatCitologias();
+        m.addAttribute("listacatcitologia", listacatcitologia);
+        return "Parametria/ListaIDCitologia";
+        
+    }
+   
 }

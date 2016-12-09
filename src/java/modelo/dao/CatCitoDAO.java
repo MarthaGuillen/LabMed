@@ -83,7 +83,7 @@ public class CatCitoDAO {
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx;
-        String sql =  "select fn_insert_catcitologia('"+nombre+"', "+estado+");";
+        String sql =  "select fn_insert_catcitologia('"+nombre+"', '"+estado+"');";
         System.out.println(sql);
         List<String> resultado = new ArrayList<String>();
         try {
@@ -99,7 +99,39 @@ public class CatCitoDAO {
         session.close();    
     } 
         
+      
+      
+     public ArrayList<Catalogocitologias> ObtenerTodosCatCitologias(){        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        String sql =  "SELECT * FROM listacatcit();";
+        Catalogocitologias cat;
+        ArrayList<Catalogocitologias> Listado= new ArrayList<Catalogocitologias>();
+        System.out.println(sql);
+        try {
+            Transaction tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            Iterator listasecciones =  q.list().iterator();
+
+            while(listasecciones.hasNext()){
+                Object[] registro= (Object[]) listasecciones.next();
+                cat= new Catalogocitologias();
+                cat.setIdtblcatcitologias((int) registro[0]);
+                cat.setNombre((String) registro[1]);
+                if(((String) registro[2]).equals("true")){
+                    cat.setEstado(true);
+                }else{
+                    cat.setEstado(false);
+                }
+                Listado.add(cat);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close(); 
         
+        return Listado;
+    }
         
         
         

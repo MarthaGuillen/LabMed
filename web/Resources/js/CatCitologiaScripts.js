@@ -40,19 +40,22 @@ function enviarCatCitologia(){
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             document.getElementById("creaNuevo").innerHTML = xhttp.responseText;
             swal({
-                title:'Firma  creada correctamente.',
+                title:'Registro creado correctamente.',
                 text: "",
                 type:'success',
                 confirmButtonText: 'Ok'
             }).then(function() {                
                 $('#processing-modal').modal('hide');
                 $('#processing-modal').modal('hide');
-                cargarContenido("listaFirmas.htm","contenido");
+                cargarContenido("ListaIDCitologia.htm","contenido");
             })
         }
     }
-    alert("NombreDoc="+nomp+"&CodDoc="+code+"&Estado="+estado);
-    xhttp.open("POST","NuevaFirma2.htm", true);
+    alert("NombreCatCitologia="+nomp+"&Estado="+estado);
+    xhttp.open("POST","idCito.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("NombreCatCitologia="+nomp+"&Estado="+estado);
 }
+
+
+

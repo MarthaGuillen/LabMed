@@ -26,6 +26,6 @@
         <script src="Resources/js/HistopatologiaScripts.js" type="text/javascript"></script>
         <script src="Resources/js/FirmasScript.js" type="text/javascript"></script>
         <script src="Resources/js/jquery.dataTables.min.js" type="text/javascript"></script> 
-        <script src="Resources/js/CatalogoCitologiasScript.js" type="text/javascript"></script>
+        <script src="Resources/js/CatCitologiaScripts.js" type="text/javascript"></script>
     </body>
 </html>

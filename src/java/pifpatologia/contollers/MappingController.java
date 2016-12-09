@@ -130,9 +130,9 @@ public class MappingController {
 //        return "Parametria/listaFirmas";
 //    }
    
-    @RequestMapping("/ListaIDCitologia.htm")
-    public String ListaIDCitologia(){
-        return "Parametria/ListaIDCitologia";
-    }
+//    @RequestMapping("/ListaIDCitologia.htm")
+//    public String ListaIDCitologia(){
+//        return "Parametria/ListaIDCitologia";
+//    }
     
 }
