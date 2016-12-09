@@ -68,12 +68,12 @@ public class MappingController {
     return "Parametria/NuevaFirma";
     }
     
-    
-    @RequestMapping("/idCito.htm")
-    public String AgregarIdCitologia(){
-        return "Parametria/NuevoIdCito";
-    }
-    
+//    
+//    @RequestMapping("/idCito.htm")
+//    public String AgregarIdCitologia(){
+//        return "Parametria/NuevoIdCito";
+//    }
+//    
     @RequestMapping("/vacio.htm")
     public String PagSinContenido(){
         return "Vacio";

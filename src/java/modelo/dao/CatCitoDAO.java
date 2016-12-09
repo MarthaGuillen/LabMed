@@ -79,6 +79,29 @@ public class CatCitoDAO {
     }
     
     
-    
+    public void AgregarCatCito(String nombre, boolean estado, int usuario, String modulo){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx;
+        String sql =  "select fn_insert_catcitologia('"+nombre+"', "+estado+");";
+        System.out.println(sql);
+        List<String> resultado = new ArrayList<String>();
+        try {
+            tx = session.beginTransaction();
+            Query q = session.createSQLQuery(sql);
+            resultado=q.list();
+            
+            tx.commit();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close();    
+    } 
+        
+        
+        
+        
+        
     
 }
