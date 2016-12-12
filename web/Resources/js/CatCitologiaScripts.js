@@ -158,5 +158,3 @@ function actualizaCatCitologia(mn,bool){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("id="+id+"&Nombre="+nomp+"&Estado="+estado);
     }
-
-
