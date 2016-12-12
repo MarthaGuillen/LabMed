@@ -51,11 +51,50 @@ public class CatCitologiaController {
      @RequestMapping("/ListaIDCitologia.htm")
     public String ListaCatCito(Model m, HttpServletRequest request){
         CatCitoDAO  catcitologia= new CatCitoDAO();
-        System.out.println("------------------------------------------------controller");   
         ArrayList<Catalogocitologias> listacatcitologia = catcitologia.ObtenerTodosCatCitologias();
         m.addAttribute("listacatcitologia", listacatcitologia);
         return "Parametria/ListaIDCitologia";
         
     }
-   
+       
+      @RequestMapping(value = "upCatcitologiaEstado.htm", method = RequestMethod.POST) 
+        public ModelAndView upFirmaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
+        CatCitoDAO opc = new CatCitoDAO();    
+        String idper = opc.updCatCitologiaestado(bol, idp);
+        mv.addObject("resp","No");
+        return mv;
+    } 
+    
+        
+        
+       @RequestMapping(value = "cargaVistaCatCitologia.htm", method = RequestMethod.POST) 
+        public ModelAndView guarda(@RequestParam("idp") int idp) throws Exception {
+        ModelAndView mv = new ModelAndView("Parametria/pgcargaVistaCatCitologia");
+        CatCitoDAO opc = new CatCitoDAO();
+        ArrayList<Catalogocitologias> listaP1 = opc.cargaInfoCatCitologia(idp);
+        String nombre = ""; 
+        boolean estado = false;
+        for (int i = 0; i< listaP1.size(); i++) {
+            nombre = listaP1.get(i).getNombre();
+            estado = listaP1.get(i).isEstado();
+         }
+        mv.addObject("Nombre",nombre);
+        mv.addObject("estado",true);
+        mv.addObject("resp","No");
+      return mv;
+    }
+        
+        
+     @RequestMapping(value = "upd_CatCitologia.htm", method = RequestMethod.POST) 
+        public ModelAndView updateUser(@RequestParam("id") int idcatcitologia,@RequestParam("Nombre") String nombre,@RequestParam("Estado") String estado) throws Exception {
+        ModelAndView mv = new ModelAndView("cargatempPermisos");
+        CatCitoDAO opc = new CatCitoDAO();
+        boolean estadoU=true;
+        if(estado.equals("Inactivo"))
+            estadoU=false; 
+        String num = opc.EditarCatCitologia(idcatcitologia, nombre, estadoU, 0, "");
+        mv.addObject("resp","No");
+      return mv;
+    }   
 }

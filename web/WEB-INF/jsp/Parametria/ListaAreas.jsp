@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10" id="pagina">

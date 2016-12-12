@@ -72,7 +72,7 @@ public class FirmasController {
         
         
         @RequestMapping(value = "upFirmaEstado.htm", method = RequestMethod.POST) 
-        public ModelAndView upAreaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
+        public ModelAndView upFirmaEst(@RequestParam("bol") String bol,@RequestParam("idp") int idp) throws Exception {
         ModelAndView mv = new ModelAndView("cargatempPermisos");
         FirmasDAO opc = new FirmasDAO();      
         String idper = opc.updFirmaestado(bol, idp);

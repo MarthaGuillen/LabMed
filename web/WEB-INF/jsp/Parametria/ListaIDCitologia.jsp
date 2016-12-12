@@ -7,28 +7,23 @@
         <div class="row" id="TituloContenido" style="background-color: #222; border-bottom:1px solid #5DFDF2;">
             <div class="col-md-12">
                 <h2 style="margin-top: 5px; color: white;">Lista ID Citología
-                    <div class=" pull-right control">                    
-                                         
+                        <div class=" pull-right control">                               
                         <a id="btn-login" href="#" onclick="cargarContenido('vacio.htm', 'contenido');" class="btn btn-md btn-danger">Salir</a>                    
                     </div>
                 </h2>                
             </div>              
-        </div>
-            <div class="row">
-                <br/>
-                <br/>
-                <div class="col-md-3">
-                </div>
-                </div>
+        </div>            
+            <br/>
+            <br/>
             <br/>
             <br/>
             <div class="col-md-1">
             </div>
-              <div class="row">
+            <div class="row" style="font-family:Helvetica">
                 <div class="col-md-10">
                     <div class="form-group">
                         <c:if test="${!empty listacatcitologia}">
-                         <table  id="TablaCatCitologia"  style="font-family:Georgia" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <table  id="TablaCatCitologia"  style="font-family:Georgia" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th style="text-align:center">No.</th>
@@ -45,21 +40,23 @@
                                     <td>${contador}</td>
                                     <td><c:out value="${Catcitologia.getNombre()}" /></td>
                                     <c:if test="${Catcitologia.isEstado()}">
-                                        <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estCatCitologoEdit('${Catcitologia.getIdtblcatcitologias()}','${Catcitologia.isEstado()}');" style="cursor:pointer;"/></td>
+                                        <td align="center"><img src="Resources/image/desactivar.png" alt="" width="40" onclick="estadoCatCitologiaEdit('${Catcitologia.getIdtblcatcitologias()}','${Catcitologia.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
                                     <c:if test="${!Catcitologia.isEstado()}">
-                                        <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estCatCitologoEdit('${Catcitologia.getIdtblcatcitologias()}','${Catcitologia.isEstado()}');" style="cursor:pointer;"/></td>
+                                        <td align="center"><img src="Resources/image/activar.png" alt="" width="40" onclick="estadoCatCitologiaEdit('${Catcitologia.getIdtblcatcitologias()}','${Catcitologia.isEstado()}');" style="cursor:pointer;"/></td>
                                     </c:if>
                                     <td align="center"><img src="Resources/image/Ver.png" style="cursor:pointer;" onclick="cargaInfoCatCitologia(${Catcitologia.getIdtblcatcitologias()})" alt="" height="30" width="30"/></td>                       
-                                </tr>
+                                    </tr>
                             </c:forEach>    
                             </tbody>
                         </table>
-                        </c:if>  
-                        <input type="hidden" id="tempId">
+                        </c:if>
+                    <input type="hidden" id="tempId">
                     </div>
                 </div>                
             </div> 
+        <br/>
+        <br/>
         <br/>
         <br/>
         <div class="row" style="background-color: #222; border-top:1px solid #5DFDF2; min-height: 50px;">                      
@@ -67,7 +64,7 @@
     </div>
     <div class="col-md-1"></div>
 </div>
-<div class="modal fade" id="editcatcilotogia" role="dialog"  data-backdrop="static" aria-hidden="true" data-toggle="modal">
+<div class="modal fade" id="editcatcitologia" role="dialog"  data-backdrop="static" aria-hidden="true" data-toggle="modal">
     <div class="modal-dialog modal-lg" >
         <div class="modal-content" >
         <div class="modal-header">
@@ -78,7 +75,7 @@
               <div id="cargaPreviaCatCitologia"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="updateCatCitologia();">Actualizar Registro</button>  
+          <button type="button" class="btn btn-primary" onclick="updateCatCitologia();">Actualizar Area</button>  
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
       </div>
@@ -102,4 +99,3 @@
         </div>
     </div>
 </div>
-
