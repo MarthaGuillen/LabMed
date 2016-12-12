@@ -142,7 +142,7 @@ function actualizaCatCitologia(mn,bool){
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             document.getElementById("cargaPreviaCatCitologia").innerHTML = xhttp.responseText;
             swal({
-                title:'Detalles del Registro han sido modificada correctamente.',
+                title:'Detalles del Registro han sido modificados correctamente.',
                 text: "",
                 type: 'success',
                 confirmButtonText: 'Ok'
