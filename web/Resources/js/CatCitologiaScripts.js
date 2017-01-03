@@ -30,8 +30,6 @@ function guardarCatCitologia(){
     }  
 }
 
-
-
 function enviarCatCitologia(){    
     var nomp = $('#NombreCatCitologia').val().trim();
     var estado = $('input[name="Estado"]:checked').val();

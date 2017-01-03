@@ -7,22 +7,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>PIF Patologia</title>
-        <link href="Resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="Resources/bootstrap/css/bootstrapl.min.css" rel="stylesheet" type="text/css"/>
         <link href="Resources/css/BaseStyle.css" rel="stylesheet" type="text/css"/>
-        
+        <link href="Resources/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="Resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <div class="container"> 
-            <div id="loginbox" class="mainbox col-md-2 col-md-offset-4 col-sm-6 col-sm-offset-4" style="margin-left: 31%"> 
-                <img src="Resources/image/Logo.jpg" alt="" width="420"/>   
-            </div>
-            <div id="loginbox" class="mainbox col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4"> 
-                <div class="panel panel-info" style = "border-color: #222222; background-color:#222222;" >
+    <body alt="full screen background image" background="Resources/image/loginbackground.jpg" style ="background-size: 100% 100%; background-repeat: no-repeat;" class="login2">
+       <div class = "pull-right">
+            <div class="login-wrapper">
+                <br>
+                <br>                
+                 <h1>
+                        <img src ="<c:url value='Resources/image/Logo.jpg'/>" alt="Logo" class="img-responsive center-block"  width="400" style="-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
+                  </h1>
+                <div style="margin-top: 5em; margin-bottom: 5em; margin-left: 8em; margin-right: 8em;">
+                  <div class="panel" style = "border-color: #222222; background-color:#222222; -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);" >
                     <div class="panel-heading" style = "background-color:#222222; border-color: #222222; color: white; font-weight: bold; text-align: center;">
-                        <div class="panel-title"><span class="glyphicon glyphicon-info-sign pull-right schooltooltip" aria-hidden="true" style="color: white;" data-toggle="tooltip" title="¿Necesita ayuda?"></span><br/><h1 class="display-4">PIF Patología <br/><small>Inicio de Sesión</small></h1></div>
-                    </div>  
-                    <div class="panel-body">
-                        <form id="loginform" class="form-horizontal" role="form" action="inicio.htm" method="POST">
+                        <h1>PIF Patología</h1>
+                    </div>   
+                   
+                        <div class="panel-body">
+                            <form id="loginform" class="form-horizontal" role="form" action="inicio.htm" method="POST">
                             <div style="margin-bottom: 5px" class="input-group">
                                 <span class="input-group-addon"><i id="iconouser" class="glyphicon glyphicon-user" style="color: black;"></i></span>
                                 <input id="login-username" type="text" class="form-control schooltooltip" name="usernamelog" placeholder="Nombre de usuario" data-toggle="tooltip" title="Usuario">                                        
@@ -33,57 +38,43 @@
                             </div>
                             <div style="margin-top:15px" class="form-group">
                                 <div class="col-sm-12 controls">
-                                    <a id="btn-login" href="principal.htm" class="btn btn-lg btn-block mybtn-primary raised">Ingresar</a>     
-                                    <br/>
-                                </div>
+                                    <a id="btn-login" href="principal.htm" class="btn btn-lg btn-block mybtn-primary raised" style="color:white">Ingresar</a>     
+                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12 control">
-                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                        <a href="#" onClick="$('#loginbox').hide(); $('#requestPassword').show()" class="btn btn-md btn-danger pull-right">
-                                        ¿Olvido contraseña?
+                                    <div style="border-top: 1px solid#888; padding-top:15px;" >
+                                        <a href="#" onClick="$('#loginbox').hide(); $('#requestPassword').show()" class="pull-right" style="color:white; text-decoration:none;">
+                                        ¿Olvido su contraseña?
                                         </a>                                    
                                     </div>
                                 </div>
-                            </div>    
-                        </form> 
-                    </div>                     
+                           </div>
+                         </form> 
+                        </div>  
+                     </div>
+                </div>
+              </div>  
+            </div>       
+ <!-- <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span><input class="form-control" id="usuario" placeholder="Usuario o correo electrónico" type="email" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span><input class="form-control" placeholder="Contraseña" type="password" id="password" name="password" />
+                        </div>
+                    </div>
+                    <a class="pull-right" href="#">¿Olvidó su contraseña?</a>
+                    <br>
+                    <br>
+                     <a id="btn-login" href="principal.htm" class="btn btn-lg btn-block mybtn-primary raised">Ingresar</a>     
+                    <div id="valida"></div>
                 </div>
             </div>
-            <div id="requestPassword" style="display:none; margin-top:15%" class="mainbox col-md-4 col-md-offset-4 col-sm-5 col-sm-offset-4">
-                <div class="panel panel-info" style = "border-color: #222222; background-color:#222222;">
-                    <div class="panel-heading" style = "background-color:#222222; border-color: #222222; color: white; font-weight: bold;">
-                        <div class="panel-title"><span class="glyphicon glyphicon-info-sign pull-right schooltooltip" aria-hidden="true" style="color: #1EC729;" data-toggle="tooltip" title="¿Necesitas ayuda?"></span><h1 class="display-4">PIF Patologia <small>Recuperar contraseña</small></h1></div>
-                    </div>  
-                    <div style="padding-top:30px" class="panel-body" >
-                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-6"></div>
-                        <form id="loginform" class="form-horizontal" role="form">
-                            <div style="margin-bottom: 25px" class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="login-username" type="text" class="form-control" name="username" placeholder="Ingresa tu correo">                                        
-                            </div>
-                            <div style="margin-top:15px" class="form-group">
-                                <div class="col-sm-12 controls">
-                                    <a id="btn-login" href="#" class="btn btn-lg btn-primary btn-block">Solicitar Contraseña</a>     
-                                    <br/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12 control">
-                                    <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                        <a href="#" onClick="$('#requestPassword').hide(); $('#loginbox').show()" class="btn btn-md btn-danger pull-right">
-                                        Cancelar
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>    
-                        </form> 
-                    </div>                     
-                </div> 
-            </div>    
-        </div>
+        </div>-->
         <script src="Resources/js/jquery-1.12.4.min.js" type="text/javascript"></script>
         <script src="Resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     </body>
-    
-</html>
+</html>l>

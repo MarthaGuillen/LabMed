@@ -45,12 +45,12 @@ public class citologiaController {
         return "Resultados/Citologia";
     }
 
-    @RequestMapping(value="citologias.htm", method = RequestMethod.POST)
-    public String InsertNuevaCitologia(Model m, HttpServletRequest request,@RequestParam("DetCancer") boolean detcancer,@RequestParam("IndMaduracion") boolean indmadura,@RequestParam("Otros") String otros,@RequestParam("Diagnostico") String diag,@RequestParam("FUR") String fur,@RequestParam("FUP") String fup,@RequestParam("TOPOG") String gravidad,@RequestParam("Para") String para,@RequestParam("Abortos")int abortos,@RequestParam("idcatcito") int catalogocito,@RequestParam("Firma1") int firmas1,@RequestParam("Firma2") int firmas2,@RequestParam("Otros2") String otro2, @RequestParam("FechaInforme") String fi,@RequestParam("Fmuestra") String fm1,@RequestParam("DescMacro") String info){    
-        CitologiaDAO cito = new CitologiaDAO();      
-        cito.AgregarCitologia(detcancer, indmadura, otros, diag, fur, fup, gravidad, para, abortos, catalogocito, firmas1, firmas2, otro2, fi, fm1, info);
-        return "principal";
-    }   
+//    @RequestMapping(value="citologias.htm", method = RequestMethod.POST)
+//    public String InsertNuevaCitologia(Model m, HttpServletRequest request,@RequestParam("DetCancer") boolean detcancer,@RequestParam("IndMaduracion") boolean indmadura,@RequestParam("Otros") String otros,@RequestParam("Diagnostico") String diag,@RequestParam("FUR") String fur,@RequestParam("FUP") String fup,@RequestParam("TOPOG") String gravidad,@RequestParam("Para") String para,@RequestParam("Abortos")int abortos,@RequestParam("idcatcito") int catalogocito,@RequestParam("Firma1") int firmas1,@RequestParam("Firma2") int firmas2,@RequestParam("Otros2") String otro2, @RequestParam("FechaInforme") String fi,@RequestParam("Fmuestra") String fm1,@RequestParam("DescMacro") String info){    
+//        CitologiaDAO cito = new CitologiaDAO();      
+//        cito.AgregarCitologia(detcancer, indmadura, otros, diag, fur, fup, gravidad, para, abortos, catalogocito, firmas1, firmas2, otro2, fi, fm1, info);
+//        return "principal";
+//    }   
   
 //    @RequestMapping(value = "cargacamphansa.htm", method = RequestMethod.POST) 
 //     public ModelAndView guarda(@RequestParam("idh") int idh) throws Exception {

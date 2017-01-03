@@ -26,10 +26,10 @@
                 <!-- campos hansa -->
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="Factura" class="col-md-4 form-control-label">No.Factura:</label>
+                        <label for="IdFactura" class="col-md-4 form-control-label">No.Factura:</label>
                         <div class="col-md-3" style="padding-left: 2px; padding-right: 2px;">
                            
-                            <input type="text" class="form-control" id="Factura" name="Factura" placeholder="" >
+                            <input type="text" class="form-control" id="IdFactura" name="IdFactura" placeholder="" >
                         </div>
                     </div>
                 </div>

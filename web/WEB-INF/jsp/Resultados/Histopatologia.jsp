@@ -17,8 +17,8 @@
                 </h2>                
             </div>              
         </div>
-        <div class="row menubotones">
-            <img src="Resources/image/01CamposConsulta2.png" alt="" style="margin-left: 28%;"/>
+        <div class="row menubotones " >
+            <!-- <img src="Resources/image/01CamposConsulta2.png" alt="" style="margin-left: 28%;"/>
             <img src="Resources/image/02Consultar03.png" alt=""/>
             <img src="Resources/image/03Inicio.png" alt=""/>
             <img src="Resources/image/04Anterior.png" alt=""/>
@@ -27,7 +27,7 @@
             <img src="Resources/image/07Nuevo.png" alt=""/>
             <img src="Resources/image/08Guardar.png" alt=""/>
             <img src="Resources/image/09Eliminar.png" alt=""/>
-            <img src="Resources/image/16ayuda.png" alt=""/>
+            <img src="Resources/image/16ayuda.png" alt=""/>-->
         </div>
         <form id="loginform" class="form-horizontal" role="form" action="#" method="POST">
             <div class="row">

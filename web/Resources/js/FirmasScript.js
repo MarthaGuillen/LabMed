@@ -166,14 +166,5 @@ function actualizaFirma(mn,bool){
     xhttp.open("POST", "upd_firma.htm", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     alert(id+nomp+codigo+estado);
-    xhttp.send("id="+id+"&Nombre="+nomp+"&Codigo="+codigo+"&Estado="+estado);
-
-    
-    
-    
-    
-
-    
-    
-    
+    xhttp.send("id="+id+"&Nombre="+nomp+"&Codigo="+codigo+"&Estado="+estado);   
 }
